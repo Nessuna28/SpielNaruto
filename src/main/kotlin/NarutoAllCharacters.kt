@@ -49,6 +49,16 @@ val zouri = NarutoCharacter("Zouri", mutableMapOf("" to 30))
 val waraji = NarutoCharacter("Waraji", mutableMapOf("" to 30))
 val zouriAndWaraji = listOf(zouri, waraji)
 
+val allCharacterList = listOf(
+    naruto.name, sasuke.name, sakura.name, teamKakashi,
+    shikamaru.name, choji.name, ino.name, teamAsuma,
+    hinata.name, kiba.name, shino.name, teamKurenai,
+    rockLee.name, neji.name, tenten.name, teamGuy,
+    gaara.name, kankuro.name, temari.name, teamSunagakure,
+    kakashi.name, asuma.name, kurenai.name, mightyGuy.name,
+    orochimaru.name, zabuza.name, haku.name, kabuto.name,
+    zouriAndWaraji)
+
 
 fun main() {
 
