@@ -68,24 +68,21 @@ val characterList = listOf(
     orochimaru.name, zabuza.name, haku.name, kabuto.name, deidara.name, pain.name,
     )
 
-val teamList = listOf(teamKakashi, teamAsuma, teamKurenai, teamGuy, teamSunagakure, itachiAndKisame, zouriAndWaraji)
+val teamList = listOf("Team Kakashi", "Team Asuma", "Team Kurenai", "Team Guy", "Team Sunagakure", "Itachi und Kisame", "Zouri und Waraji")
 
 
 
 fun main() {
 
 
-    nurSo()
+    val zufall = (teamList + characterList).random()
+
+        nurSo(zufall)
 
 }
 
-fun nurSo() {
+fun nurSo(zufall: String) {
 
-    val zufall = teamList + characterList
-    val zufallNeu = zufall.random()
 
-        if (zufallNeu == teamList) {
-            println("Dein Team ist $zufallNeu")
-        } else
-            println("Dein Charakter ist $zufallNeu")
+
 }
