@@ -1,8 +1,12 @@
+val white = "\u001b[0m"
+val blue = "\u001b[34m"
+
+var inputUser = ""
+var selectionUser = ""
+
 fun main() {
 
-    var inputUser = ""
-
-    println("                Willkommen beim Spiel Naruto \n")
+    println("$blue              Willkommen beim Spiel Naruto $white\n")
     Thread.sleep(3000)
     print("Möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
     inputUser = readln().lowercase()
@@ -10,20 +14,19 @@ fun main() {
     if (inputUser == "ja")
         rules()
 
-    var selectionPlayer = ""
 
-   selectionSelfOrRandom(selectionPlayer)
+    selectionSelfOrRandom()
 
     val selectionComputer = (teamList + characterList).random()
-    println("Du trittst an gegen $selectionComputer")
-    println(selectionPlayer)
+    println("\nDu trittst an gegen: $blue${selectionComputer.uppercase()} $white")
 
 
 }
 
-fun rules(){
+fun rules() {
 
-    println("""
+    println(
+        """
         Zuerst darfst du dir aussuchen ob du selbst deinen Charakter bestimmst oder per Zufall.
         Wenn du dir selbst deinen Charakter aussuchen möchtest wirst du gefragt ob du dir ein Team oder einen einzelnen Charakter 
         aussuchen möchtest.
@@ -35,106 +38,140 @@ fun rules(){
         Jeder ist eine Runde dran und darf angreifen, entweder bekommt der Gegner so viel Lebenspunkte abgezogen wie
         die Attacke Schaden verursacht oder er hat den Angriff abgewehrt.
         Wer zuerst keine Lebenspunkte mehr hat verliert dieses Spiel.
-    """.trimIndent())
+        
+    """.trimIndent()
+    )
 }
 
-fun selectionSelfOrRandom(selectionPlayer: String){
+fun selectionSelfOrRandom() {
 
-    var selectionPlayer = selectionPlayer
-    var inputUser = ""
+    var counter = 0
 
-    print("Möchtest du selbst wählen oder per Zufallsgenerator? \n Wähle 'selbst' oder 'Zufall'. : ")
-    inputUser = readln().lowercase()
+    while (counter < 3) {
+        print("\nMöchtest du selbst wählen oder per Zufallsgenerator? \n Wähle 'selbst' oder 'Zufall'. : ")
+        inputUser = readln().lowercase()
 
-    if (inputUser == "selbst") {
-        selectionTeamOrCharacter()
-        if (selectionTeamOrCharacter() == "single"){
-            selectionCharacter(selectionPlayer)
-        } else if (selectionTeamOrCharacter() == "team"){
-            selectionTeam(selectionPlayer)
+        if (inputUser == "selbst") {
+            val selectionTeamOrCharacter = selectionTeamOrCharacter()
+            if (selectionTeamOrCharacter == "einzel") {
+                selectionCharacter()
+                counter = 4
+            } else if (selectionTeamOrCharacter == "team") {
+                selectionTeam()
+                counter = 4
+            }
+        } else if (inputUser == "zufall") {
+            selectionUser = randomGenerator().toString()
+            counter = 4
+        } else {
+            println("Du hast eine falsche Eingabe gemacht. Versuche es nochmal.")
+            counter++
         }
-    } else if (inputUser == "zufall") {
-       // selectionPlayer = randomGenerator().toString()
-    } else {
-        println("Du hast eine falsche Eingabe gemacht. Versuche es nochmal.")
     }
 }
 
 fun selectionTeamOrCharacter(): String {
 
+    var counter = 0
     var selection = ""
 
     println("Du hast dich entschieden selbst zu wählen. \n")
 
+    while (counter < 3) {
         print("Wählst du ein Team oder einen einzelnen Charakter? \nWähle 'Team' oder 'Einzel'. : ")
         val inputUser = readln().lowercase()
 
         if (inputUser == "team") {
             selection = "team"
+            counter = 4
         } else if (inputUser == "einzel") {
-            selection = "single"
+            selection = "einzel"
+            counter = 4
         } else {
             println("Du hast eine falsche Eingabe getroffen. Versuche es nochmal!")
+            counter++
         }
+    }
     return selection
 }
 
-fun selectionCharacter(selction: String){
+fun selectionCharacter() {
 
-    var selection = selction
+    var counter = 0
 
-        println(
-            """
-            Die Charaktere die du zur Auswahl hast sind:
-            $characterList
+    println(
+        """
+                
+            Die Charaktere die du zur Auswahl hast sind: $blue
+            ${characterList[0]..characterList[20]})
+            ${characterList[21]..characterList.last()}
+            $white
         """.trimIndent()
-        )
+    )
 
-            print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
-            val inputUser = readln().lowercase()
-            for (character in characterList) {
-                if (character.lowercase() == inputUser) {
-                    println("Super! Du hast dich für ${inputUser.uppercase()} entschieden.")
-                    selection = inputUser
-                    break
-                }
-            }
-}
-
-fun selectionTeam(selction: String){
-
-    var selection = selction
-
-        println(
-            """
-            Die Teams die du zur Auswahl hast sind:
-            $teamList
-        """.trimIndent()
-        )
-
-        print("Für welches Team entscheidest du dich? Gib den Namen des Teamleiters ein: ")
-        val inputUser = readln().lowercase()
-        for (team in teamList) {
-            if (team.toString() == inputUser) {
-                println("Super! Du hast dich für Team ${inputUser.uppercase()} entschieden.")
-                selection = inputUser
+    while (counter < 3) {
+        print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
+        inputUser = readln().lowercase()
+        for (character in characterList) {
+            if (character.lowercase() == inputUser) {
+                println("\nSuper! Du hast dich für $blue${inputUser.uppercase()} ${white}entschieden.")
+                selectionUser = inputUser
+                counter = 4
+                break
+            } else {
+                println("\nDu hast eine falsche Auswahl getroffen.")
+                counter++
                 break
             }
         }
+    }
 }
 
-/*fun randomGenerator(): Any {
+fun selectionTeam() {
 
-        val selectionFromRandomGenerator = (teamList + characterList).random()
+    var counter = 0
 
-        println("Du hast dich für den Zufallsgenerator entschieden. \n")
+    println(
+        """
+                
+            Die Teams die du zur Auswahl hast sind: $blue
+            $teamList
+            $white
+        """.trimIndent()
+    )
 
-        if (selectionFromRandomGenerator == teamList) {
-            println("Dein Team ist $selectionFromRandomGenerator")
-        } else {
-            println("Dein Charakter ist $selectionFromRandomGenerator")
+    while (counter < 3) {
+        print("\nFür welches Team entscheidest du dich? Gib den Namen des Teamleiters ein: ")
+        inputUser = readln().lowercase()
+        for (team in teamList) {
+            if (team.lowercase().contains(inputUser)) {
+                println("\nSuper! Du hast dich für Team $blue${inputUser.uppercase()} ${white}entschieden.")
+                selectionUser = inputUser
+                counter = 4
+                break
+            } else {
+                println("\nDu hast eine falsche Auswahl getroffen.")
+                counter++
+                break
+            }
         }
-        return selectionFromRandomGenerator
-}*/
+    }
+}
+
+fun randomGenerator(): Any {
+
+    val selectionFromRandomGenerator = (teamList + characterList).random()
+
+    println("\nDu hast dich für den Zufallsgenerator entschieden. \n")
+
+    if (selectionFromRandomGenerator.contains("Team") || selectionFromRandomGenerator.contains("und")) {
+        println("Dein Team ist $blue$selectionFromRandomGenerator $white")
+        selectionUser = selectionFromRandomGenerator
+    } else {
+        println("Dein Charakter ist $blue$selectionFromRandomGenerator $white")
+        selectionUser = selectionFromRandomGenerator
+    }
+    return selectionFromRandomGenerator
+}
 
 
