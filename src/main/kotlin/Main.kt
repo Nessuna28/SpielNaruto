@@ -165,10 +165,10 @@ fun randomGenerator(): Any {
     println("\nDu hast dich für den Zufallsgenerator entschieden. \n")
 
     if (selectionFromRandomGenerator.contains("Team") || selectionFromRandomGenerator.contains("und")) {
-        println("Dein Team ist $blue$selectionFromRandomGenerator $white")
+        println("Dein Team ist $blue${selectionFromRandomGenerator.uppercase()} $white")
         selectionUser = selectionFromRandomGenerator
     } else {
-        println("Dein Charakter ist $blue$selectionFromRandomGenerator $white")
+        println("Dein Charakter ist $blue${selectionFromRandomGenerator.uppercase()} $white")
         selectionUser = selectionFromRandomGenerator
     }
     return selectionFromRandomGenerator
