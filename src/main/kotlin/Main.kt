@@ -12,6 +12,7 @@ fun main() {
     greeting()
 
     selectionTeamOrCharacter()
+    characterComputer()
     println(selectionUser)
 
 
@@ -185,9 +186,9 @@ fun selectionCharacter() {
             println("\nDu hast eine falsche Auswahl getroffen.")
             counter++
         }
+        println("Da du keine richtige Auswahl getroffen hast, wird dir ein zufälliger Charakter zugewiesen.")
+        randomGeneratorForOneCharacter()
     }
-    println("Da du keine richtige Auswahl getroffen hast, wird dir ein zufälliger Charakter zugewiesen.")
-    randomGeneratorForOneCharacter()
 }
 
 // dem Spieler werden die vorhandenen Charaktere angezeigt und er darf sich, per Eingabe, drei Charaktere aussuchen
@@ -243,6 +244,7 @@ fun randomGeneratorForOneCharacter() {
 }
 
 // der Zufallsgenerator für drei Charaktere
+// es kommt kein Charakter doppelt in einem Team vor
 fun randomGeneratorForTeam(){
 
     val listOfCharactersForRandom = mutableListOf<String>()
@@ -254,15 +256,30 @@ fun randomGeneratorForTeam(){
         }
     }
     Thread.sleep(2000)
-    println("Deine Charaktere sind: $magenta$listOfCharactersForRandom $white")
+    println("Deine Charaktere sind: $magenta${listOfCharactersForRandom.toString().uppercase()} $white")
     selectionUser = listOfCharactersForRandom.toString()
 }
 
-// die Auswahl für den Computer je nachdem ob Team oder einzelner Charakter
+// die Auswahl für den Computer wird per Zufallsgenerator, je nachdem ob Team oder einzelner Charakter, getroffen
+// es kommt kein Charakter doppelt in einem Team vor
 fun characterComputer(){
 
-    val selectionComputer = characterList.random()
-    println("\nDu trittst an gegen: $blue${selectionComputer.uppercase()} $white")
+    if ("," in selectionUser){
+        val listOfCharactersForRandom = mutableListOf<String>()
+
+        while (listOfCharactersForRandom.size < 3) {
+            val randomCharacter = characterList.random()
+            if (!listOfCharactersForRandom.contains(randomCharacter)) {
+                listOfCharactersForRandom.add(randomCharacter)
+            }
+        }
+        Thread.sleep(2000)
+        println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $white")
+    } else {
+        val selectionComputer = characterList.random()
+        Thread.sleep(2000)
+        println("\nDu trittst an gegen: $blue${selectionComputer.uppercase()} $white")
+    }
 }
 
 // jeder Spieler hat seine eigene kleine Grafik
