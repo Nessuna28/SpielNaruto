@@ -10,13 +10,13 @@ fun main() {
 
     selectionSelfOrRandom()
 
-    val selectionComputer = (teamList + characterList).random()
+    val selectionComputer = characterList.random()
     println("\nDu trittst an gegen: $blue${selectionComputer.uppercase()} $white")
 
 
 }
 
-fun greeting(){
+fun greeting() {
 
     println("$blue              Willkommen beim Spiel Naruto")
     println(
@@ -146,7 +146,8 @@ fun selectionCharacter() {
         """
                 
             Die Charaktere die du zur Auswahl hast sind: $blue
-            ${characterList[0]..characterList[20]})
+            ${characterList.slice(0..3)}
+            ${characterList.slice(4..5)}
             
             $white
         """.trimIndent()
@@ -155,55 +156,77 @@ fun selectionCharacter() {
     while (counter < 3) {
         print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
         inputUser = readln().lowercase()
-        for (character in characterList) {
-            if (character.lowercase() == inputUser) {
-                println("\nSuper! Du hast dich für $blue${inputUser.uppercase()} ${white}entschieden.")
-                selectionUser = inputUser
-                counter = 4
-                break
-            } else {
-                println("\nDu hast eine falsche Auswahl getroffen.")
-                counter++
-                break
-            }
+
+        val lowercaseList = listToLowercaselist(characterList)
+
+        if (lowercaseList.contains(inputUser)) {
+            println("\nSuper! Du hast dich für $blue${inputUser.uppercase()} ${white}entschieden.")
+            selectionUser = inputUser
+            break
+        } else {
+            println("\nDu hast eine falsche Auswahl getroffen.")
+            counter++
         }
     }
+    /*println("Da du keine richtige Auswahl getroffen hast wird dir ein zufälliger Charakter zugewiesen.")
+    val randomCharacter1 = randomGenerator()
+    Thread.sleep(2000)
+    println("Dein Charakter ist: $blue$randomCharacter1 $white")
+
+     */
 }
 
-fun selectionTeam() {
+fun selectionTeam(){
 
     var counter = 0
 
     println(
         """
                 
-            Die Teams die du zur Auswahl hast sind: $blue
-            $teamList
+            Die Charaktere die du zur Auswahl hast sind: $blue
+            ${characterList.slice(0..3)}
+            ${characterList.slice(4..5)}
+            
             $white
         """.trimIndent()
     )
 
     while (counter < 3) {
-        print("\nFür welches Team entscheidest du dich? Gib den Namen des Teamleiters ein: ")
+        print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma: ")
         inputUser = readln().lowercase()
-        for (team in teamList) {
-            if (team.lowercase().contains(inputUser)) {
-                println("\nSuper! Du hast dich für Team $blue${inputUser.uppercase()} ${white}entschieden.")
-                selectionUser = inputUser
-                counter = 4
-                break
-            } else {
-                println("\nDu hast eine falsche Auswahl getroffen.")
-                counter++
-                break
+        val character1 = inputUser.split(", ")[0]
+        val character2 = inputUser.split(", ")[1]
+        val character3 = inputUser.split(", ")[2]
+
+        val lowercaseList = listToLowercaselist(characterList)
+
+        if (lowercaseList.contains(character1) && lowercaseList.contains(character2) && lowercaseList.contains(character3)) {
+            println("\nSuper! Du hast dich für $blue${inputUser.uppercase()} ${white}entschieden.")
+            selectionUser = inputUser
+            break
+        } else {
+            println("\nDu hast eine falsche Auswahl getroffen.")
+            counter++
+        }
+        /*println("Da du keine richtige Auswahl getroffen hast werden dir 3 zufällige Charaktere zugewiesen.")
+        val listOfCharactersForRandom = mutableListOf<String>()
+
+        while (listOfCharactersForRandom.size < 3) {
+            val randomCharacter = characterList.random()
+            if (!listOfCharactersForRandom.contains(randomCharacter)) {
+                listOfCharactersForRandom.add(randomCharacter)
             }
         }
+        Thread.sleep(2000)
+        println("Deine Charaktere sind: $blue$listOfCharactersForRandom $white")
+
+         */
     }
 }
 
 fun randomGenerator(): Any {
 
-    val selectionFromRandomGenerator = (teamList + characterList).random()
+    val selectionFromRandomGenerator = characterList.random()
 
     println("\nDu hast dich für den Zufallsgenerator entschieden. \n")
 
@@ -215,6 +238,15 @@ fun randomGenerator(): Any {
         selectionUser = selectionFromRandomGenerator
     }
     return selectionFromRandomGenerator
+}
+
+fun listToLowercaselist(list: List<String>): List<String>{
+
+    var lowercaseList = mutableListOf<String>()
+    for (characters in list){
+        lowercaseList.add(characters.lowercase())
+    }
+    return lowercaseList
 }
 
 fun name(): Pair<Int, Int> {

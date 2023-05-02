@@ -9,7 +9,7 @@ kakashi = Mangekyo Sharingan 40, Chidori 45, Wasserdrache 30, Jutsu der flammend
 
 naruto = Rasengan 30, sexy Jutsu 15, vertrauter Geist 60, Schattendoppelgänger 30, Kurama (9-schwänziger Fuchs) 80,
 sasuke = Phönixblume 40, Sharingan 30, Jutsu des flammenden Feuerballs 30, Susanoo (wie bei Naruto) 80,
-sakura = heulen, Kirschblütenschlag 30, große Sakura 15, Kirschblütenformation 50,
+sakura = Kirschblütenschlag 30, große Sakura 15, Kirschblütenformation 50,
 
 asuma = Knöchelkunai 30, brennende Asche 50, Blitzklingen 40,
 
