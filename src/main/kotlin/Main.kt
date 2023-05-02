@@ -397,11 +397,5 @@ fun listToLowercaselist(list: List<String>): List<String>{
     return lowercaseList
 }
 
-fun name(): Pair<Int, Int> {
-    var pups1 = 26
-    var pups2 = 14
-
-    return Pair(pups1, pups2)
-}
 
 
