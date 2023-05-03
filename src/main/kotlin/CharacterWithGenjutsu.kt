@@ -8,7 +8,7 @@ class CharacterWithGenjutsu: Characters {
         this.genjutsu = genjutsu
     }
 
-    constructor(name: String, taijutsu: Pair<String, Int>, ninjutsu: MutableMap<String, Int>, extraWeapon: Pair<String, Int>, genjutsu: Int):
+    constructor(name: String, taijutsu: Int, ninjutsu: MutableMap<String, Int>, extraWeapon: Pair<String, Int>, genjutsu: Int):
             super(name, taijutsu, ninjutsu, extraWeapon){
 
         this.genjutsu = genjutsu
