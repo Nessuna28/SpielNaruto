@@ -2,11 +2,13 @@ val white = "\u001b[0m"
 val magenta = "\u001b[35m"
 val blue = "\u001b[34m"
 
-// diese beiden Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
+// diese fünf Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
 // und nach Belieben aufrufen kann ohne ständig zwischendurch viele Variablen anlegen zu müssen
 var inputUser = ""
-var characterUser = ""
-var characterComputer = ""
+var characterUser = Character("", 0, mutableMapOf())
+var teamUser = mutableListOf<Character>()
+var characterComputer = Character("", 0, mutableMapOf())
+var teamComputer = mutableListOf<Character>()
 
 fun main() {
 
@@ -14,12 +16,10 @@ fun main() {
 
     selectionTeamOrCharacter()
     characterComputer()
-    println(characterUser)
-
-
-
+    selectionAttackUser()
 
 }
+
 
 // der Spieler wird begrüßt und gefragt, ob er die Regeln hören möchte
 // ist die Antwort ja werden ihm die Regeln angezeigt, andernfalls nicht
@@ -165,8 +165,8 @@ fun selectionCharacter() {
         """
                 
             Die Charaktere die du zur Auswahl hast sind: $blue
-            ${characterList.slice(0..3)}
-            ${characterList.slice(4..5)}
+            ${characterNameList.slice(0..3)}
+            ${characterNameList.slice(4..5)}
             
             $white
         """.trimIndent()
@@ -176,12 +176,12 @@ fun selectionCharacter() {
         print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
         inputUser = readln().lowercase()
 
-        val lowercaseList = listToLowercaselist(characterList)
+        val lowercaseList = listToLowercaselist(characterNameList)
 
         if (lowercaseList.contains(inputUser)) {
             println("\nSuper! Du hast dich für $magenta${inputUser.uppercase()} ${white}entschieden.")
-            characterUser = inputUser
-            grafik(characterUser)
+            setCharacterForUser(inputUser)
+            grafik(inputUser)
             break
         } else {
             println("\nDu hast eine falsche Auswahl getroffen.")
@@ -203,8 +203,8 @@ fun selectionTeam(){
         """
                 
             Die Charaktere die du zur Auswahl hast sind: $blue
-            ${characterList.slice(0..3)}
-            ${characterList.slice(4..5)}
+            ${characterNameList.slice(0..3)}
+            ${characterNameList.slice(4..5)}
             
             $white
         """.trimIndent()
@@ -213,35 +213,39 @@ fun selectionTeam(){
     while (counter < 3) {
         print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma: ")
         inputUser = readln().lowercase()
-        val character1 = inputUser.split(", ")[0]
-        val character2 = inputUser.split(", ")[1]
-        val character3 = inputUser.split(", ")[2]
+        val inputList = inputUser.split(", ")
 
-        val lowercaseList = listToLowercaselist(characterList)
+        val lowercaseList = listToLowercaselist(characterNameList)
 
-        if (lowercaseList.contains(character1) && lowercaseList.contains(character2) && lowercaseList.contains(character3)) {
+        if (inputList[0] in lowercaseList && inputList[1] in lowercaseList && inputList[2] in lowercaseList) {
             println("\nSuper! Du hast dich für $magenta${inputUser.uppercase()} ${white}entschieden.")
-            characterUser = inputUser
-            break
+
+            for (character in inputList){
+                setCharacterForUser(character)
+                teamUser.add(characterUser)
+            }
+            counter = 4
         } else {
             println("\nDu hast eine falsche Auswahl getroffen.")
             counter++
         }
-        println("Da du keine richtige Auswahl getroffen hast werden dir 3 zufällige Charaktere zugewiesen.")
-        randomGeneratorForTeam()
+        if (counter == 3) {
+            println("Da du keine richtige Auswahl getroffen hast werden dir 3 zufällige Charaktere zugewiesen.")
+            randomGeneratorForTeam()
+        }
     }
 }
 
 // der Zufallsgenerator für einen Charakter
 fun randomGeneratorForOneCharacter() {
 
-    val characterForRandom = characterList.random()
+    val characterForRandom = characterNameList.random()
 
     Thread.sleep(2000)
 
     println("Dein Charakter ist $magenta${characterForRandom.uppercase()} $white")
-    characterUser = characterForRandom
-    grafik(characterUser)
+    setCharacterForUser(characterForRandom.lowercase())
+    grafik(characterForRandom)
 }
 
 // der Zufallsgenerator für drei Charaktere
@@ -251,35 +255,81 @@ fun randomGeneratorForTeam(){
     val listOfCharactersForRandom = mutableListOf<String>()
 
     while (listOfCharactersForRandom.size < 3) {
-        val randomCharacter = characterList.random()
+        val randomCharacter = characterNameList.random()
         if (!listOfCharactersForRandom.contains(randomCharacter)) {
             listOfCharactersForRandom.add(randomCharacter)
+            setCharacterForUser(randomCharacter.lowercase())
+            teamUser.add(characterUser)
         }
     }
     Thread.sleep(2000)
     println("Deine Charaktere sind: $magenta${listOfCharactersForRandom.toString().uppercase()} $white")
-    characterUser = listOfCharactersForRandom.toString()
 }
 
 // die Auswahl für den Computer wird per Zufallsgenerator, je nachdem ob Team oder einzelner Charakter, getroffen
 // es kommt kein Charakter doppelt in einem Team vor
 fun characterComputer(){
 
-    if ("," in characterUser){
+    if (characterUser.name == ""){
         val listOfCharactersForRandom = mutableListOf<String>()
 
         while (listOfCharactersForRandom.size < 3) {
-            val randomCharacter = characterList.random()
+            val randomCharacter = characterNameList.random()
             if (!listOfCharactersForRandom.contains(randomCharacter)) {
                 listOfCharactersForRandom.add(randomCharacter)
+                setCharacterForComputer(randomCharacter)
+                teamComputer.add(characterComputer)
             }
         }
         Thread.sleep(2000)
         println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $white")
     } else {
-        val selectionComputer = characterList.random()
+        val selectionComputer = characterNameList.random()
         Thread.sleep(2000)
         println("\nDu trittst an gegen: $blue${selectionComputer.uppercase()} $white")
+        setCharacterForComputer(selectionComputer)
+    }
+}
+
+// diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
+// speichert den Charakter vom Typ Character, CharacterWithGenjutsu oder CharacterWithMedicalSkills in der Variablen characterUser
+fun setCharacterForUser(string: String) {
+
+        for (character in characterList) {
+            if (character is CharacterWithMedicalSkills) {
+                if (character.name.lowercase() == string) {
+                    characterUser = character as CharacterWithMedicalSkills
+                }
+            } else if (character is CharacterWithGenjutsu) {
+                if (character.name.lowercase() == string) {
+                    characterUser = character as CharacterWithGenjutsu
+                }
+            } else {
+                if (character.name.lowercase() == string) {
+                    characterUser = character
+                }
+            }
+        }
+}
+
+// diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
+// speichert den Charakter vom Typ Character, CharacterWithGenjutsu oder CharacterWithMedicalSkills in der Variablen characterComputer
+fun setCharacterForComputer(string: String) {
+
+    for (character in characterList) {
+        if (character is CharacterWithMedicalSkills) {
+            if (character.name.lowercase() == string) {
+                characterComputer = character as CharacterWithMedicalSkills
+            }
+        } else if (character is CharacterWithGenjutsu) {
+            if (character.name.lowercase() == string) {
+                characterComputer = character as CharacterWithGenjutsu
+            }
+        } else {
+            if (character.name.lowercase() == string) {
+                characterComputer = character
+            }
+        }
     }
 }
 
