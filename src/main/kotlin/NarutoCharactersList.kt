@@ -1,16 +1,16 @@
+// Liste der Charaktere
 
-// Team Kakashi
-val naruto = Characters("Naruto", 10, mutableMapOf("sexy Jutsu" to 15, "Rasengan" to 45, "Schattendoppelgänger" to 30))
+val naruto = Character("Naruto", 10, mutableMapOf("sexy Jutsu" to 15, "Rasengan" to 45, "Schattendoppelgänger" to 30))
 val sasuke = CharacterWithGenjutsu("Sasuke", 10, mutableMapOf("Phönixblume" to 40, "Jutsu des flammenden Feuerballs" to 30, "Chidori" to 45), 60)
-val sakura = CharactersWithMedicalSkills("Sakura", 10, mutableMapOf("Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45), true)
+val sakura = CharacterWithMedicalSkills("Sakura", 10, mutableMapOf("Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45), true)
+
+val shikamaru = Character("Shikamaru", 10, mutableMapOf("Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30))
+val choji = Character("Choji", 10, mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30, "Kraft" to 20))
+val ino = CharacterWithMedicalSkills("Ino", 10, mutableMapOf("Gedankenkontroll-Jutsu" to 50), Pair("Schlafbomben", 15), true)
+
+var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino)
 /*
 val teamKakashi = listOf(naruto.name, sasuke.name, sakura.name)
-*/
-// Team Asuma
-val shikamaru = Characters("Shikamaru", 10, mutableMapOf("Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30))
-val choji = Characters("Choji", 10, mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30, "Kraft" to 20))
-val ino = CharactersWithMedicalSkills("Ino", 10, mutableMapOf("Gedankenkontroll-Jutsu" to 50), Pair("Schlafbomben", 15), true)
-/*
 val teamAsuma = listOf(shikamaru.name, choji.name, ino.name)
 
 // Team Kurenai
@@ -61,22 +61,11 @@ val zouriAndWaraji = listOf(zouri.name, waraji.name)
 
 
  */
-val characterList = listOf(
+val characterNameList = listOf(
     naruto.name, sasuke.name, sakura.name,
     shikamaru.name, choji.name, ino.name
     )
 
 
-fun main() {
+fun main() {}
 
-
-
-
-}
-
-fun nurSo(zufall: String) {
-
-    println(zufall)
-
-
-}
