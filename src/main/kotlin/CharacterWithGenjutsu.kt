@@ -1,4 +1,4 @@
-class CharacterWithGenjutsu: Characters {
+class CharacterWithGenjutsu: Character {
 
     var genjutsu: Int
 
@@ -12,6 +12,11 @@ class CharacterWithGenjutsu: Characters {
             super(name, taijutsu, ninjutsu, extraWeapon){
 
         this.genjutsu = genjutsu
+    }
+
+    // einfaches Ausweichen
+    override fun baumstamm() {
+        super.baumstamm()
     }
 
 

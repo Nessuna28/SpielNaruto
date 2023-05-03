@@ -1,4 +1,4 @@
-open class Characters{
+open class Character{
 
     var name: String
     var taijutsu: Int
@@ -25,14 +25,23 @@ open class Characters{
         this.extraWeapon = extraWeapon
     }
 
+    // Lebenspunkte werden um einen bestimmten Wert verringert
     fun lostLifePoints(){
 
+    }
 
-}
+    // Chakra wird um einen bestimmten Wert verringert
+    fun lostChakra(value: Int){
 
-    fun lostChakra(){
+        chakra -= value
+    }
 
+    // einfaches Ausweichen
+    // der Spieler hat nur 5 Mal die Möglichkeit Baumstamm einzusetzen, nach jedem Mal wird einmal abgezogen
+    open fun baumstamm(){
 
+        println("Du bist ausgewichen!")
+        baumstamm --
     }
 
 }
