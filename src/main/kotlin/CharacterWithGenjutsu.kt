@@ -1,22 +1,18 @@
 class CharacterWithGenjutsu: Characters {
 
-    var genjutsu: Pair<String, Int>
+    var genjutsu: Int
 
-    constructor(name: String, taijutsu: Pair<String, Int>, ninjutsu1: Pair<String, Int>, genjutsu: Pair<String, Int>):
-            super(name, taijutsu, ninjutsu1){
-
-        this.genjutsu = genjutsu
-    }
-
-    constructor(name: String, taijutsu: Pair<String, Int>, ninjutsu1: Pair<String, Int>, extraWeapon: Pair<String, Int>, genjutsu: Pair<String, Int>):
-            super(name, taijutsu, ninjutsu1, extraWeapon){
+    constructor(name: String, taijutsu: Int, ninjutsu: MutableMap<String, Int>, genjutsu: Int):
+            super(name, taijutsu, ninjutsu){
 
         this.genjutsu = genjutsu
     }
 
-    constructor(name: String, taijutsu: Pair<String, Int>, ninjutsu1: Pair<String, Int>, ninjutsu2: Pair<String, Int>, ninjutsu3: Pair<String, Int>, extraWeapon: Pair<String, Int>, genjutsu: Pair<String, Int>):
-            super(name, taijutsu, ninjutsu1, ninjutsu2, ninjutsu3, extraWeapon){
+    constructor(name: String, taijutsu: Pair<String, Int>, ninjutsu: MutableMap<String, Int>, extraWeapon: Pair<String, Int>, genjutsu: Int):
+            super(name, taijutsu, ninjutsu, extraWeapon){
 
         this.genjutsu = genjutsu
     }
+
+
 }

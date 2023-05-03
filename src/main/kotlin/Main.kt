@@ -5,7 +5,8 @@ val blue = "\u001b[34m"
 // diese beiden Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
 // und nach Belieben aufrufen kann ohne ständig zwischendurch viele Variablen anlegen zu müssen
 var inputUser = ""
-var selectionUser = ""
+var characterUser = ""
+var characterComputer = ""
 
 fun main() {
 
@@ -13,7 +14,7 @@ fun main() {
 
     selectionTeamOrCharacter()
     characterComputer()
-    println(selectionUser)
+    println(characterUser)
 
 
 
@@ -179,8 +180,8 @@ fun selectionCharacter() {
 
         if (lowercaseList.contains(inputUser)) {
             println("\nSuper! Du hast dich für $magenta${inputUser.uppercase()} ${white}entschieden.")
-            selectionUser = inputUser
-            grafik(selectionUser)
+            characterUser = inputUser
+            grafik(characterUser)
             break
         } else {
             println("\nDu hast eine falsche Auswahl getroffen.")
@@ -220,7 +221,7 @@ fun selectionTeam(){
 
         if (lowercaseList.contains(character1) && lowercaseList.contains(character2) && lowercaseList.contains(character3)) {
             println("\nSuper! Du hast dich für $magenta${inputUser.uppercase()} ${white}entschieden.")
-            selectionUser = inputUser
+            characterUser = inputUser
             break
         } else {
             println("\nDu hast eine falsche Auswahl getroffen.")
@@ -239,8 +240,8 @@ fun randomGeneratorForOneCharacter() {
     Thread.sleep(2000)
 
     println("Dein Charakter ist $magenta${characterForRandom.uppercase()} $white")
-    selectionUser = characterForRandom
-    grafik(selectionUser)
+    characterUser = characterForRandom
+    grafik(characterUser)
 }
 
 // der Zufallsgenerator für drei Charaktere
@@ -257,14 +258,14 @@ fun randomGeneratorForTeam(){
     }
     Thread.sleep(2000)
     println("Deine Charaktere sind: $magenta${listOfCharactersForRandom.toString().uppercase()} $white")
-    selectionUser = listOfCharactersForRandom.toString()
+    characterUser = listOfCharactersForRandom.toString()
 }
 
 // die Auswahl für den Computer wird per Zufallsgenerator, je nachdem ob Team oder einzelner Charakter, getroffen
 // es kommt kein Charakter doppelt in einem Team vor
 fun characterComputer(){
 
-    if ("," in selectionUser){
+    if ("," in characterUser){
         val listOfCharactersForRandom = mutableListOf<String>()
 
         while (listOfCharactersForRandom.size < 3) {

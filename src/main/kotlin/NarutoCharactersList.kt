@@ -1,15 +1,15 @@
 
 // Team Kakashi
-val naruto = Characters("Naruto", Pair("Taijutsu", 10), Pair("sexy Jutsu", 15), Pair("Rasengan", 45), Pair("Schattendoppelgänger", 30))
-val sasuke = CharacterWithGenjutsu("Sasuke", Pair("Taijutsu", 10), Pair("Taijutsu", 10), Pair("Phönixblume", 40), Pair("Jutsu des flammenden Feuerballs", 30), Pair("Chidori", 45), Pair("Genjutsu", 60))
-val sakura = CharactersWithMedicalSkills("Sakura", Pair("Taijutsu", 10), Pair("Kirschblütenschlag", 30), Pair("große Sakura", 15), Pair("Kirschblütenformation", 45), true)
+val naruto = Characters("Naruto", 10, mutableMapOf("sexy Jutsu" to 15, "Rasengan" to 45, "Schattendoppelgänger" to 30))
+val sasuke = CharacterWithGenjutsu("Sasuke", 10, mutableMapOf("Phönixblume" to 40, "Jutsu des flammenden Feuerballs" to 30, "Chidori" to 45), 60)
+val sakura = CharactersWithMedicalSkills("Sakura", 10, mutableMapOf("Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45), true)
 /*
 val teamKakashi = listOf(naruto.name, sasuke.name, sakura.name)
 */
 // Team Asuma
-val shikamaru = Characters("Shikamaru", Pair("Taijutsu", 10), Pair("Schattenfessel", 50), Pair("Schattenwürg", 35), Pair("Strategie", 30))
-val choji = Characters("Choji", Pair("Fleischbombenpanzer", 35), Pair("Schmetterlingsflügel", 45), Pair("Jutsu der Teilentfaltung", 30), Pair("Kraft", 20))
-val ino = CharactersWithMedicalSkills("Ino", Pair("Taijutsu", 10), Pair("Gedankenkontroll-Jutsu", 50), Pair("Schlafbomben", 15))
+val shikamaru = Characters("Shikamaru", 10, mutableMapOf("Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30))
+val choji = Characters("Choji", 10, mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30, "Kraft" to 20))
+val ino = CharactersWithMedicalSkills("Ino", 10, mutableMapOf("Gedankenkontroll-Jutsu" to 50), Pair("Schlafbomben", 15), true)
 /*
 val teamAsuma = listOf(shikamaru.name, choji.name, ino.name)
 
