@@ -13,39 +13,51 @@ fun selectionAttackUser() {
                     """
                         
             Mit welcher Attacke möchtest du angreifen?
-            Taijutsu
+            
             ${characterUser.ninjutsu.keys}
-            Genjutsu
-            ${characterUser.weapon}
+            0   1   2
+            3   Taijutsu
+            4   Genjutsu
+            5   ${characterUser.weapon}
            
             """.trimIndent()
                 )
+                print("Triff deine Auswahl per Zahl: ")
+                inputUser = readln()
+
             } else if (characterUser is CharacterWithMedicalSkills) {
                 println(
                     """
                         
             Mit welcher Attacke möchtest du angreifen?
-            Taijutsu
+            
             ${characterUser.ninjutsu.keys}
-            ${characterUser.weapon}
+            0   1   2
+            3   Taijutsu
+            4   ${characterUser.weapon}
+            5   Heilung
             
             """.trimIndent()
                 )
-                print("Oder möchtest du dich heilen? Gib Ja oder Nein ein: ")
-                inputUser = readln().lowercase()
-                if (inputUser == "ja") {
+                print("Triff deine Auswahl per Zahl: ")
+                inputUser = readln()
+                if (inputUser.toInt() == 5) {
                     (characterUser as CharacterWithMedicalSkills).heal()
                 }
             } else {
                 println(
                     """
             Mit welcher Attacke möchtest du angreifen?
-            Taijutsu
+   
             ${characterUser.ninjutsu.keys}
-            ${characterUser.weapon}
+            0   1   2
+            3   Taijutsu
+            4   ${characterUser.weapon}
             
             """.trimIndent()
                 )
+                print("Triff deine Auswahl per Zahl: ")
+                inputUser = readln()
             }
         } else if (inputUser.toInt() == 2) {
             characterUser.baumstamm()
