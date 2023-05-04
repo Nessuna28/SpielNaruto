@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktion für Attackenauswahl bearbeitet">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Eigenschaften und Funktionen der Klassen nochmals überarbeitet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
@@ -21,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -199,7 +198,49 @@
       <option name="project" value="LOCAL" />
       <updated>1683144141468</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Funktion in den Klassen erstellt">
+      <created>1683191330514</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683191330514</updated>
+    </task>
+    <task id="LOCAL-00023" summary="die Attacken in den Klassen umgebaut">
+      <created>1683192576816</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683192576818</updated>
+    </task>
+    <task id="LOCAL-00024" summary="die Attacken in den Klassen umgebaut">
+      <created>1683192652474</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683192652474</updated>
+    </task>
+    <task id="LOCAL-00025" summary="neue Klasse Charakter mit mehr Stärke erstellt">
+      <created>1683193486366</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1683193486366</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Klasse Charakter mit mehr Stärke bearbeitet">
+      <created>1683194370027</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683194370028</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Eigenschaften und Funktionen der Klassen nochmals überarbeitet">
+      <created>1683196355986</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683196355986</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -212,6 +253,11 @@
     <MESSAGE value="Kleinigkeiten bearbeitet" />
     <MESSAGE value="mit der Funktion für die Attackenauswahl begonnen" />
     <MESSAGE value="Funktion für Attackenauswahl bearbeitet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funktion für Attackenauswahl bearbeitet" />
+    <MESSAGE value="Funktion in den Klassen erstellt" />
+    <MESSAGE value="die Attacken in den Klassen umgebaut" />
+    <MESSAGE value="neue Klasse Charakter mit mehr Stärke erstellt" />
+    <MESSAGE value="Klasse Charakter mit mehr Stärke bearbeitet" />
+    <MESSAGE value="Eigenschaften und Funktionen der Klassen nochmals überarbeitet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eigenschaften und Funktionen der Klassen nochmals überarbeitet" />
   </component>
 </project>

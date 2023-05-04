@@ -4,10 +4,11 @@ val blue = "\u001b[34m"
 
 // diese fünf Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
 // und nach Belieben aufrufen kann ohne ständig zwischendurch viele Variablen anlegen zu müssen
-var inputUser = ""
-var characterUser = Character("", 0, mutableMapOf())
+var inputUserString = ""
+var inputUserInt = 0
+var characterUser = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
 var teamUser = mutableListOf<Character>()
-var characterComputer = Character("", 0, mutableMapOf())
+var characterComputer = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
 var teamComputer = mutableListOf<Character>()
 
 fun main() {
@@ -67,9 +68,9 @@ fun greeting() {
 
     Thread.sleep(3000)
     print("Möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
-    inputUser = readln().lowercase()
+    inputUserString = readln().lowercase()
 
-    if (inputUser == "ja")
+    if (inputUserString == "ja")
         rules()
 }
 
@@ -103,9 +104,9 @@ fun selectionTeamOrCharacter() {
 
     while (counter < 3) {
         print("\nWählst du ein Team oder einen einzelnen Charakter? \nWähle 'Team' oder 'Einzel'. : ")
-        inputUser = readln().lowercase()
+        inputUserString = readln().lowercase()
 
-        if (inputUser == "team" || inputUser == "einzel") {
+        if (inputUserString == "team" || inputUserString == "einzel") {
             selectionSelfOrRandom()
             break
         } else {
@@ -121,13 +122,13 @@ fun selectionTeamOrCharacter() {
 fun selectionSelfOrRandom() {
 
     var counter = 0
-    val inputUserTeamOrCharacter = inputUser
+    val inputUserTeamOrCharacter = inputUserString
 
     while (counter < 3) {
         print("\nMöchtest du selbst wählen oder per Zufallsgenerator? \n Wähle 'selbst' oder 'Zufall'. : ")
-        inputUser = readln().lowercase()
+        inputUserString = readln().lowercase()
 
-        if (inputUser == "selbst") {
+        if (inputUserString == "selbst") {
             println("\nDu hast dich entschieden selbst zu wählen. \n")
             if (inputUserTeamOrCharacter == "einzel") {
                 selectionCharacter()
@@ -137,7 +138,7 @@ fun selectionSelfOrRandom() {
                 break
             }
             counter = 4
-        } else if (inputUser == "zufall") {
+        } else if (inputUserString == "zufall") {
             println("\nDu hast dich für den Zufallsgenerator entschieden. \n")
             if (inputUserTeamOrCharacter == "einzel") {
                 randomGeneratorForOneCharacter()
@@ -174,14 +175,14 @@ fun selectionCharacter() {
 
     while (counter < 3) {
         print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
-        inputUser = readln().lowercase()
+        inputUserString = readln().lowercase()
 
         val lowercaseList = listToLowercaselist(characterNameList)
 
-        if (lowercaseList.contains(inputUser)) {
-            println("\nSuper! Du hast dich für $magenta${inputUser.uppercase()} ${white}entschieden.")
-            setCharacterForUser(inputUser)
-            grafik(inputUser)
+        if (lowercaseList.contains(inputUserString)) {
+            println("\nSuper! Du hast dich für $magenta${inputUserString.uppercase()} ${white}entschieden.")
+            setCharacterForUser(inputUserString)
+            grafik(inputUserString)
             break
         } else {
             println("\nDu hast eine falsche Auswahl getroffen.")
@@ -212,13 +213,13 @@ fun selectionTeam(){
 
     while (counter < 3) {
         print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma: ")
-        inputUser = readln().lowercase()
-        val inputList = inputUser.split(", ")
+        inputUserString = readln().lowercase()
+        val inputList = inputUserString.split(", ")
 
         val lowercaseList = listToLowercaselist(characterNameList)
 
         if (inputList[0] in lowercaseList && inputList[1] in lowercaseList && inputList[2] in lowercaseList) {
-            println("\nSuper! Du hast dich für $magenta${inputUser.uppercase()} ${white}entschieden.")
+            println("\nSuper! Du hast dich für $magenta${inputUserString.uppercase()} ${white}entschieden.")
 
             for (character in inputList){
                 setCharacterForUser(character)
