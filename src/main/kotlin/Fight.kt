@@ -14,11 +14,7 @@ fun selectionAttackUser() {
                         
             Mit welcher Attacke möchtest du angreifen?
             
-            ${characterUser.attack.keys}
-            0   1   2
-            3   Taijutsu
-            4   Genjutsu
-            5   ${characterUser.weapon}
+            
            
             """.trimIndent()
                 )
@@ -31,11 +27,7 @@ fun selectionAttackUser() {
                         
             Mit welcher Attacke möchtest du angreifen?
             
-            ${characterUser.attack.keys}
-            0   1   2
-            3   Taijutsu
-            4   ${characterUser.weapon}
-            5   Heilung
+            
             
             """.trimIndent()
                 )
@@ -49,10 +41,7 @@ fun selectionAttackUser() {
                     """
             Mit welcher Attacke möchtest du angreifen?
    
-            ${characterUser.attack.keys}
-            0   1   2
-            3   Taijutsu
-            4   ${characterUser.weapon}
+            
             
             """.trimIndent()
                 )
