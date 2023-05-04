@@ -46,18 +46,27 @@ open class Character(
             inputUserInt = readln().toInt()
 
             if (inputUserInt == 1) {
+                println("\nDas hast du zur Auswahl:")
+                var index = 1
                 for (attack in attack.keys) {
-                    println("\n$attack")
+                    println("$index für $attack")
+                    index++
                 }
                 counter = inputUserInt
             } else if (inputUserInt == 2) {
+                println("\nDas hast du zur Auswahl:")
+                var index = 1
                 for (attack in ninjutsu.keys) {
-                    println("\n$attack")
+                    println("$index für $attack")
+                    index++
                 }
                 counter = inputUserInt
             } else if (inputUserInt == 3) {
+                println("\nDas hast du zur Auswahl:")
+                var index = 1
                 for (attack in weapon.keys) {
-                    println("\n$attack")
+                    println("$index für $attack")
+                    index++
                 }
                 counter = inputUserInt
             } else {
@@ -65,6 +74,9 @@ open class Character(
                 counter = 0
             }
         } while (counter != inputUserInt)
+
+        print("Triff deine Auswahl per Zahl: ")
+        inputUserInt = readln().toInt()
     }
 
     fun attackNormal(input: Int, enemy: Character) {
