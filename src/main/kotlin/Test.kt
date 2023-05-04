@@ -4,8 +4,11 @@ fun main() {
     println(naruto.attack.values.elementAt(0))
 
 
-    sakura.showSelection()
+    //sakura.showSelection()
 
+    characterComputer = sakura
+    attackComputer()
+    println(selectionComputer)
 }
 
 

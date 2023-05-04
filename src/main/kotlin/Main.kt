@@ -5,9 +5,10 @@ val green = "\u001b[32m"
 val greyBackground = "\u001b[47m"
 val greenBackground = "\u001b[42m"
 val blueBackground = "\u001b[44m"
+val blackBackground = "\u001b[40m"
 
 
-// diese fünf Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
+// diese Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
 // und nach Belieben aufrufen kann ohne ständig zwischendurch viele Variablen anlegen zu müssen
 var inputUserString = ""
 var inputUserInt = 0
@@ -15,6 +16,8 @@ var characterUser = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf()
 var teamUser = mutableListOf<Character>()
 var characterComputer = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
 var teamComputer = mutableListOf<Character>()
+var selectionUser = ""
+var selectionComputer = ""
 
 fun main() {
 
@@ -251,7 +254,7 @@ fun randomGeneratorForOneCharacter() {
 
     println("Dein Charakter ist $magenta${characterForRandom.uppercase()} $white")
     setCharacterForUser(characterForRandom.lowercase())
-    grafik(characterForRandom)
+    grafik(characterForRandom.lowercase())
 }
 
 // der Zufallsgenerator für drei Charaktere

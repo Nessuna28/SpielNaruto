@@ -18,6 +18,7 @@ class CharacterWithGenjutsu: Character {
             lostChakra(40)
             Thread.sleep(2000)
             println("\nDu hast ein Genjutsu angewendet und dein Gegner muss eine Runde aussetzen.")
+            selectionUser = "Genjutsu"
         } else {
             println("\nDu hast nicht genügend Chakra um ein Genjutsu auszuführen.")
         }

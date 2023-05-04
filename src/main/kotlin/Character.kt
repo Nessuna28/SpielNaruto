@@ -27,6 +27,7 @@ open class Character(
 
         baumstamm--
         println("Du bist ausgewichen!")
+        selectionUser = "Baumstamm"
     }
 
     // der Spieler wird gefragt, womit er angreifen möchte
@@ -94,10 +95,22 @@ open class Character(
     fun attackNormal(input: Int, enemy: Character) {
 
         when (input) {
-            1 -> enemy.lifePoints -= this.attack.values.elementAt(0)
-            2 -> enemy.lifePoints -= this.attack.values.elementAt(1)
-            3 -> enemy.lifePoints -= this.attack.values.elementAt(2)
-            4 -> enemy.lifePoints -= this.attack.values.elementAt(3)
+            1 -> {
+                enemy.lifePoints -= this.attack.values.elementAt(0)
+                selectionUser = this.attack.keys.elementAt(0)
+            }
+            2 -> {
+                enemy.lifePoints -= this.attack.values.elementAt(1)
+                selectionUser = this.attack.keys.elementAt(1)
+            }
+            3 -> {
+                enemy.lifePoints -= this.attack.values.elementAt(2)
+                selectionUser = this.attack.keys.elementAt(2)
+            }
+            4 -> {
+                enemy.lifePoints -= this.attack.values.elementAt(3)
+                selectionUser = this.attack.keys.elementAt(3)
+            }
         }
     }
 
@@ -112,26 +125,31 @@ open class Character(
                 1 -> {
                     enemy.lifePoints -= this.ninjutsu.values.elementAt(0)
                     lostChakra(20)
+                    selectionUser = this.ninjutsu.keys.elementAt(0)
                 }
 
                 2 -> {
                     enemy.lifePoints -= this.ninjutsu.values.elementAt(1)
                     lostChakra(20)
+                    selectionUser = this.ninjutsu.keys.elementAt(1)
                 }
 
                 3 -> {
                     enemy.lifePoints -= this.ninjutsu.values.elementAt(2)
                     lostChakra(20)
+                    selectionUser = this.ninjutsu.keys.elementAt(2)
                 }
 
                 4 -> {
                     enemy.lifePoints -= this.ninjutsu.values.elementAt(3)
                     lostChakra(20)
+                    selectionUser = this.ninjutsu.keys.elementAt(3)
                 }
 
                 5 -> {
                     enemy.lifePoints -= this.ninjutsu.values.elementAt(4)
                     lostChakra(20)
+                    selectionUser = this.ninjutsu.keys.elementAt(4)
                 }
             }
         } else {
@@ -144,10 +162,22 @@ open class Character(
     fun attackWithWeapon(input: Int, enemy: Character) {
 
         when (input) {
-            1 -> enemy.lifePoints -= this.weapon.values.elementAt(0)
-            2 -> enemy.lifePoints -= this.weapon.values.elementAt(1)
-            3 -> enemy.lifePoints -= this.weapon.values.elementAt(2)
-            4 -> enemy.lifePoints -= this.weapon.values.elementAt(3)
+            1 -> {
+                enemy.lifePoints -= this.weapon.values.elementAt(0)
+                selectionUser = this.weapon.keys.elementAt(0)
+            }
+            2 -> {
+                enemy.lifePoints -= this.weapon.values.elementAt(1)
+                selectionUser = this.weapon.keys.elementAt(1)
+            }
+            3 -> {
+                enemy.lifePoints -= this.weapon.values.elementAt(2)
+                selectionUser = this.weapon.keys.elementAt(2)
+            }
+            4 -> {
+                enemy.lifePoints -= this.weapon.values.elementAt(3)
+                selectionUser = this.weapon.keys.elementAt(3)
+            }
 
         }
     }

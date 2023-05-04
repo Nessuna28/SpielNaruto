@@ -6,7 +6,7 @@ val sakura = CharacterWithMedicalSkills("Sakura", mutableMapOf("Taijutsu" to 10)
 
 val shikamaru = Character("Shikamaru", mutableMapOf("Taijutsu" to 10), mutableMapOf("Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30), mutableMapOf("Kunai" to 15))
 val choji = CharacterWithMoreStrength("Choji", mutableMapOf("Taijutsu" to 10), mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30), mutableMapOf("Kunai" to 15), 15)
-val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 10), mutableMapOf("Gedankenkontroll-Jutsu" to 50), mutableMapOf("Kunai werfen" to 15, "Schlafbomben werfen" to 15), true)
+val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 10), mutableMapOf("Gedankenkontroll-Jutsu" to 50, "Schlafbomben-Jutsu" to 20), mutableMapOf("Kunai werfen" to 15), true)
 
 var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino)
 /*

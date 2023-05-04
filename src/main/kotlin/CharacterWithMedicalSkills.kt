@@ -13,15 +13,19 @@ class CharacterWithMedicalSkills: Character {
     // diese Fähigkeit verbraucht Chakra
     fun heal(){
 
-        this.lifePoints += 100
-        if (lifePoints > 200){
-           lifePoints = 200
+        if (lifePoints < 200) {
+            this.lifePoints += 100
+            lostChakra(20)
+
+            if (lifePoints > 200) {
+                lifePoints = 200
+            }
+            coloredBar()
+            println("\nDu wurdest geheilt!")
+        } else {
+            println("\nDeine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
         }
-
-        coloredBar()
-        println("\nDu wurdest geheilt!")
-
-        lostChakra(20)
+        selectionUser = "Heilung"
     }
 
     // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
@@ -30,7 +34,7 @@ class CharacterWithMedicalSkills: Character {
         var coloredBar = StringBuilder()
         coloredBar.append("|")
 
-        val life = lifePoints / 100
+        val life = lifePoints / 10
         val to = life + 10
 
         for (point in 0..life){
@@ -38,14 +42,10 @@ class CharacterWithMedicalSkills: Character {
         }
         Thread.sleep(2000)
 
-        for (point in life..to){
-            print("\r$greenBackground $coloredBar$white")
+        for (point in 0..to){
+            print("\r$greenBackground$coloredBar$white")
             coloredBar.append(" |")
             Thread.sleep(800)
-        }
-
-        for (point in to..20){
-            print("\r")
         }
     }
 
