@@ -14,7 +14,7 @@ fun selectionAttackUser() {
                         
             Mit welcher Attacke möchtest du angreifen?
             
-            ${characterUser.ninjutsu.keys}
+            ${characterUser.attack.keys}
             0   1   2
             3   Taijutsu
             4   Genjutsu
@@ -31,7 +31,7 @@ fun selectionAttackUser() {
                         
             Mit welcher Attacke möchtest du angreifen?
             
-            ${characterUser.ninjutsu.keys}
+            ${characterUser.attack.keys}
             0   1   2
             3   Taijutsu
             4   ${characterUser.weapon}
@@ -49,7 +49,7 @@ fun selectionAttackUser() {
                     """
             Mit welcher Attacke möchtest du angreifen?
    
-            ${characterUser.ninjutsu.keys}
+            ${characterUser.attack.keys}
             0   1   2
             3   Taijutsu
             4   ${characterUser.weapon}

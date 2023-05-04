@@ -2,14 +2,8 @@ class CharacterWithMedicalSkills: Character {
 
     var medicalSkills: Boolean
 
-    constructor(name: String, taijutsu: Int, ninjutsu: MutableMap<String, Int>, medicalSkills: Boolean):
-            super(name, taijutsu, ninjutsu){
-
-        this.medicalSkills = medicalSkills
-    }
-
-    constructor(name: String, taijutsu: Int, ninjutsu: MutableMap<String, Int>, extraWeapon: Pair<String, Int>, medicalSkills: Boolean):
-            super(name, taijutsu, ninjutsu, extraWeapon){
+    constructor(name: String, attack: MutableMap<String, Int>, medicalSkills: Boolean):
+            super(name, attack){
 
         this.medicalSkills = medicalSkills
     }

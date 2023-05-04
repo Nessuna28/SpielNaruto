@@ -1,12 +1,12 @@
 // Liste der Charaktere
 
-val naruto = Character("Naruto", 10, mutableMapOf("sexy Jutsu" to 15, "Rasengan" to 45, "Schattendoppelgänger" to 30))
-val sasuke = CharacterWithGenjutsu("Sasuke", 10, mutableMapOf("Phönixblume" to 40, "Jutsu des flammenden Feuerballs" to 30, "Chidori" to 45), 60)
-val sakura = CharacterWithMedicalSkills("Sakura", 10, mutableMapOf("Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45), true)
+val naruto = Character("Naruto", mutableMapOf("Taijutsu" to 10, "sexy Jutsu" to 15, "Rasengan" to 45, "Schattendoppelgänger" to 30, "Kunai werfen" to 15))
+val sasuke = CharacterWithGenjutsu("Sasuke", mutableMapOf("Taijutsu" to 10, "Phönixblume" to 40, "Jutsu des flammenden Feuerballs" to 30, "Chidori" to 45, "Kunai werfen" to 15), 60)
+val sakura = CharacterWithMedicalSkills("Sakura", mutableMapOf("Taijutsu" to 10, "Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45, "Kunai werfen" to 15), true)
 
-val shikamaru = Character("Shikamaru", 10, mutableMapOf("Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30))
-val choji = Character("Choji", 10, mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30, "Kraft" to 20))
-val ino = CharacterWithMedicalSkills("Ino", 10, mutableMapOf("Gedankenkontroll-Jutsu" to 50), Pair("Schlafbomben", 15), true)
+val shikamaru = Character("Shikamaru", mutableMapOf("Taijutsu" to 10, "Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30, "Kunai werfen" to 15))
+val choji = Character("Choji", mutableMapOf("Taijutsu" to 10, "Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30, "Kraft" to 20, "Kunai werfen" to 15))
+val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 10, "Gedankenkontroll-Jutsu" to 50, "Kunai werfen" to 15, "Schlafbomben werfen" to 15), true)
 
 var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino)
 /*
