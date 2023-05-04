@@ -4,8 +4,9 @@ class CharacterWithMoreStrength: Character {
 
     constructor(name: String, attack: MutableMap<String, Int>, extraStrength: Int): super(name, attack){
 
-        this.extraStrength = 25
+        this.extraStrength = extraStrength
 
-        attack["Taijutsu"] = this.extraStrength
+        attack["Taijutsu"] = attack["Taijutsu"]!! + extraStrength
     }
+
 }
