@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Klassen überarbeitet">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktion für Attackenauswahl bearbeitet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Characters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharactersWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -164,7 +164,42 @@
       <option name="project" value="LOCAL" />
       <updated>1683102306941</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Klassen überarbeitet und Funktionen hinzugefügt">
+      <created>1683143309123</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1683143309123</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Funktionen in der Main bearbeitet">
+      <created>1683143340504</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683143340504</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Kleinigkeiten bearbeitet">
+      <created>1683143372565</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683143372565</updated>
+    </task>
+    <task id="LOCAL-00020" summary="mit der Funktion für die Attackenauswahl begonnen">
+      <created>1683143417321</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683143417321</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Funktion für Attackenauswahl bearbeitet">
+      <created>1683144141468</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683144141468</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -172,17 +207,11 @@
     <MESSAGE value="Spiel weiter bearbeitet" />
     <MESSAGE value="Funktion Charakter für den Com erstellt" />
     <MESSAGE value="Klassen überarbeitet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Klassen überarbeitet" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>18</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Klassen überarbeitet und Funktionen hinzugefügt" />
+    <MESSAGE value="Funktionen in der Main bearbeitet" />
+    <MESSAGE value="Kleinigkeiten bearbeitet" />
+    <MESSAGE value="mit der Funktion für die Attackenauswahl begonnen" />
+    <MESSAGE value="Funktion für Attackenauswahl bearbeitet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funktion für Attackenauswahl bearbeitet" />
   </component>
 </project>

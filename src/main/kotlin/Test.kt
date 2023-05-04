@@ -1,6 +1,7 @@
 fun main() {
-println("Such aus!")
-    var input = readln()
+
+    println(naruto.ninjutsu.keys.elementAt(0))
+    println(naruto.ninjutsu.values.elementAt(0))
 
 }
 

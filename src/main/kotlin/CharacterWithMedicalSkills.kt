@@ -29,8 +29,5 @@ class CharacterWithMedicalSkills: Character {
         lostChakra(20)
     }
 
-    // einfaches Ausweichen
-    override fun baumstamm() {
-        super.baumstamm()
-    }
+
 }

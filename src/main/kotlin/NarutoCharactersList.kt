@@ -67,5 +67,7 @@ val characterNameList = listOf(
     )
 
 
-fun main() {}
+fun main() {
+
+}
 

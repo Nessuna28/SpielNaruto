@@ -26,8 +26,9 @@ open class Character{
     }
 
     // Lebenspunkte werden um einen bestimmten Wert verringert
-    fun lostLifePoints(){
+    fun lostLifePoints(value: Int){
 
+        lifePoints -= value
     }
 
     // Chakra wird um einen bestimmten Wert verringert
@@ -40,8 +41,29 @@ open class Character{
     // der Spieler hat nur 5 Mal die Möglichkeit Baumstamm einzusetzen, nach jedem Mal wird einmal abgezogen
     open fun baumstamm(){
 
-        println("Du bist ausgewichen!")
         baumstamm --
+        println("Du bist ausgewichen!")
+    }
+
+    // der Funktion wird der Gegner übergeben und dem werden Lebenspunkte abgezogen um den Wert des Schadens der Attacke Taijutsu des Spielers
+    fun attackWithTaijutsu(enemy: Character){
+
+        enemy.lifePoints -= this.taijutsu
+    }
+
+    // der Funktion wird der Gegner übergeben und dem werden Lebenspunkte abgezogen um den Wert des Schadens der Attacke Kunai des Spielers
+    fun attackWithKunai(enemy: Character){
+
+        enemy.lifePoints -= 15
+    }
+
+    fun attackWithNinjutsu(input: Int, attack: String, enemy: Character){
+
+            when (input){
+                0 -> enemy.lifePoints -= ninjutsu.values.elementAt(0)
+                1 -> enemy.lifePoints -= ninjutsu.values.elementAt(1)
+                2 -> enemy.lifePoints -= ninjutsu.values.elementAt(2)
+            }
     }
 
 }

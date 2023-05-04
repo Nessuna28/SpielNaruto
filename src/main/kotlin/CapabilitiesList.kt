@@ -1,5 +1,5 @@
 /*
-Taijutsu haben alle / Nahkampf 10
+Taijutsu haben alle / Nahkampf 15
 Ninjutsu verbraucht Chakra haben alle außer: Mighty Guy, Rock Lee
 Genjutsu haben nur: Sasuke, Itachi, Kakashi, Kurenai
 

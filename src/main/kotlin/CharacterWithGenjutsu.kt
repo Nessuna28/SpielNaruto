@@ -14,10 +14,6 @@ class CharacterWithGenjutsu: Character {
         this.genjutsu = genjutsu
     }
 
-    // einfaches Ausweichen
-    override fun baumstamm() {
-        super.baumstamm()
-    }
 
 
 }
