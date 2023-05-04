@@ -1,7 +1,6 @@
 fun fight() {
 }
 
-
 fun selectionAttackUser() {
 
     if (characterUser.name.isNotEmpty()) {

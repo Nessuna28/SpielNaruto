@@ -17,10 +17,36 @@ class CharacterWithMedicalSkills: Character {
         if (lifePoints > 200){
            lifePoints = 200
         }
-        Thread.sleep(2000)
+
+        coloredBar()
         println("\nDu wurdest geheilt!")
 
         lostChakra(20)
+    }
+
+    // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
+    fun coloredBar(){
+
+        var coloredBar = StringBuilder()
+        coloredBar.append("|")
+
+        val life = lifePoints / 100
+        val to = life + 10
+
+        for (point in 0..life){
+            coloredBar.append("$blueBackground |")
+        }
+        Thread.sleep(2000)
+
+        for (point in life..to){
+            print("\r$greenBackground $coloredBar$white")
+            coloredBar.append(" |")
+            Thread.sleep(800)
+        }
+
+        for (point in to..20){
+            print("\r")
+        }
     }
 
     // die Funktion aus Character um die Möglichkeit der Heilung erweitert
@@ -76,7 +102,7 @@ class CharacterWithMedicalSkills: Character {
                 characterUser.attackWithWeapon(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else if (inputUserInt == 4){
-                println("Möchtest du ein Heilung anwenden?")
+                println("Möchtest du Heilung anwenden?")
                 print("Gib ein ja oder nein: ")
                 inputUserString = readln().lowercase()
                 if (inputUserString == "ja"){

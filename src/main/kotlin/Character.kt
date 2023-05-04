@@ -58,7 +58,7 @@ open class Character(
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 inputUserInt = readln().toInt()
-                characterUser.attackNormal(inputUserInt, characterComputer)
+                attackNormal(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else if (inputUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
@@ -69,7 +69,7 @@ open class Character(
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 inputUserInt = readln().toInt()
-                characterUser.attackWithNinjutsu(inputUserInt, characterComputer)
+                attackWithNinjutsu(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else if (inputUserInt == 3) {
                 println("\nDas hast du zur Auswahl:")
@@ -80,7 +80,7 @@ open class Character(
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 inputUserInt = readln().toInt()
-                characterUser.attackWithWeapon(inputUserInt, characterComputer)
+                attackWithWeapon(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else {
                 println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
@@ -94,10 +94,10 @@ open class Character(
     fun attackNormal(input: Int, enemy: Character) {
 
         when (input) {
-            0 -> enemy.lifePoints -= this.attack.values.elementAt(0)
-            1 -> enemy.lifePoints -= this.attack.values.elementAt(1)
-            2 -> enemy.lifePoints -= this.attack.values.elementAt(2)
-            3 -> enemy.lifePoints -= this.attack.values.elementAt(3)
+            1 -> enemy.lifePoints -= this.attack.values.elementAt(0)
+            2 -> enemy.lifePoints -= this.attack.values.elementAt(1)
+            3 -> enemy.lifePoints -= this.attack.values.elementAt(2)
+            4 -> enemy.lifePoints -= this.attack.values.elementAt(3)
         }
     }
 
@@ -109,28 +109,28 @@ open class Character(
 
         if (this.chakra >= 20) {
             when (input) {
-                0 -> {
-                    enemy.lifePoints -= this.attack.values.elementAt(0)
-                    lostChakra(20)
-                }
-
                 1 -> {
-                    enemy.lifePoints -= this.attack.values.elementAt(1)
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(0)
                     lostChakra(20)
                 }
 
                 2 -> {
-                    enemy.lifePoints -= this.attack.values.elementAt(2)
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(1)
                     lostChakra(20)
                 }
 
                 3 -> {
-                    enemy.lifePoints -= this.attack.values.elementAt(3)
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(2)
                     lostChakra(20)
                 }
 
                 4 -> {
-                    enemy.lifePoints -= this.attack.values.elementAt(4)
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(3)
+                    lostChakra(20)
+                }
+
+                5 -> {
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(4)
                     lostChakra(20)
                 }
             }
@@ -144,10 +144,10 @@ open class Character(
     fun attackWithWeapon(input: Int, enemy: Character) {
 
         when (input) {
-            0 -> enemy.lifePoints -= this.attack.values.elementAt(0)
-            1 -> enemy.lifePoints -= this.attack.values.elementAt(1)
-            2 -> enemy.lifePoints -= this.attack.values.elementAt(2)
-            3 -> enemy.lifePoints -= this.attack.values.elementAt(3)
+            1 -> enemy.lifePoints -= this.weapon.values.elementAt(0)
+            2 -> enemy.lifePoints -= this.weapon.values.elementAt(1)
+            3 -> enemy.lifePoints -= this.weapon.values.elementAt(2)
+            4 -> enemy.lifePoints -= this.weapon.values.elementAt(3)
 
         }
     }

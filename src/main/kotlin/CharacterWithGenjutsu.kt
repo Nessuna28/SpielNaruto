@@ -16,7 +16,8 @@ class CharacterWithGenjutsu: Character {
         if (chakra > 40) {
             enemy.lifePoints -= this.genjutsu
             lostChakra(40)
-                println("\nDu hast ein Genjutsu angewendet und dein Gegner muss eine Runde aussetzen.")
+            Thread.sleep(2000)
+            println("\nDu hast ein Genjutsu angewendet und dein Gegner muss eine Runde aussetzen.")
         } else {
             println("\nDu hast nicht genügend Chakra um ein Genjutsu auszuführen.")
         }

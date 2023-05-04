@@ -1,6 +1,11 @@
 val white = "\u001b[0m"
 val magenta = "\u001b[35m"
 val blue = "\u001b[34m"
+val green = "\u001b[32m"
+val greyBackground = "\u001b[47m"
+val greenBackground = "\u001b[42m"
+val blueBackground = "\u001b[44m"
+
 
 // diese fünf Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
 // und nach Belieben aufrufen kann ohne ständig zwischendurch viele Variablen anlegen zu müssen
