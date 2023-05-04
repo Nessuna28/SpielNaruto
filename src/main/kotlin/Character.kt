@@ -33,6 +33,9 @@ open class Character(
                 0 -> enemy.lifePoints -= this.attack.values.elementAt(0)
                 1 -> enemy.lifePoints -= this.attack.values.elementAt(1)
                 2 -> enemy.lifePoints -= this.attack.values.elementAt(2)
+                3 -> enemy.lifePoints -= this.attack.values.elementAt(3)
+                4 -> enemy.lifePoints -= this.attack.values.elementAt(4)
+                5 -> enemy.lifePoints -= this.attack.values.elementAt(5)
             }
     }
 

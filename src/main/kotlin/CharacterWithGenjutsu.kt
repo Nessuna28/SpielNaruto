@@ -2,8 +2,7 @@ class CharacterWithGenjutsu: Character {
 
     var genjutsu: Int
 
-    constructor(name: String, attack: MutableMap<String, Int>, genjutsu: Int):
-            super(name, attack){
+    constructor(name: String, attack: MutableMap<String, Int>, genjutsu: Int): super(name, attack){
 
         this.genjutsu = genjutsu
     }
