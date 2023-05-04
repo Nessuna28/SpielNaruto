@@ -6,7 +6,6 @@ open class Character(
     var lifePoints = 500
     var chakra = 500
     var baumstamm = 5
-    var weapon = "Kunai"
 
     // Lebenspunkte werden um einen bestimmten Wert verringert
     fun lostLifePoints(value: Int){
