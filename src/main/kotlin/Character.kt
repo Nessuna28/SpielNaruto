@@ -23,19 +23,23 @@ open class Character(
 
     // einfaches Ausweichen
     // der Spieler hat nur 5 Mal die Möglichkeit Baumstamm einzusetzen, nach jedem Mal wird einmal abgezogen
-    open fun baumstamm() {
+    fun baumstamm() {
 
         baumstamm--
         println("Du bist ausgewichen!")
     }
 
-    fun showSelection() {
+    // der Spieler wird gefragt, womit er angreifen möchte
+    // je nach seiner Antwort werden ihm die jeweiligen Attacken gezeigt und er kann dort auch wieder auswählen
+    // je nach dem für was sich der Spieler entschieden hat, werden die jeweiligen Funktionen aufgerufen
+    open fun showSelection() {
 
         var counter = 0
 
         do {
             println(
                 """
+                    
             Womit möchtest du angreifen?
             1 für Taijutsu
             2 für ein Ninjutsu
@@ -52,6 +56,9 @@ open class Character(
                     println("$index für $attack")
                     index++
                 }
+                print("Triff deine Auswahl per Zahl: ")
+                inputUserInt = readln().toInt()
+                characterUser.attackNormal(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else if (inputUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
@@ -60,6 +67,9 @@ open class Character(
                     println("$index für $attack")
                     index++
                 }
+                print("Triff deine Auswahl per Zahl: ")
+                inputUserInt = readln().toInt()
+                characterUser.attackWithNinjutsu(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else if (inputUserInt == 3) {
                 println("\nDas hast du zur Auswahl:")
@@ -68,17 +78,19 @@ open class Character(
                     println("$index für $attack")
                     index++
                 }
+                print("Triff deine Auswahl per Zahl: ")
+                inputUserInt = readln().toInt()
+                characterUser.attackWithWeapon(inputUserInt, characterComputer)
                 counter = inputUserInt
             } else {
                 println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
         } while (counter != inputUserInt)
-
-        print("Triff deine Auswahl per Zahl: ")
-        inputUserInt = readln().toInt()
     }
 
+    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Spielers und den Gegner
+    // je nach Auswahl wird dem Gegner der Schadenwert der jeweiligen Attacke von seinen Lebenspunkten abgezogen
     fun attackNormal(input: Int, enemy: Character) {
 
         when (input) {
@@ -89,6 +101,10 @@ open class Character(
         }
     }
 
+    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Spielers und den Gegner
+    // je nach Auswahl wird dem Gegner der Schadenwert der jeweiligen Attacke von seinen Lebenspunkten abgezogen
+    // und der Spieler verliert Chakra bei dieser Art Attacke
+    // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
     fun attackWithNinjutsu(input: Int, enemy: Character) {
 
         if (this.chakra >= 20) {
@@ -123,6 +139,8 @@ open class Character(
         }
     }
 
+    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Spielers und den Gegner
+    // je nach Auswahl wird dem Gegner der Schadenwert der jeweiligen Waffe von seinen Lebenspunkten abgezogen
     fun attackWithWeapon(input: Int, enemy: Character) {
 
         when (input) {

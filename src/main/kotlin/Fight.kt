@@ -6,49 +6,17 @@ fun selectionAttackUser() {
 
     if (characterUser.name.isNotEmpty()) {
         print("\nMöchtest du (1)angreifen oder (2)ausweichen? Gib die Zahl ein: ")
-        inputUserString = readln()
-        if (inputUserString.toInt() == 1) {
+        inputUserInt = readln().toInt()
+        if (inputUserInt == 1) {
             if (characterUser is CharacterWithGenjutsu) {
-                println(
-                    """
-                        
-            Mit welcher Attacke möchtest du angreifen?
-            
-            
-           
-            """.trimIndent()
-                )
-                print("Triff deine Auswahl per Zahl: ")
-                inputUserString = readln()
+               characterUser.showSelection()
 
             } else if (characterUser is CharacterWithMedicalSkills) {
-                println(
-                    """
-                        
-            Mit welcher Attacke möchtest du angreifen?
-            
-            
-            
-            """.trimIndent()
-                )
-                print("Triff deine Auswahl per Zahl: ")
-                inputUserString = readln()
-                if (inputUserString.toInt() == 5) {
-                    (characterUser as CharacterWithMedicalSkills).heal()
-                }
+                characterUser.showSelection()
             } else {
-                println(
-                    """
-            Mit welcher Attacke möchtest du angreifen?
-   
-            
-            
-            """.trimIndent()
-                )
-                print("Triff deine Auswahl per Zahl: ")
-                inputUserString = readln()
+                characterUser.showSelection()
             }
-        } else if (inputUserString.toInt() == 2) {
+        } else if (inputUserInt == 2) {
             characterUser.baumstamm()
         }
     }
