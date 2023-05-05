@@ -13,36 +13,38 @@ open class Character(
     // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und den Gegner
     // wenn der Spieler sich nicht für das Ausweichen entschieden hat, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
     // wurde vorher das Ausweichen ausgesucht, wird hier ein Boolean zurückgegeben mit dem Wert true
-    fun lostLifePoints(input: String, enemy: Character): Boolean {
-
-        var check = false
+    fun lostLifePoints(input: String, enemy: Character) {
 
         if (input != "Baumstamm") {
-            when (input) {
-                this.attack.keys.elementAt(0) -> enemy.lifePoints -= this.attack.values.elementAt(0)
-                this.attack.keys.elementAt(1) -> enemy.lifePoints -= this.attack.values.elementAt(1)
-                this.attack.keys.elementAt(2) -> enemy.lifePoints -= this.attack.values.elementAt(2)
-                this.attack.keys.elementAt(3) -> enemy.lifePoints -= this.attack.values.elementAt(3)
-                this.ninjutsu.keys.elementAt(0) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(0)
-                this.ninjutsu.keys.elementAt(1) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(1)
-                this.ninjutsu.keys.elementAt(2) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(2)
-                this.ninjutsu.keys.elementAt(3) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(3)
-                this.ninjutsu.keys.elementAt(4) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(4)
-                this.weapon.keys.elementAt(0) -> enemy.lifePoints -= this.weapon.values.elementAt(0)
-                this.weapon.keys.elementAt(1) -> enemy.lifePoints -= this.weapon.values.elementAt(1)
-                this.weapon.keys.elementAt(2) -> enemy.lifePoints -= this.weapon.values.elementAt(2)
-                this.weapon.keys.elementAt(3) -> enemy.lifePoints -= this.weapon.values.elementAt(3)
+
+            var counter = 0
+
+            for (attack in attack.keys) {
+                if (input == attack) {
+                    enemy.lifePoints -= this.attack.values.elementAt(counter)
+                    break
+                }
+                counter++
             }
-        } else {
-            if (enemy == characterUser) {
-                println("\nDer Computer ist ausgewichen.")
-                check = true
-            } else if (enemy == characterComputer) {
-                println("\nDu bist ausgewichen.")
-                check = true
+
+            counter = 0
+            for (attack in ninjutsu.keys) {
+                if (input == attack) {
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(counter)
+                    break
+                }
+                counter++
+            }
+
+            counter = 0
+            for (attack in weapon.keys) {
+                if (input == attack) {
+                    enemy.lifePoints -= this.weapon.values.elementAt(counter)
+                    break
+                }
+                counter++
             }
         }
-        return check
     }
 
     // Chakra wird um einen bestimmten Wert verringert

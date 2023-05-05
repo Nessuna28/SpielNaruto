@@ -54,16 +54,21 @@ class CharacterWithMedicalSkills: Character {
         var coloredBar = StringBuilder()
         coloredBar.append("|")
 
-        val life = lifePoints / 10
-        val to = life + 10
+        val life = lifePoints / 25
+        val to = life + (medicalSkills / 25)
+        val end = lifePointStart / 25
 
         for (point in 0..life){
-            coloredBar.append("$blueBackground |")
+            coloredBar.append(" |")
         }
         Thread.sleep(2000)
 
-        for (point in 0..to){
-            print("\r$greenBackground$coloredBar$white")
+        for (point in 0..end){
+            if (point <= to){
+                print("\r$blueBackground$coloredBar")
+            } else if (point > to){
+                print("\r$greenBackground$coloredBar$white")
+            }
             coloredBar.append(" |")
             Thread.sleep(800)
         }

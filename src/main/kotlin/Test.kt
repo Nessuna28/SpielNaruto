@@ -19,14 +19,42 @@ fun main() {
     //selectionUserString = "sexy Jutsu"
     //println(naruto.ninjutsu[selectionUserString])
 
-    nurso("Taijutsu", sasuke)
-    println(sasuke.lifePoints)
+    //nurso("sexy Jutsu", sasuke)
+    //println(sasuke.lifePoints)
 
+    sakura.coloredBar()
 }
     fun nurso(input: String, enemy: Character){
 
-        when (input) {
-            naruto.attack.keys.elementAt(0) -> enemy.lifePoints -= naruto.attack.values.elementAt(0)
+        if (input != "Baumstamm") {
+
+            var counter = 0
+
+            for (attack in naruto.attack.keys) {
+                if (input == attack) {
+                    enemy.lifePoints -= naruto.attack.values.elementAt(counter)
+                    break
+                }
+                counter++
+            }
+
+            counter = 0
+            for (attack in naruto.ninjutsu.keys) {
+                if (input == attack) {
+                    enemy.lifePoints -= naruto.attack.values.elementAt(counter)
+                    break
+                }
+                counter++
+            }
+
+            counter = 0
+            for (attack in naruto.weapon.keys) {
+                if (input == attack) {
+                    enemy.lifePoints -= naruto.attack.values.elementAt(counter)
+                    break
+                }
+                counter++
+            }
         }
     }
 

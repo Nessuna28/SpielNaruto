@@ -26,9 +26,7 @@ fun main() {
     characterComputer()
     do {
         selectionAttackUser()
-        println("\n${characterComputer.lifePoints}")
         attackComputer()
-        println("\n${characterComputer.lifePoints}")
     } while (characterComputer.lifePoints > 0 || characterUser.lifePoints > 0)
 }
 

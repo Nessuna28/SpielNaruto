@@ -84,6 +84,7 @@ fun attackComputer(){
         (characterComputer as CharacterWithMedicalSkills).heal(selectionComputer)
     } else if (selectionComputer == "Baumstamm") {
         characterComputer.baumstamm("com")
+        printForDodging("user")
     }
 }
 
@@ -91,6 +92,15 @@ fun printCharacterStats(){
 
 }
 
-fun printForDodging(){
+fun printForDodging(player: String){
 
+    if (player == "user"){
+        if (selectionComputer != "Baumstamm") {
+            println("\nDerComputer wollte mit $selectionComputer angreifen aber du bist ausgewichen.\nEr hat dich nicht getroffen.")
+        } else {
+            println("\nDer Computer ist ebenfalls ausgewichen")
+        }
+    } else {
+        println("\nDu wolltest mit $selectionUserString angreifen aber der Computer ist ausgewichen.")
+    }
 }
