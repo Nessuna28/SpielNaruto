@@ -20,6 +20,7 @@ fun selectionAttackUser() {
             }
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm("user")
+            printForDodging("user")
             characterUser.lostLifePoints(selectionUserString, characterComputer)
         }
     }
@@ -84,7 +85,7 @@ fun attackComputer(){
         (characterComputer as CharacterWithMedicalSkills).heal(selectionComputer)
     } else if (selectionComputer == "Baumstamm") {
         characterComputer.baumstamm("com")
-        printForDodging("user")
+        printForDodging("com")
     }
 }
 
@@ -94,9 +95,9 @@ fun printCharacterStats(){
 
 fun printForDodging(player: String){
 
-    if (player == "user"){
         if (selectionComputer != "Baumstamm") {
-            println("\nDerComputer wollte mit $selectionComputer angreifen aber du bist ausgewichen.\nEr hat dich nicht getroffen.")
+            if (player == "user" && selectionUserString != "Baumstamm"){
+                println("\nDer Computer wollte mit $selectionComputer angreifen aber du bist ausgewichen.\nEr hat dich nicht getroffen.")
         } else {
             println("\nDer Computer ist ebenfalls ausgewichen")
         }

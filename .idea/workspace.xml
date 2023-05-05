@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Fehler in Funktion lostLifePoints behoben">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktion colorBar bearbeitet. Noch nicht der gewünschte Effekt">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683320522753</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Funktion colorBar bearbeitet. Noch nicht der gewünschte Effekt">
+      <created>1683322097042</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1683322097042</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -324,7 +331,8 @@
     <MESSAGE value="die Funktionen umgebaut zwecks Logik beim Angriff" />
     <MESSAGE value="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe" />
     <MESSAGE value="Fehler in Funktion lostLifePoints behoben" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fehler in Funktion lostLifePoints behoben" />
+    <MESSAGE value="Funktion colorBar bearbeitet. Noch nicht der gewünschte Effekt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funktion colorBar bearbeitet. Noch nicht der gewünschte Effekt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
