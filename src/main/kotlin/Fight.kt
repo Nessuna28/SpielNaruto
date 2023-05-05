@@ -9,14 +9,18 @@ fun selectionAttackUser() {
         if (selectionUserInt == 1) {
             if (characterUser is CharacterWithGenjutsu) {
                characterUser.showSelection()
+                characterUser.lostLifePoints(selectionUserString, characterComputer)
 
             } else if (characterUser is CharacterWithMedicalSkills) {
                 characterUser.showSelection()
+                characterUser.lostLifePoints(selectionUserString, characterComputer)
             } else {
                 characterUser.showSelection()
+                characterUser.lostLifePoints(selectionUserString, characterComputer)
             }
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm(selectionUserInt)
+            characterUser.lostLifePoints(selectionUserString, characterComputer)
         }
     }
 }
@@ -68,11 +72,12 @@ fun attackComputer(){
     selectionComputer = attackList.random()
 
     if (selectionComputer in characterComputer.attack.keys){
-        characterComputer.attackNormal(selectionComputer, characterUser)
+        characterComputer.lostLifePoints(selectionComputer, characterUser)
     } else if (selectionComputer in characterComputer.ninjutsu.keys){
-        characterComputer.attackWithNinjutsu(selectionComputer, characterUser)
+        characterComputer.attackWithNinjutsu(selectionComputer, 0)
+        characterComputer.lostLifePoints(selectionComputer, characterUser)
     } else if (selectionComputer in characterComputer.weapon.keys) {
-        characterComputer.attackWithWeapon(selectionComputer, characterUser)
+        characterComputer.lostLifePoints(selectionComputer, characterUser)
     } else if (selectionComputer == "Genjutsu") {
         (characterComputer as CharacterWithGenjutsu).attackWithGenjutsu(characterUser)
     } else if (selectionComputer == "Heilung") {

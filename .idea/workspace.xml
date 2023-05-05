@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="den Spielzug des Computers fertig erstellt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
@@ -277,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683229684245</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="den Spielzug des Computers fertig erstellt">
+      <created>1683281696230</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683281696231</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -299,20 +306,31 @@
     <MESSAGE value="Funktion der Klassen erweitert" />
     <MESSAGE value="Funktion der Klassen überarbeitet und eine Funktion für einen farblichen Balken angefangen" />
     <MESSAGE value="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt" />
-    <option name="LAST_COMMIT_MESSAGE" value="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt" />
+    <MESSAGE value="den Spielzug des Computers fertig erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="den Spielzug des Computers fertig erstellt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>344</line>
+          <line>339</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <line>148</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>25</line>
-          <option name="timeStamp" value="44" />
+          <line>28</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
+          <line>22</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

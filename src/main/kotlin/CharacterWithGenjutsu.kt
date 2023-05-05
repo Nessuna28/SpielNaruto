@@ -2,40 +2,32 @@ class CharacterWithGenjutsu : Character {
 
     var genjutsu: Int
 
-    constructor(
-        name: String,
-        attack: MutableMap<String, Int>,
-        ninjutsu: MutableMap<String, Int>,
-        weapon: MutableMap<String, Int>,
-        genjutsu: Int,
-    ) :
+    constructor(name: String, attack: MutableMap<String, Int>, ninjutsu: MutableMap<String, Int>, weapon: MutableMap<String, Int>, genjutsu: Int, ) :
             super(name, attack, ninjutsu, weapon) {
 
         this.genjutsu = genjutsu
     }
 
-    // bei der Funktion werden dem Gegner der Wert des Schadens von dem Genjutsu von seinen Lebenspunkten abgezogen
-    // und der Spieler verliert Chakra bei dieser Art Attacke
+    // bei der Funktion wird dem Gegner der Wert des Schadens von dem Genjutsu von seinen Lebenspunkten abgezogen
+    // und der Spieler verliert Chakra um den Wert der Attacke
     // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
     fun attackWithGenjutsu(enemy: Character) {
 
         if (enemy == characterComputer) {
-            if (chakra > 40) {
+            if (chakra > genjutsu) {
                 enemy.lifePoints -= this.genjutsu
-                lostChakra(40)
+                lostChakra(genjutsu)
                 Thread.sleep(2000)
-                println("\nDu hast ein Genjutsu angewendet und dein Gegner muss eine Runde aussetzen.")
                 selectionUserString = "Genjutsu"
             } else {
                 println("\nDu hast nicht genügend Chakra um ein Genjutsu auszuführen. Wähle erneut!")
                 showSelection()
             }
         } else if (enemy == characterUser) {
-            if (chakra > 40) {
+            if (chakra > genjutsu) {
                 enemy.lifePoints -= this.genjutsu
-                lostChakra(40)
+                lostChakra(genjutsu)
                 Thread.sleep(2000)
-                println("\nDer Computer hat ein Genjutsu angewendet und du musst eine Runde aussetzen.")
             } else {
                 attackComputer()
             }
@@ -70,7 +62,7 @@ class CharacterWithGenjutsu : Character {
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackNormal(selectionUserInt, characterComputer)
+                characterUser.attackNormal(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
@@ -81,7 +73,7 @@ class CharacterWithGenjutsu : Character {
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackWithNinjutsu(selectionUserInt, characterComputer)
+                characterUser.attackWithNinjutsu(selectionUserString, selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 3) {
                 println("\nDas hast du zur Auswahl:")
@@ -92,7 +84,7 @@ class CharacterWithGenjutsu : Character {
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackWithWeapon(selectionUserInt, characterComputer)
+                characterUser.attackWithWeapon(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 4) {
                 println("Möchtest du ein Genjutsu anwenden?")

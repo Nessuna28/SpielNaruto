@@ -2,11 +2,11 @@
 
 val naruto = Character("Naruto", mutableMapOf("Taijutsu" to 10), mutableMapOf("sexy Jutsu" to 15, "Rasengan" to 45, "Schattendoppelgänger" to 30), mutableMapOf("Kunai" to 15))
 val sasuke = CharacterWithGenjutsu("Sasuke", mutableMapOf("Taijutsu" to 10), mutableMapOf("Phönixblume" to 40, "Jutsu des flammenden Feuerballs" to 30, "Chidori" to 45), mutableMapOf("Kunai" to 15), 60)
-val sakura = CharacterWithMedicalSkills("Sakura", mutableMapOf("Taijutsu" to 10), mutableMapOf("Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45), mutableMapOf("Kunai" to 15), true)
+val sakura = CharacterWithMedicalSkills("Sakura", mutableMapOf("Taijutsu" to 10), mutableMapOf("Kirschblütenschlag" to 30, "große Sakura" to 15, "Kirschblütenformation" to 45), mutableMapOf("Kunai" to 15), 200)
 
 val shikamaru = Character("Shikamaru", mutableMapOf("Taijutsu" to 10), mutableMapOf("Schattenfessel" to 50, "Schattenwürg" to 35, "Strategie" to 30), mutableMapOf("Kunai" to 15))
 val choji = CharacterWithMoreStrength("Choji", mutableMapOf("Taijutsu" to 10), mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30), mutableMapOf("Kunai" to 15), 15)
-val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 10), mutableMapOf("Gedankenkontroll-Jutsu" to 50, "Schlafbomben-Jutsu" to 20), mutableMapOf("Kunai werfen" to 15), true)
+val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 10), mutableMapOf("Gedankenkontroll-Jutsu" to 50, "Schlafbomben-Jutsu" to 20), mutableMapOf("Kunai werfen" to 15), 100)
 
 
 /*

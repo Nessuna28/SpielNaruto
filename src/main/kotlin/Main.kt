@@ -27,11 +27,6 @@ fun main() {
     do {
         selectionAttackUser()
         attackComputer()
-        if (selectionComputer != "Baumstamm") {
-            println("\nDu hast mit $selectionUserString angegriffen und getroffen. \nDer Computer hat noch ${characterComputer.lifePoints}/500")
-            println("\nDer Computer hat mit $selectionComputer angegriffen. Du hast noch ${characterUser.lifePoints}/500")
-        } else
-            println("\nDer Computer hat $selectionComputer angewendet.")
     } while (characterComputer.lifePoints > 0 || characterUser.lifePoints > 0)
 }
 
@@ -302,7 +297,7 @@ fun characterComputer(){
         val selection = characterList.random()
         characterComputer = selection
         Thread.sleep(2000)
-        println("\nDu trittst an gegen: $blue${selectionComputer.uppercase()} $white")
+        println("\nDu trittst an gegen: $blue${characterComputer.toString().uppercase()} $white")
     }
 }
 

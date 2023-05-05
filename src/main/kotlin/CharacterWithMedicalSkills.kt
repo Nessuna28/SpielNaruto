@@ -1,29 +1,29 @@
 class CharacterWithMedicalSkills: Character {
 
-    var medicalSkills: Boolean
+    var medicalSkills: Int
 
-    constructor(name: String, attack: MutableMap<String, Int>, ninjutsu: MutableMap<String, Int>, weapon: MutableMap<String, Int>, medicalSkills: Boolean):
+    constructor(name: String, attack: MutableMap<String, Int>, ninjutsu: MutableMap<String, Int>, weapon: MutableMap<String, Int>, medicalSkills: Int):
             super(name, attack, ninjutsu, weapon){
 
         this.medicalSkills = medicalSkills
     }
 
-    // diese Funktion ermöglicht es dem Spieler sich zu heilen in dem seinen lifePoints 100 dazu gerechnet werden
-    // aber mehr als 200 (Anfangswert) gehen nicht
-    // diese Fähigkeit verbraucht Chakra
-    fun heal(input: Any) {
+    // diese Funktion ermöglicht es dem Spieler sich zu heilen in dem seinen lifePoints den Wert des Skills dazu gerechnet werden
+    // aber mehr als 500 (Anfangswert) gehen nicht
+    // diese Fähigkeit verbraucht Chakra um den Wert des Skills
+    fun heal(input: String) {
 
         if (input == selectionUserString) {
-            if (this.chakra >= 20) {
-                if (lifePoints < 200) {
-                    this.lifePoints += 100
-                    lostChakra(20)
-                    if (lifePoints > 200) {
-                        lifePoints = 200
+            if (this.chakra >= medicalSkills) {
+                if (lifePoints < lifePointStart) {
+                    this.lifePoints += medicalSkills
+                    lostChakra(medicalSkills)
+                    if (lifePoints > lifePointStart) {
+                        lifePoints = lifePointStart
                     }
                     coloredBar()
                     println("\nDu wurdest geheilt!")
-                } else if (this.lifePoints == 200) {
+                } else if (this.lifePoints == lifePointStart) {
                     println("\nDeine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
                 }
                 selectionUserString = "Heilung"
@@ -32,12 +32,12 @@ class CharacterWithMedicalSkills: Character {
                 showSelection()
             }
         } else if (input == selectionComputer) {
-            if (this.chakra >= 20) {
-                if (lifePoints < 200) {
-                    this.lifePoints += 100
-                    lostChakra(20)
-                    if (lifePoints > 200) {
-                        lifePoints = 200
+            if (this.chakra >= medicalSkills) {
+                if (lifePoints < lifePointStart) {
+                    this.lifePoints += medicalSkills
+                    lostChakra(medicalSkills)
+                    if (lifePoints > lifePointStart) {
+                        lifePoints = lifePointStart
                     }
                     coloredBar()
                     println("\nDer Computer wurde geheilt!")
@@ -97,7 +97,7 @@ class CharacterWithMedicalSkills: Character {
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackNormal(selectionUserInt, characterComputer)
+                characterUser.attackNormal(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
@@ -108,7 +108,7 @@ class CharacterWithMedicalSkills: Character {
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackWithNinjutsu(selectionUserInt, characterComputer)
+                characterUser.attackWithNinjutsu(selectionUserString, selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 3) {
                 println("\nDas hast du zur Auswahl:")
@@ -119,7 +119,7 @@ class CharacterWithMedicalSkills: Character {
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackWithWeapon(selectionUserInt, characterComputer)
+                characterUser.attackWithWeapon(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 4){
                 println("Möchtest du Heilung anwenden?")

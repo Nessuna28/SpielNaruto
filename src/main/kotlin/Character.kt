@@ -5,14 +5,38 @@ open class Character(
     var weapon: MutableMap<String, Int>,
 ) {
 
+    var lifePointStart = 500
     var lifePoints = 500
     var chakra = 500
     var baumstamm = 5
 
-    // Lebenspunkte werden um einen bestimmten Wert verringert
-    fun lostLifePoints(value: Int) {
+    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und der Gegner
+    // Lebenspunkte des Gegners werden um den Wert der Attacke verringert
+    fun lostLifePoints(input: String, enemy: Character) {
 
-        lifePoints -= value
+        if (input != "Baumstamm") {
+            when (input) {
+                this.attack.keys.elementAt(0) -> enemy.lifePoints -= this.attack.values.elementAt(0)
+                this.attack.keys.elementAt(1) -> enemy.lifePoints -= this.attack.values.elementAt(1)
+                this.attack.keys.elementAt(2) -> enemy.lifePoints -= this.attack.values.elementAt(2)
+                this.attack.keys.elementAt(3) -> enemy.lifePoints -= this.attack.values.elementAt(3)
+                this.ninjutsu.keys.elementAt(0) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(0)
+                this.ninjutsu.keys.elementAt(1) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(1)
+                this.ninjutsu.keys.elementAt(2) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(2)
+                this.ninjutsu.keys.elementAt(3) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(3)
+                this.ninjutsu.keys.elementAt(4) -> enemy.lifePoints -= this.ninjutsu.values.elementAt(4)
+                this.weapon.keys.elementAt(0) -> enemy.lifePoints -= this.weapon.values.elementAt(0)
+                this.weapon.keys.elementAt(1) -> enemy.lifePoints -= this.weapon.values.elementAt(1)
+                this.weapon.keys.elementAt(2) -> enemy.lifePoints -= this.weapon.values.elementAt(2)
+                this.weapon.keys.elementAt(3) -> enemy.lifePoints -= this.weapon.values.elementAt(3)
+            }
+        } else {
+            if (enemy == characterUser) {
+                println("\nDer Computer ist ausgewichen.")
+            } else if (enemy == characterComputer) {
+                println("\nDu bist ausgewichen.")
+            }
+        }
     }
 
     // Chakra wird um einen bestimmten Wert verringert
@@ -28,7 +52,6 @@ open class Character(
         if (input == selectionUserInt) {
             if (this.baumstamm > 0) {
                 baumstamm--
-                println("Du bist ausgewichen!")
                 selectionUserString = "Baumstamm"
             } else {
                 println("\nDu hast Baumstamm bereits 5x angewendet und kannst es nicht mehr nutzen. Wähle erneut!")
@@ -37,7 +60,6 @@ open class Character(
         } else if (input == selectionComputer) {
             if (this.baumstamm > 0) {
                 baumstamm--
-                println("Der Computer ist ausgewichen!")
             } else {
                 attackComputer()
             }
@@ -73,7 +95,7 @@ open class Character(
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                attackNormal(selectionUserInt, characterComputer)
+                attackNormal(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
@@ -84,7 +106,7 @@ open class Character(
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                attackWithNinjutsu(selectionUserInt, characterComputer)
+                attackWithNinjutsu(selectionUserString, selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 3) {
                 println("\nDas hast du zur Auswahl:")
@@ -95,7 +117,7 @@ open class Character(
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                attackWithWeapon(selectionUserInt, characterComputer)
+                attackWithWeapon(selectionUserInt)
                 counter = selectionUserInt
             } else {
                 println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
@@ -104,141 +126,96 @@ open class Character(
         } while (counter != selectionUserInt)
     }
 
-    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Spielers und den Gegner
-    // je nach Auswahl wird dem Gegner der Schadenwert der jeweiligen Attacke von seinen Lebenspunkten abgezogen
-    fun attackNormal(input: Any, enemy: Character) {
+    // der Funktion wird ein Parameter mitgegeben, die Eingabe des Spielers
+    // je nach Auswahl der Zahl wird die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
+    fun attackNormal(input: Int) {
 
         when (input) {
-            1 -> {
-                enemy.lifePoints -= this.attack.values.elementAt(0)
-                selectionUserString = this.attack.keys.elementAt(0)
-            }
-
-            2 -> {
-                enemy.lifePoints -= this.attack.values.elementAt(1)
-                selectionUserString = this.attack.keys.elementAt(1)
-            }
-
-            3 -> {
-                enemy.lifePoints -= this.attack.values.elementAt(2)
-                selectionUserString = this.attack.keys.elementAt(2)
-            }
-
-            4 -> {
-                enemy.lifePoints -= this.attack.values.elementAt(3)
-                selectionUserString = this.attack.keys.elementAt(3)
-            }
-
-            this.attack.keys.elementAt(0) -> enemy.lifePoints -= this.attack.values.elementAt(0)
-            this.attack.keys.elementAt(1) -> enemy.lifePoints -= this.attack.values.elementAt(1)
-            this.attack.keys.elementAt(2) -> enemy.lifePoints -= this.attack.values.elementAt(2)
-            this.attack.keys.elementAt(3) -> enemy.lifePoints -= this.attack.values.elementAt(3)
+            1 -> selectionUserString = this.attack.keys.elementAt(0)
+            2 -> selectionUserString = this.attack.keys.elementAt(1)
+            3 -> selectionUserString = this.attack.keys.elementAt(2)
+            4 -> selectionUserString = this.attack.keys.elementAt(3)
         }
     }
 
 
-    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Spielers und den Gegner
-    // je nach Auswahl wird dem Gegner der Schadenwert der jeweiligen Attacke von seinen Lebenspunkten abgezogen
-    // und der Spieler verliert Chakra bei dieser Art Attacke
+    // der Funktion wird ein Parameter mitgegeben, die Eingabe des Spielers
+    // je nach Auswahl wird dem Spieler Chakra abgezogen um den Wert der Attacke und die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
     // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
-    fun attackWithNinjutsu(input: Any, enemy: Character) {
+    fun attackWithNinjutsu(attack: String, input: Int) {
 
-        if (this.chakra >= 20) {
-            when (input) {
-                1 -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(0)
-                    lostChakra(20)
-                    selectionUserString = this.ninjutsu.keys.elementAt(0)
-                }
-
-                2 -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(1)
-                    lostChakra(20)
-                    selectionUserString = this.ninjutsu.keys.elementAt(1)
-                }
-
-                3 -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(2)
-                    lostChakra(20)
-                    selectionUserString = this.ninjutsu.keys.elementAt(2)
-                }
-
-                4 -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(3)
-                    lostChakra(20)
-                    selectionUserString = this.ninjutsu.keys.elementAt(3)
-                }
-
-                5 -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(4)
-                    lostChakra(20)
-                    selectionUserString = this.ninjutsu.keys.elementAt(4)
-                }
-
-                this.ninjutsu.keys.elementAt(0) -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(0)
-                    lostChakra(20)
-                }
-
-                this.ninjutsu.keys.elementAt(1) -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(1)
-                    lostChakra(20)
-                }
-
-                this.ninjutsu.keys.elementAt(2) -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(2)
-                    lostChakra(20)
-                }
-
-                this.ninjutsu.keys.elementAt(3) -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(3)
-                    lostChakra(20)
-                }
-
-                this.ninjutsu.keys.elementAt(4) -> {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(4)
-                    lostChakra(20)
-                }
-            }
-        } else {
             if (input == selectionUserInt) {
-                println("\nDu hast nicht genügend Chakra um Ninjutsus anzuwenden. Wähle erneut!")
-                showSelection()
-            } else if (input == selectionComputer) {
+                when (input) {
+                    1 -> {
+                        selectionUserString = this.ninjutsu.keys.elementAt(0)
+                        notEnoughChakra("user")
+                    }
+
+                    2 -> {
+                        selectionUserString = this.ninjutsu.keys.elementAt(1)
+                        notEnoughChakra("user")
+                    }
+
+                    3 -> {
+                        selectionUserString = this.ninjutsu.keys.elementAt(2)
+                        notEnoughChakra("user")
+                    }
+
+                    4 -> {
+                        selectionUserString = this.ninjutsu.keys.elementAt(3)
+                        notEnoughChakra("user")
+                    }
+
+                    5 -> {
+                        selectionUserString = this.ninjutsu.keys.elementAt(4)
+                        notEnoughChakra("user")
+                    }
+                }
+            } else if (attack == selectionComputer) {
+                when (attack) {
+                    this.ninjutsu.keys.elementAt(0) -> {
+
+                        lostChakra(valueOfAttack)
+                    }
+                    this.ninjutsu.keys.elementAt(1) -> lostChakra(valueOfAttack)
+                    this.ninjutsu.keys.elementAt(2) -> lostChakra(valueOfAttack)
+                    this.ninjutsu.keys.elementAt(3) -> lostChakra(valueOfAttack)
+                    this.ninjutsu.keys.elementAt(4) -> lostChakra(valueOfAttack)
+                }
                 attackComputer()
             }
-        }
     }
 
-    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Spielers und den Gegner
-    // je nach Auswahl wird dem Gegner der Schadenwert der jeweiligen Waffe von seinen Lebenspunkten abgezogen
-    fun attackWithWeapon(input: Any, enemy: Character) {
+    // der Funktion wird ein Parameter mitgegeben, die Eingabe des Spielers
+    // je nach Auswahl wird die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
+    fun attackWithWeapon(input: Int) {
 
         when (input) {
-            1 -> {
-                enemy.lifePoints -= this.weapon.values.elementAt(0)
-                selectionUserString = this.weapon.keys.elementAt(0)
-            }
-
-            2 -> {
-                enemy.lifePoints -= this.weapon.values.elementAt(1)
-                selectionUserString = this.weapon.keys.elementAt(1)
-            }
-
-            3 -> {
-                enemy.lifePoints -= this.weapon.values.elementAt(2)
-                selectionUserString = this.weapon.keys.elementAt(2)
-            }
-
-            4 -> {
-                enemy.lifePoints -= this.weapon.values.elementAt(3)
-                selectionUserString = this.weapon.keys.elementAt(3)
-            }
-
-            this.weapon.keys.elementAt(0) -> enemy.lifePoints -= this.weapon.values.elementAt(0)
-            this.weapon.keys.elementAt(1) -> enemy.lifePoints -= this.weapon.values.elementAt(1)
-            this.weapon.keys.elementAt(2) -> enemy.lifePoints -= this.weapon.values.elementAt(2)
-            this.weapon.keys.elementAt(3) -> enemy.lifePoints -= this.weapon.values.elementAt(3)
+            1 -> selectionUserString = this.weapon.keys.elementAt(0)
+            2 -> selectionUserString = this.weapon.keys.elementAt(1)
+            3 -> selectionUserString = this.weapon.keys.elementAt(2)
+            4 -> selectionUserString = this.weapon.keys.elementAt(3)
         }
     }
+
+    fun notEnoughChakra(input: String){
+
+        var valueOfAttack = 0
+
+        if (input == "user") {
+            valueOfAttack = ninjutsu[selectionUserString]!!
+        } else {
+            valueOfAttack = ninjutsu[selectionComputer]!!
+        }
+        if (this.chakra >= valueOfAttack) {
+            lostChakra(valueOfAttack)
+        } else {
+            if (input == "user") {
+                println("\nDu hast nicht genügend Chakra um Ninjutsus anzuwenden. Wähle erneut!")
+                showSelection()
+            }
+        }
+    }
+
+
 }
