@@ -19,7 +19,7 @@ fun selectionAttackUser() {
                 characterUser.lostLifePoints(selectionUserString, characterComputer)
             }
         } else if (selectionUserInt == 2) {
-            characterUser.baumstamm(selectionUserInt)
+            characterUser.baumstamm("user")
             characterUser.lostLifePoints(selectionUserString, characterComputer)
         }
     }
@@ -82,6 +82,15 @@ fun attackComputer(){
         (characterComputer as CharacterWithGenjutsu).attackWithGenjutsu(characterUser)
     } else if (selectionComputer == "Heilung") {
         (characterComputer as CharacterWithMedicalSkills).heal(selectionComputer)
+    } else if (selectionComputer == "Baumstamm") {
+        characterComputer.baumstamm("com")
     }
 }
 
+fun printCharacterStats(){
+
+}
+
+fun printForDodging(){
+
+}

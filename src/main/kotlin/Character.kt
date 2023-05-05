@@ -10,9 +10,12 @@ open class Character(
     var chakra = 500
     var baumstamm = 5
 
-    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und der Gegner
-    // Lebenspunkte des Gegners werden um den Wert der Attacke verringert
-    fun lostLifePoints(input: String, enemy: Character) {
+    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und den Gegner
+    // wenn der Spieler sich nicht für das Ausweichen entschieden hat, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
+    // wurde vorher das Ausweichen ausgesucht, wird hier ein Boolean zurückgegeben mit dem Wert true
+    fun lostLifePoints(input: String, enemy: Character): Boolean {
+
+        var check = false
 
         if (input != "Baumstamm") {
             when (input) {
@@ -33,10 +36,13 @@ open class Character(
         } else {
             if (enemy == characterUser) {
                 println("\nDer Computer ist ausgewichen.")
+                check = true
             } else if (enemy == characterComputer) {
                 println("\nDu bist ausgewichen.")
+                check = true
             }
         }
+        return check
     }
 
     // Chakra wird um einen bestimmten Wert verringert
@@ -47,23 +53,21 @@ open class Character(
 
     // einfaches Ausweichen
     // der Spieler hat nur 5 Mal die Möglichkeit Baumstamm einzusetzen, nach jedem Mal wird einmal abgezogen
-    fun baumstamm(input: Any) {
+    fun baumstamm(input: String) {
 
-        if (input == selectionUserInt) {
             if (this.baumstamm > 0) {
                 baumstamm--
-                selectionUserString = "Baumstamm"
+                if (input == "user") {
+                    selectionUserString = "Baumstamm"
+                }
             } else {
-                println("\nDu hast Baumstamm bereits 5x angewendet und kannst es nicht mehr nutzen. Wähle erneut!")
-                showSelection()
-            }
-        } else if (input == selectionComputer) {
-            if (this.baumstamm > 0) {
-                baumstamm--
-            } else {
+                if (input == "user") {
+                    println("\nDu hast Baumstamm bereits 5x angewendet und kannst es nicht mehr nutzen. Wähle erneut!")
+                    showSelection()
+                } else {
                 attackComputer()
+                }
             }
-        }
     }
 
     // der Spieler wird gefragt, womit er angreifen möchte
@@ -173,14 +177,11 @@ open class Character(
                 }
             } else if (attack == selectionComputer) {
                 when (attack) {
-                    this.ninjutsu.keys.elementAt(0) -> {
-
-                        lostChakra(valueOfAttack)
-                    }
-                    this.ninjutsu.keys.elementAt(1) -> lostChakra(valueOfAttack)
-                    this.ninjutsu.keys.elementAt(2) -> lostChakra(valueOfAttack)
-                    this.ninjutsu.keys.elementAt(3) -> lostChakra(valueOfAttack)
-                    this.ninjutsu.keys.elementAt(4) -> lostChakra(valueOfAttack)
+                    this.ninjutsu.keys.elementAt(0) -> notEnoughChakra("com")
+                    this.ninjutsu.keys.elementAt(1) -> notEnoughChakra("com")
+                    this.ninjutsu.keys.elementAt(2) -> notEnoughChakra("com")
+                    this.ninjutsu.keys.elementAt(3) -> notEnoughChakra("com")
+                    this.ninjutsu.keys.elementAt(4) -> notEnoughChakra("com")
                 }
                 attackComputer()
             }

@@ -26,7 +26,9 @@ fun main() {
     characterComputer()
     do {
         selectionAttackUser()
+        println("\n${characterComputer.lifePoints}")
         attackComputer()
+        println("\n${characterComputer.lifePoints}")
     } while (characterComputer.lifePoints > 0 || characterUser.lifePoints > 0)
 }
 
@@ -297,7 +299,7 @@ fun characterComputer(){
         val selection = characterList.random()
         characterComputer = selection
         Thread.sleep(2000)
-        println("\nDu trittst an gegen: $blue${characterComputer.toString().uppercase()} $white")
+        println("\nDu trittst an gegen: $blue${characterComputer.name.uppercase()} $white")
     }
 }
 

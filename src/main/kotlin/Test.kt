@@ -16,9 +16,19 @@ fun main() {
 
      */
 
-    selectionUserString = "sexy Jutsu"
-    println(naruto.ninjutsu[selectionUserString])
+    //selectionUserString = "sexy Jutsu"
+    //println(naruto.ninjutsu[selectionUserString])
+
+    nurso("Taijutsu", sasuke)
+    println(sasuke.lifePoints)
+
 }
+    fun nurso(input: String, enemy: Character){
+
+        when (input) {
+            naruto.attack.keys.elementAt(0) -> enemy.lifePoints -= naruto.attack.values.elementAt(0)
+        }
+    }
 
 
 
