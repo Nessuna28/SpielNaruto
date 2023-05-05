@@ -5,8 +5,8 @@ fun selectionAttackUser() {
 
     if (characterUser.name.isNotEmpty()) {
         print("\nMöchtest du (1) angreifen oder (2) ausweichen? Gib die jeweilige Zahl ein: ")
-        inputUserInt = readln().toInt()
-        if (inputUserInt == 1) {
+        selectionUserInt = readln().toInt()
+        if (selectionUserInt == 1) {
             if (characterUser is CharacterWithGenjutsu) {
                characterUser.showSelection()
 
@@ -15,8 +15,8 @@ fun selectionAttackUser() {
             } else {
                 characterUser.showSelection()
             }
-        } else if (inputUserInt == 2) {
-            characterUser.baumstamm()
+        } else if (selectionUserInt == 2) {
+            characterUser.baumstamm(selectionUserInt)
         }
     }
 }
@@ -52,6 +52,7 @@ fun attackComputer(){
         attackList.add("Baumstamm")
         attackList.add("Heilung")
     } else {
+
         for (attack in characterComputer.attack)
             attackList.add(attack.key)
 
@@ -65,5 +66,17 @@ fun attackComputer(){
     }
 
     selectionComputer = attackList.random()
+
+    if (selectionComputer in characterComputer.attack.keys){
+        characterComputer.attackNormal(selectionComputer, characterUser)
+    } else if (selectionComputer in characterComputer.ninjutsu.keys){
+        characterComputer.attackWithNinjutsu(selectionComputer, characterUser)
+    } else if (selectionComputer in characterComputer.weapon.keys) {
+        characterComputer.attackWithWeapon(selectionComputer, characterUser)
+    } else if (selectionComputer == "Genjutsu") {
+        (characterComputer as CharacterWithGenjutsu).attackWithGenjutsu(characterUser)
+    } else if (selectionComputer == "Heilung") {
+        (characterComputer as CharacterWithMedicalSkills).heal(selectionComputer)
+    }
 }
 

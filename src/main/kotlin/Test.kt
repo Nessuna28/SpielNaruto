@@ -6,9 +6,13 @@ fun main() {
 
     //sakura.showSelection()
 
+    var counter = 0
     characterComputer = sakura
-    attackComputer()
-    println(selectionComputer)
+    do {
+        println(selectionComputer)
+        attackComputer()
+        counter++
+    } while (counter < 4)
 }
 
 

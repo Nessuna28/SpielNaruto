@@ -8,7 +8,7 @@ val shikamaru = Character("Shikamaru", mutableMapOf("Taijutsu" to 10), mutableMa
 val choji = CharacterWithMoreStrength("Choji", mutableMapOf("Taijutsu" to 10), mutableMapOf("Fleischbombenpanzer" to 35, "Schmetterlingsflügel" to 45, "Jutsu der Teilentfaltung" to 30), mutableMapOf("Kunai" to 15), 15)
 val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 10), mutableMapOf("Gedankenkontroll-Jutsu" to 50, "Schlafbomben-Jutsu" to 20), mutableMapOf("Kunai werfen" to 15), true)
 
-var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino)
+
 /*
 val teamKakashi = listOf(naruto.name, sasuke.name, sakura.name)
 val teamAsuma = listOf(shikamaru.name, choji.name, ino.name)
@@ -61,6 +61,8 @@ val zouriAndWaraji = listOf(zouri.name, waraji.name)
 
 
  */
+var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino)
+
 val characterNameList = listOf(
     naruto.name, sasuke.name, sakura.name,
     shikamaru.name, choji.name, ino.name

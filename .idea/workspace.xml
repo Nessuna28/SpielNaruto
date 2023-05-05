@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktion der Klassen überarbeitet und eine Funktion für einen farblichen Balken angefangen">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
@@ -270,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683214725961</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt">
+      <created>1683229684245</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683229684245</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -291,15 +298,21 @@
     <MESSAGE value="Funktion showSelection in Klasse character fertig" />
     <MESSAGE value="Funktion der Klassen erweitert" />
     <MESSAGE value="Funktion der Klassen überarbeitet und eine Funktion für einen farblichen Balken angefangen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funktion der Klassen überarbeitet und eine Funktion für einen farblichen Balken angefangen" />
+    <MESSAGE value="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt" />
+    <option name="LAST_COMMIT_MESSAGE" value="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
-          <line>137</line>
-          <option name="timeStamp" value="26" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>344</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>25</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

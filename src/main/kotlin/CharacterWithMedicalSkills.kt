@@ -11,21 +11,41 @@ class CharacterWithMedicalSkills: Character {
     // diese Funktion ermöglicht es dem Spieler sich zu heilen in dem seinen lifePoints 100 dazu gerechnet werden
     // aber mehr als 200 (Anfangswert) gehen nicht
     // diese Fähigkeit verbraucht Chakra
-    fun heal(){
+    fun heal(input: Any) {
 
-        if (lifePoints < 200) {
-            this.lifePoints += 100
-            lostChakra(20)
-
-            if (lifePoints > 200) {
-                lifePoints = 200
+        if (input == selectionUserString) {
+            if (this.chakra >= 20) {
+                if (lifePoints < 200) {
+                    this.lifePoints += 100
+                    lostChakra(20)
+                    if (lifePoints > 200) {
+                        lifePoints = 200
+                    }
+                    coloredBar()
+                    println("\nDu wurdest geheilt!")
+                } else if (this.lifePoints == 200) {
+                    println("\nDeine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
+                }
+                selectionUserString = "Heilung"
+            } else {
+                println("\nDu hast nicht genügend Chakra um dich zu heilen. Wähle erneut!")
+                showSelection()
             }
-            coloredBar()
-            println("\nDu wurdest geheilt!")
-        } else {
-            println("\nDeine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
+        } else if (input == selectionComputer) {
+            if (this.chakra >= 20) {
+                if (lifePoints < 200) {
+                    this.lifePoints += 100
+                    lostChakra(20)
+                    if (lifePoints > 200) {
+                        lifePoints = 200
+                    }
+                    coloredBar()
+                    println("\nDer Computer wurde geheilt!")
+                }
+            } else {
+                attackComputer()
+            }
         }
-        selectionUser = "Heilung"
     }
 
     // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
@@ -66,9 +86,9 @@ class CharacterWithMedicalSkills: Character {
         """.trimIndent()
             )
             print("Gib die jeweilige Zahl ein: ")
-            inputUserInt = readln().toInt()
+            selectionUserInt = readln().toInt()
 
-            if (inputUserInt == 1) {
+            if (selectionUserInt == 1) {
                 println("\nDas hast du zur Auswahl:")
                 var index = 1
                 for (attack in attack.keys) {
@@ -76,10 +96,10 @@ class CharacterWithMedicalSkills: Character {
                     index++
                 }
                 print("Triff deine Auswahl per Zahl: ")
-                inputUserInt = readln().toInt()
-                characterUser.attackNormal(inputUserInt, characterComputer)
-                counter = inputUserInt
-            } else if (inputUserInt == 2) {
+                selectionUserInt = readln().toInt()
+                characterUser.attackNormal(selectionUserInt, characterComputer)
+                counter = selectionUserInt
+            } else if (selectionUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
                 var index = 1
                 for (attack in ninjutsu.keys) {
@@ -87,10 +107,10 @@ class CharacterWithMedicalSkills: Character {
                     index++
                 }
                 print("Triff deine Auswahl per Zahl: ")
-                inputUserInt = readln().toInt()
-                characterUser.attackWithNinjutsu(inputUserInt, characterComputer)
-                counter = inputUserInt
-            } else if (inputUserInt == 3) {
+                selectionUserInt = readln().toInt()
+                characterUser.attackWithNinjutsu(selectionUserInt, characterComputer)
+                counter = selectionUserInt
+            } else if (selectionUserInt == 3) {
                 println("\nDas hast du zur Auswahl:")
                 var index = 1
                 for (attack in weapon.keys) {
@@ -98,16 +118,16 @@ class CharacterWithMedicalSkills: Character {
                     index++
                 }
                 print("Triff deine Auswahl per Zahl: ")
-                inputUserInt = readln().toInt()
-                characterUser.attackWithWeapon(inputUserInt, characterComputer)
-                counter = inputUserInt
-            } else if (inputUserInt == 4){
+                selectionUserInt = readln().toInt()
+                characterUser.attackWithWeapon(selectionUserInt, characterComputer)
+                counter = selectionUserInt
+            } else if (selectionUserInt == 4){
                 println("Möchtest du Heilung anwenden?")
                 print("Gib ein ja oder nein: ")
-                inputUserString = readln().lowercase()
-                if (inputUserString == "ja"){
-                    heal()
-                    counter = inputUserInt
+                selectionUserString = readln().lowercase()
+                if (selectionUserString == "ja"){
+                    heal(selectionUserString)
+                    counter = selectionUserInt
                 } else {
                     continue
                 }
@@ -115,7 +135,7 @@ class CharacterWithMedicalSkills: Character {
                 println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
-        } while (counter != inputUserInt)
+        } while (counter != selectionUserInt)
     }
 
 
