@@ -51,26 +51,27 @@ class CharacterWithMedicalSkills: Character {
     // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
     fun coloredBar(){
 
-        var coloredBar = StringBuilder()
-        coloredBar.append("|")
+        val life = lifePoints / 50
+        val to = life + (medicalSkills / 50)
+        val end = lifePointStart / 50
 
-        val life = lifePoints / 25
-        val to = life + (medicalSkills / 25)
-        val end = lifePointStart / 25
+        var coloredBar = StringBuilder()
+        coloredBar.append("$greyBackground| | | | | | | | | | ")
+
+        print(coloredBar)
 
         for (point in 0..life){
-            coloredBar.append(" |")
-        }
-        Thread.sleep(2000)
-
-        for (point in 0..end){
-            if (point <= to){
-                print("\r$blueBackground$coloredBar")
-            } else if (point > to){
-                print("\r$greenBackground$coloredBar$white")
+            if (point < end){
+                coloredBar.append("$blueBackground | |")
+                print("\r$coloredBar")
+                Thread.sleep(800)
             }
-            coloredBar.append(" |")
-            Thread.sleep(800)
+
+            if (point > to){
+                coloredBar.append("$greenBackground | |")
+                print("\r$coloredBar")
+                Thread.sleep(800)
+            }
         }
     }
 

@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Fehler in Funktion lostLifePoints behoben">
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683311998796</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Fehler in Funktion lostLifePoints behoben">
+      <created>1683320522753</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1683320522753</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -321,7 +323,8 @@
     <MESSAGE value="den Spielzug des Computers fertig erstellt" />
     <MESSAGE value="die Funktionen umgebaut zwecks Logik beim Angriff" />
     <MESSAGE value="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe" />
-    <option name="LAST_COMMIT_MESSAGE" value="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe" />
+    <MESSAGE value="Fehler in Funktion lostLifePoints behoben" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fehler in Funktion lostLifePoints behoben" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
