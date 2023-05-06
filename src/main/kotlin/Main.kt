@@ -36,9 +36,9 @@ fun main() {
         selectionAttackUser()
         grafikForAttack()
         attackComputer()
+        defensePrint()
         wichAttackUserPrint()
         whichAttackComputerPrint()
-        defensePrint()
         valueOfCharacterPrint()
     } while (characterComputer.lifePoints > 0 || characterUser.lifePoints > 0)
 
@@ -128,7 +128,7 @@ fun favoriteColorUser() {
     println("""
         
         Welche ist deine Lieblingsfarbe?
-        ${red}rot$reset, ${green}grün$reset, ${yellow}gelb$reset, ${blue}blau$reset, ${magenta}magenta$reset, ${cyan}cyan
+        ${red}rot$reset, ${green}grün$reset, ${yellow}gelb$reset, ${blue}blau$reset, ${magenta}magenta$reset, ${cyan}cyan $reset
     """.trimIndent())
     print("Wähle deine Farbe! : ")
     val color = readln()
@@ -147,7 +147,7 @@ fun favoriteColorUser() {
 fun askListenRules() {
 
     Thread.sleep(2000)
-    print("\nHallo ${nameUser}, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
+    print("\nHallo $favoriteColorUser${nameUser}$reset, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
     selectionUserString = readln().lowercase()
 
     if (selectionUserString == "ja")
@@ -418,7 +418,7 @@ fun grafik(selectionPlayer: String){
     when (selectionPlayer) {
         "naruto" -> println(
             """
-                
+            $favoriteColorUser    
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⡀⠑⠒⠀⠠⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣘⠖⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠴⡖⠒⠒⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀
@@ -444,13 +444,13 @@ fun grafik(selectionPlayer: String){
         ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢠⠃⠀⠀⣿⣶⣶⣶⣶⠖⠁⠀⠀⡄⠐⠃⠀⠀⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀
         ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢁⠎⠀⠀⣸⠿⠟⠛⠛⢣⠀⢀⣴⡟⠁⠀⢀⣀⡠⢤⣀⣀⠀⠀⠀⠀⠀⠀⠀
         ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠎⠀⡀⣠⡿⠒⠢⡀⣠⠎⠀⢸⡏⠀⢀⠴⣯⣅⢀⢀⡉⣀⠀⣀⣨⣿⣿⣿⣿
-        
+        $reset
     """.trimIndent()
         )
 
         "sasuke" -> println(
             """
-                
+            $favoriteColorUser    
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀
@@ -476,13 +476,13 @@ fun grafik(selectionPlayer: String){
         ⠀⠀⠀⠣⡀⢣⠀⠀⠀⠀⠀⡋⠁⠀⡴⠚⠁⠀⠀⠀⠀⠈⡄⠑⠢⢄⣀⣀⣀⣀⠤⠒⠋⠁⠀⢸⠀⠂⣒⡇⠀⡼⠑⡄⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠑⠄⢂⠀⠀⢀⠞⢁⠴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⢀⠎⠀⠀⠘⠀⠈⠿⠀⡜⠁⠀⢸⡀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠈⣮⢦⣠⣷⠚⠁⠀⠀⠀⠀⢀⠀⠂⠀⠀⠀⠀⠈⢦⡀⠀⠀⠀⠀⠠⠀⠀⣀⠀⡇⠀⠀⢀⡜⠀⠀⠀⡸⠁⠈⠐⠂⢀
-        
+        $reset
     """.trimIndent()
         )
 
         "sakura" -> println(
             """
-                
+            $favoriteColorUser    
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠃⢺⠱⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣇⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡜⠀⡇⢸⠀⠘⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠁⠀⡇⢸⠀⠀⠈⢧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣇⠀⠀⠀⠀⠀
@@ -516,13 +516,13 @@ fun grafik(selectionPlayer: String){
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⣿⣿⣿⣯⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣠⣤⣤⣤⣴⣶⣿⣿⣿⣿⣿⣿⣿⣿⣷⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀
         ⠀⠀⢀⠀⠀⠀⠀⠀⠠⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀
-        ⠀
+        ⠀$reset
     """.trimIndent()
         )
 
         "shikamaru" -> println(
             """
-                
+            $favoriteColorUser    
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⡀⠀⠀⠀⠀⢠⡦⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⡄⠀⣾⣿⣿⣿⣿⣇⠀⠀⢀⣴⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
         ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣾⣿⣿⣿⣿⣿⣿⣤⣴⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -556,7 +556,7 @@ fun grafik(selectionPlayer: String){
         ⠀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀⠀⣷⠀⠀⢸⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠙⠒⠿⠶⠶⢺⣿⡇⠀⠀⣎⡇⠀⢠⡗⡟⠀⠀⠀⠀
         ⠀⠀⠀⠀⢀⡠⠔⠛⠁⡇⠀⠀⠀⠀⡿⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠄⠀⠀⢹⠁⠀⢠⢿⠀⠠⠎⣴⡷⣄⠀⠀⠀
         ⣀⠀⠠⠒⠁⠀⠀⠀⠀⢸⠀⠀⠀⠀⠇⠂⠀⠸⡇⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⢠⠎⠀⠀⠀⡼⠀⠀⡿⡟⠀⢐⢦⡟⠀⠀⠙⢦⣄
-        
+        $reset
     """.trimIndent()
         )
     }

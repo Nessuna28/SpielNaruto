@@ -14,14 +14,14 @@ open class Character(
     // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und den Gegner
     // wenn der Spieler sich nicht für das Ausweichen entschieden hat, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
     // zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert
-    fun lostLifePoints(inputAttack: String, enemy: Character) {
+    fun lostLifePoints(attackUser: String, attackComputer: String, enemy: Character) {
 
-        if (inputAttack != "Baumstamm") {
+        if (attackUser != "Baumstamm" || attackComputer != "Baumstamm") {
 
             var index = 0
 
             for (attack in this.attack.keys) {
-                if (inputAttack == attack) {
+                if (attackUser == attack) {
                     enemy.lifePoints -= this.attack.values.elementAt(index)
                     break
                 }
@@ -30,7 +30,7 @@ open class Character(
 
             index = 0
             for (attack in ninjutsu.keys) {
-                if (inputAttack == attack) {
+                if (attackUser == attack) {
                     enemy.lifePoints -= this.ninjutsu.values.elementAt(index)
                     break
                 }
@@ -39,7 +39,7 @@ open class Character(
 
             index = 0
             for (attack in weapon.keys) {
-                if (inputAttack == attack) {
+                if (attackUser == attack) {
                     enemy.lifePoints -= this.weapon.values.elementAt(index)
                     break
                 }

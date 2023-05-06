@@ -4,15 +4,16 @@ fun fight() {}
 fun selectionAttackUser() {
 
     if (characterUser.name.isNotEmpty()) {
-        print("\nMöchtest du (1) angreifen oder (2) ausweichen? Gib die jeweilige Zahl ein: ")
+        print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
         selectionUserInt = readln().toInt()
         if (selectionUserInt == 1) {
             characterUser.showSelection()
-            characterUser.lostLifePoints(selectionUserString, characterComputer)
-            }
+            characterUser.lostLifePoints(selectionUserString, selectionComputer, characterComputer)
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm("user")
+            characterUser.lostLifePoints(selectionUserString, selectionComputer, characterComputer)
         }
+    }
 }
 
 // diese Funktion wählt ein Angriff oder Verteidigung per Zufall aus je nachdem welchen Charakter der Computer hat
@@ -70,7 +71,7 @@ fun attackComputer(){
     if (selectionComputer == "Baumstamm")
         characterComputer.baumstamm("com")
 
-    characterComputer.lostLifePoints(selectionComputer, characterUser)
+    characterComputer.lostLifePoints(selectionUserString, selectionComputer, characterUser)
 }
 
 // diese Funktion zeigt die Spielerdaten in einer Println an
@@ -79,12 +80,12 @@ fun valueOfCharacterPrint(){
     println("""
         
     -------------------------------------------------------------------------------------------------------------------------------------------------------    
-    Spieler 1:     $magenta$nameUser ${reset}                                                    |          Spieler 2:     ${blue}Computer $reset
-                                                                                                 |
-    Charakter:     $magenta${characterUser.name} ${reset}                                        |          Charakter:     $blue${characterComputer.name} $reset
-    Lebenspunkte:  $magenta${characterUser.lifePoints} $reset/ ${characterUser.lifePointStart}   |          Lebenspunkte:  $blue${characterComputer.lifePoints} $reset/ ${characterComputer.lifePointStart}
-    Chakra:        $magenta${characterUser.chakra} $reset/ ${characterUser.chakraStart}          |          Chakra:        $blue${characterComputer.chakra} $reset/ ${characterComputer.chakraStart}
-    Baumstamm:     $magenta${characterUser.baumstamm} $reset/ 5                                  |          Baumstamm:     $blue${characterComputer.baumstamm} $reset/ 5
+    Spieler 1:     $favoriteColorUser$nameUser ${reset}          |          Spieler 2:     ${blue}Computer $reset
+                                  |
+    Charakter:     $favoriteColorUser${characterUser.name} ${reset}        |          Charakter:     $blue${characterComputer.name} $reset
+    Lebenspunkte:  $favoriteColorUser${characterUser.lifePoints} $reset/ ${characterUser.lifePointStart}      |          Lebenspunkte:  $blue${characterComputer.lifePoints} $reset/ ${characterComputer.lifePointStart}
+    Chakra:        $favoriteColorUser${characterUser.chakra} $reset/ ${characterUser.chakraStart}      |          Chakra:        $blue${characterComputer.chakra} $reset/ ${characterComputer.chakraStart}
+    Baumstamm:     $favoriteColorUser${characterUser.baumstamm} $reset/ 5          |          Baumstamm:     $blue${characterComputer.baumstamm} $reset/ 5
     -------------------------------------------------------------------------------------------------------------------------------------------------------
     """.trimIndent())
 }
@@ -97,14 +98,14 @@ fun defensePrint() {
                 println("\nDer Computer ist ebenfalls ausgewichen")
             } else {
                 if (selectionUserString != "Heilung") {
-                    println("\nDu wolltest mit $favoriteColorUser$selectionUserString$reset angreifen aber der Computer ist ausgewichen.")
+                    println("\nDu wolltest mit ${favoriteColorUser}${selectionUserString}${reset} angreifen aber der Computer ist ausgewichen.")
                 } else {
                     println("\nDer Computer ist ausgewichen.")
                 }
             }
     } else {
         if (selectionUserString == "Baumstamm") {
-            println("\nDer Computer wollte mit $blue$selectionComputer$reset angreifen aber du bist ausgewichen. \uD83D\uDE1D")
+            println("\nDer Computer wollte mit ${blue}${selectionComputer}${reset} angreifen aber du bist ausgewichen. \uD83D\uDE1D")
     }
     }
 }
@@ -112,8 +113,13 @@ fun defensePrint() {
 // diese Funktion gibt die Attacke des Spielers in einer Println aus, wenn der Gegner nicht ausgewichen ist oder der Spieler Heilung benutzt hat
 fun wichAttackUserPrint(){
 
-    if (selectionUserString != "Baumstamm" && selectionUserString != "Heilung" && selectionComputer != "Baumstamm") {
-        println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen und deinen Gegner getroffen.")
+    if (selectionUserInt != 2) {
+        if (selectionUserString != "Baumstamm" && selectionUserString != "Heilung" && selectionComputer != "Baumstamm") {
+            println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen und deinen Gegner getroffen.")
+            if (selectionComputer == "Heilung") {
+                println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen aber der Gegner hat sich geheilt.")
+            }
+        }
     }
 }
 
@@ -134,7 +140,7 @@ fun grafikForAttack(){
     if (selectionUserString.lowercase().contains("bombe"))
         println("\n        \uD83D\uDCA3 \n")
 
-    if (selectionUserString.lowercase().contains("baumstamm"))
+    if (selectionUserString.lowercase().contains("baum"))
         println("\n        \uD83E\uDEB5 \n")
 
     if (selectionUserString.lowercase().contains("blüte"))
