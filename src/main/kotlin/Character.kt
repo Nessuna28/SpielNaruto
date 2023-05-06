@@ -57,6 +57,34 @@ open class Character(
         chakra -= value
     }
 
+    // Chakra läd sich auf, wenn der Angriff keine Attacke ist die Chakra verbraucht
+    fun loadChakra(selectAttack: String) {
+
+        for (attack in this.attack.keys) {
+            if (attack == selectAttack) {
+                if (chakra < chakraStart) {
+                    chakra += 10
+                    if (chakra > chakraStart) {
+                        chakra = chakraStart
+                    }
+                }
+                break
+            }
+        }
+
+        for (attack in weapon.keys) {
+            if (attack == selectAttack) {
+                if (chakra < chakraStart) {
+                    chakra += 10
+                    if (chakra > chakraStart) {
+                        chakra = chakraStart
+                    }
+                }
+                break
+            }
+        }
+    }
+
     // einfaches Ausweichen
     // der Spieler hat nur 5 Mal die Möglichkeit Baumstamm einzusetzen, nach jedem Mal wird einmal abgezogen
     fun baumstamm(input: String) {

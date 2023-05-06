@@ -9,16 +9,17 @@ fun selectionAttackUser() {
         if (selectionUserInt == 1) {
             characterUser.showSelection()
             characterUser.lostLifePoints(selectionUserString, selectionComputer, characterComputer)
+            characterComputer.lostLifePoints(selectionUserString, selectionComputer, characterUser)
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm("user")
             characterUser.lostLifePoints(selectionUserString, selectionComputer, characterComputer)
+            characterComputer.lostLifePoints(selectionUserString, selectionComputer, characterUser)
         }
     }
 }
 
 // diese Funktion wählt ein Angriff oder Verteidigung per Zufall aus je nachdem welchen Charakter der Computer hat
 // und speichert die Auswahl dann in der Variablen selectionComputer, in der Main
-// am Ende wird die Funktion zum Punkte abziehen, aufgerufen
 fun attackComputer(){
 
     val attackList = mutableListOf<String>()
@@ -71,7 +72,8 @@ fun attackComputer(){
     if (selectionComputer == "Baumstamm")
         characterComputer.baumstamm("com")
 
-    characterComputer.lostLifePoints(selectionUserString, selectionComputer, characterUser)
+    characterUser.loadChakra(selectionUserString)
+    characterComputer.loadChakra(selectionComputer)
 }
 
 // diese Funktion zeigt die Spielerdaten in einer Println an
