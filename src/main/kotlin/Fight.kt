@@ -12,12 +12,12 @@ fun selectionAttackUser() {
             }
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm("user")
-            characterUser.lostLifePoints(selectionUserString, characterComputer)
         }
 }
 
 // diese Funktion wählt ein Angriff oder Verteidigung per Zufall aus je nachdem welchen Charakter der Computer hat
-// und speichert die Auswahl dan in der Variablen selectionComputer in der Main
+// und speichert die Auswahl dann in der Variablen selectionComputer, in der Main
+// am Ende wird die Funktion zum Punkte abziehen, aufgerufen
 fun attackComputer(){
 
     val attackList = mutableListOf<String>()
@@ -47,7 +47,6 @@ fun attackComputer(){
         attackList.add("Baumstamm")
         attackList.add("Heilung")
     } else {
-
         for (attack in characterComputer.attack)
             attackList.add(attack.key)
 
@@ -62,35 +61,30 @@ fun attackComputer(){
 
     selectionComputer = attackList.random()
 
-    if (selectionComputer in characterComputer.attack.keys){
-        characterComputer.lostLifePoints(selectionComputer, characterUser)
-    } else if (selectionComputer in characterComputer.ninjutsu.keys){
-        characterComputer.attackWithNinjutsu(selectionComputer, 0)
-        characterComputer.lostLifePoints(selectionComputer, characterUser)
-    } else if (selectionComputer in characterComputer.weapon.keys) {
-        characterComputer.lostLifePoints(selectionComputer, characterUser)
-    } else if (selectionComputer == "Genjutsu") {
+    if (selectionComputer == "Genjutsu")
         (characterComputer as CharacterWithGenjutsu).attackWithGenjutsu(characterUser)
-    } else if (selectionComputer == "Heilung") {
+
+    if (selectionComputer == "Heilung")
         (characterComputer as CharacterWithMedicalSkills).heal(selectionComputer)
-    } else if (selectionComputer == "Baumstamm") {
+
+    if (selectionComputer == "Baumstamm")
         characterComputer.baumstamm("com")
 
-    }
+    characterComputer.lostLifePoints(selectionComputer, characterUser)
 }
 
-// diese Funktion zeigt die Spielerdaten in einer Printline an
+// diese Funktion zeigt die Spielerdaten in einer Println an
 fun valueOfCharacterPrint(){
 
     println("""
         
     -------------------------------------------------------------------------------------------------------------------------------------------------------    
-        Spieler 1:     $magenta$nameUser ${white}     |       Spieler 2:     ${blue}Computer $white
-    
-        Charakter:     $magenta${characterUser.name} ${white}     |     Charakter:     $blue${characterComputer.name} $white
-        Lebenspunkte:  $magenta${characterUser.lifePoints} $white/ ${characterUser.lifePointStart}     Lebenspunkte:  $blue${characterComputer.lifePoints} $white/ ${characterComputer.lifePointStart}
-        Chakra:        $magenta${characterUser.chakra} $white/ ${characterUser.chakraStart}     |     Chakra:        $blue${characterComputer.chakra} $white/ ${characterComputer.chakraStart}
-        Baumstamm:     $magenta${characterUser.baumstamm} $white/ 5     |     Baumstamm:     $blue${characterComputer.baumstamm} $white/ 5
+    Spieler 1:     $magenta$nameUser ${reset}                                                    |          Spieler 2:     ${blue}Computer $reset
+                                                                                                 |
+    Charakter:     $magenta${characterUser.name} ${reset}                                        |          Charakter:     $blue${characterComputer.name} $reset
+    Lebenspunkte:  $magenta${characterUser.lifePoints} $reset/ ${characterUser.lifePointStart}   |          Lebenspunkte:  $blue${characterComputer.lifePoints} $reset/ ${characterComputer.lifePointStart}
+    Chakra:        $magenta${characterUser.chakra} $reset/ ${characterUser.chakraStart}          |          Chakra:        $blue${characterComputer.chakra} $reset/ ${characterComputer.chakraStart}
+    Baumstamm:     $magenta${characterUser.baumstamm} $reset/ 5                                  |          Baumstamm:     $blue${characterComputer.baumstamm} $reset/ 5
     -------------------------------------------------------------------------------------------------------------------------------------------------------
     """.trimIndent())
 }
@@ -102,22 +96,36 @@ fun defensePrint() {
             if (selectionUserString == "Baumstamm") {
                 println("\nDer Computer ist ebenfalls ausgewichen")
             } else {
-                println("\nDu wolltest mit $selectionUserString angreifen aber der Computer ist ausgewichen.")
+                if (selectionUserString != "Heilung") {
+                    println("\nDu wolltest mit $favoriteColorUser$selectionUserString$reset angreifen aber der Computer ist ausgewichen.")
+                } else {
+                    println("\nDer Computer ist ausgewichen.")
+                }
             }
     } else {
         if (selectionUserString == "Baumstamm") {
-            println("\nDer Computer wollte mit $selectionComputer angreifen aber du bist ausgewichen. \uD83D\uDE1D")
+            println("\nDer Computer wollte mit $blue$selectionComputer$reset angreifen aber du bist ausgewichen. \uD83D\uDE1D")
     }
     }
 }
 
+// diese Funktion gibt die Attacke des Spielers in einer Println aus, wenn der Gegner nicht ausgewichen ist oder der Spieler Heilung benutzt hat
+fun wichAttackUserPrint(){
+
+    if (selectionUserString != "Baumstamm" && selectionUserString != "Heilung" && selectionComputer != "Baumstamm") {
+        println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen und deinen Gegner getroffen.")
+    }
+}
+
+// diese Funktion gibt die Attacke des Computers in einer Println aus, wenn der Spieler nicht ausgewichen ist oder der Computer Heilung benutzt hat
 fun whichAttackComputerPrint(){
 
     if (selectionComputer != "Baumstamm" && selectionComputer != "Heilung" && selectionUserString != "Baumstamm") {
-        println("\nDer Computer hat mit $selectionComputer angegriffen und dich getroffen.")
+        println("Der Computer hat mit $blue$selectionComputer$reset angegriffen und dich getroffen.")
     }
 }
 
+// diese Funktion gibt kleine Bildchen aus für die jeweiligen Attacken des Spielers
 fun grafikForAttack(){
 
     if (selectionUserString.lowercase().contains("feuer"))
@@ -151,7 +159,7 @@ fun winOrLosePrint(){
     if (characterComputer.lifePoints == 0) {
         println("\nDer Computer ist gefallen und steht nicht mehr auf.")
         Thread.sleep(2000)
-        println("\n      \uD83C\uDFC6 \n\uD83C\uDF87 Super! Du hast gewonnen. \uD83C\uDF87")
+        println("\n      \uD83C\uDFC6 \n\uD83C\uDF87 ${favoriteColorUser} Super! Du hast gewonnen. $reset \uD83C\uDF87")
         println("""
             
                  (((  
@@ -162,7 +170,7 @@ fun winOrLosePrint(){
     } else if (characterUser.lifePoints == 0){
         println("\n Du bist gefallen und stehst nicht mehr auf.")
         Thread.sleep(2000)
-        println("\n\uD83D\uDE14 Schade! Du hast leider verloren \uD83D\uDE14")
+        println("\n\uD83D\uDE14 ${favoriteColorUser} Schade! Du hast leider verloren. $reset \uD83D\uDE14")
         println("""
                !!!                   
               `  /_\  '

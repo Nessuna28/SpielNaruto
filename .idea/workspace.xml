@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktion eingebaut für die jeweiligen Prints">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Grafiken eingebaut und kleine Fehler behoben">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
@@ -331,11 +328,17 @@
       <option name="project" value="LOCAL" />
       <updated>1683389590915</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Grafiken eingebaut und kleine Fehler behoben">
+      <created>1683396755757</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1683396755757</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Spiel weiter bearbeitet" />
     <MESSAGE value="Funktion Charakter für den Com erstellt" />
     <MESSAGE value="Klassen überarbeitet" />
     <MESSAGE value="Klassen überarbeitet und Funktionen hinzugefügt" />
@@ -360,19 +363,20 @@
     <MESSAGE value="Funktion printForDodging fertig" />
     <MESSAGE value="Funktion greeting geändert" />
     <MESSAGE value="Funktion eingebaut für die jeweiligen Prints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funktion eingebaut für die jeweiligen Prints" />
+    <MESSAGE value="Grafiken eingebaut und kleine Fehler behoben" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grafiken eingebaut und kleine Fehler behoben" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>365</line>
+          <line>368</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
-          <line>152</line>
+          <line>155</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">

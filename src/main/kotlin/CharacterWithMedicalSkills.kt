@@ -22,7 +22,7 @@ class CharacterWithMedicalSkills: Character {
                         lifePoints = lifePointStart
                     }
                     coloredBar()
-                    println("\n\uD83D\uDCAA\uD83C\uDFFC Du wurdest geheilt!")
+                    println("\n\uD83D\uDCAA\uD83C\uDFFC ${favoriteColorUser} Du wurdest geheilt! $reset")
                 } else if (this.lifePoints == lifePointStart) {
                     println("\n\uD83E\uDD14 Deine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
                 }
@@ -39,7 +39,7 @@ class CharacterWithMedicalSkills: Character {
                     if (lifePoints > lifePointStart) {
                         lifePoints = lifePointStart
                     }
-                    println("\nDer Computer wurde geheilt!")
+                    println("\n${blue}Der Computer wurde geheilt! $reset")
                 }
             } else {
                 attackComputer()
@@ -61,13 +61,13 @@ class CharacterWithMedicalSkills: Character {
 
         for (point in 0..life){
             if (point < end){
-                coloredBar.append("$blueBackground | |$white")
+                coloredBar.append("$blueBackground | |$reset")
                 print("\r$coloredBar")
                 Thread.sleep(800)
             }
 
             if (point > to){
-                coloredBar.append("$greenBackground | |$white")
+                coloredBar.append("$greenBackground | |$reset")
                 print("\r$coloredBar")
                 Thread.sleep(800)
 

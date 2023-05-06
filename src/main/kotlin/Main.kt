@@ -1,7 +1,10 @@
-val white = "\u001b[0m"
+val reset = "\u001b[0m"
 val magenta = "\u001b[35m"
 val blue = "\u001b[34m"
 val green = "\u001b[32m"
+val red = "\u001b[31m"
+val yellow = "\u001b[33m"
+val cyan = "\u001b[36m"
 val greyBackground = "\u001b[47m"
 val greenBackground = "\u001b[42m"
 val blueBackground = "\u001b[44m"
@@ -13,6 +16,7 @@ val blackBackground = "\u001b[40m"
 var selectionUserString = ""
 var selectionUserInt = 0
 var nameUser = ""
+var favoriteColorUser = ""
 var characterUser = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
 var teamUser = mutableListOf<Character>()
 var characterComputer = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
@@ -32,6 +36,7 @@ fun main() {
         selectionAttackUser()
         grafikForAttack()
         attackComputer()
+        wichAttackUserPrint()
         whichAttackComputerPrint()
         defensePrint()
         valueOfCharacterPrint()
@@ -98,12 +103,48 @@ fun greeting() {
                       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛🟦🟦⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜🟦🟦🟦🟦🟦⬛⬜
                       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛🏻🏻⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛🟦🟦🟦🟦⬛⬛
                       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛🏻🏻🏽🏻🏼⬛
-                      ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛⬛$white
+                      ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛⬛$reset
     """.trimIndent())
+
+    playerNameUser()
+
+    favoriteColorUser()
+
+   askListenRules()
+}
+
+// der Spieler wird aufgefordert einen Spielernamen einzugeben
+fun playerNameUser() {
 
     Thread.sleep(2000)
     print("\nWie ist dein Spielername? : ")
     nameUser = readln()
+}
+
+// der Spieler wird nach seiner Lieblingsfarbe gefragt
+// diese wird dann gespeichert und eingesetzt als Akzentfarbe für die Ausgabe seiner Daten
+fun favoriteColorUser() {
+
+    println("""
+        
+        Welche ist deine Lieblingsfarbe?
+        ${red}rot$reset, ${green}grün$reset, ${yellow}gelb$reset, ${blue}blau$reset, ${magenta}magenta$reset, ${cyan}cyan
+    """.trimIndent())
+    print("Wähle deine Farbe! : ")
+    val color = readln()
+
+    when (color) {
+        "rot" -> favoriteColorUser = red
+        "grün" -> favoriteColorUser = green
+        "gelb" -> favoriteColorUser = yellow
+        "blau" -> favoriteColorUser = blue
+        "magenta" -> favoriteColorUser = magenta
+        "cyan" -> favoriteColorUser = cyan
+    }
+}
+
+// der Spieler wird gefragt ob er die Regeln hören möchte
+fun askListenRules() {
 
     Thread.sleep(2000)
     print("\nHallo ${nameUser}, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
@@ -206,7 +247,7 @@ fun selectionCharacter() {
             Die Charaktere die du zur Auswahl hast sind: $blue
             ${characterNameList.slice(0..3)}
             ${characterNameList.slice(4..5)}
-            $white
+            $reset
         """.trimIndent()
     )
 
@@ -217,7 +258,7 @@ fun selectionCharacter() {
         val lowercaseList = listToLowercaselist(characterNameList)
 
         if (lowercaseList.contains(selectionUserString)) {
-            println("\nSuper! Du hast dich für $magenta${selectionUserString.uppercase()} ${white}entschieden.")
+            println("\nSuper! Du hast dich für $favoriteColorUser{selectionUserString.uppercase()} ${reset}entschieden.")
             setCharacterForUser(selectionUserString)
             grafik(selectionUserString)
             break
@@ -244,7 +285,7 @@ fun selectionTeam(){
             ${characterNameList.slice(0..3)}
             ${characterNameList.slice(4..5)}
             
-            $white
+            $reset
         """.trimIndent()
     )
 
@@ -256,7 +297,7 @@ fun selectionTeam(){
         val lowercaseList = listToLowercaselist(characterNameList)
 
         if (inputList[0] in lowercaseList && inputList[1] in lowercaseList && inputList[2] in lowercaseList) {
-            println("\nSuper! Du hast dich für $magenta${selectionUserString.uppercase()} ${white}entschieden.")
+            println("\nSuper! Du hast dich für $favoriteColorUser${selectionUserString.uppercase()} ${reset}entschieden.")
 
             for (character in inputList){
                 setCharacterForUser(character)
@@ -281,7 +322,7 @@ fun randomGeneratorForOneCharacter() {
 
     Thread.sleep(2000)
 
-    println("Dein Charakter ist $magenta${characterForRandom.uppercase()} $white")
+    println("Dein Charakter ist $favoriteColorUser${characterForRandom.uppercase()} $reset")
     setCharacterForUser(characterForRandom.lowercase())
     grafik(characterForRandom.lowercase())
 }
@@ -301,7 +342,7 @@ fun randomGeneratorForTeam(){
         }
     }
     Thread.sleep(2000)
-    println("Deine Charaktere sind: $magenta${listOfCharactersForRandom.toString().uppercase()} $white")
+    println("Deine Charaktere sind: $favoriteColorUser${listOfCharactersForRandom.toString().uppercase()} $reset")
 }
 
 // die Auswahl für den Computer wird per Zufallsgenerator, je nachdem ob Team oder einzelner Charakter, getroffen
@@ -320,12 +361,12 @@ fun characterComputer(){
             }
         }
         Thread.sleep(2000)
-        println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $white")
+        println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $reset")
     } else {
         val selection = characterList.random()
         characterComputer = selection
         Thread.sleep(2000)
-        println("\nDu trittst an gegen: $blue${characterComputer.name.uppercase()} $white")
+        println("\nDu trittst an gegen: $blue${characterComputer.name.uppercase()} $reset")
     }
 }
 
