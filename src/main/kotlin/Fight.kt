@@ -9,19 +9,6 @@ fun selectionAttackUser() {
         if (selectionUserInt == 1) {
             characterUser.showSelection()
             characterUser.lostLifePoints(selectionUserString, characterComputer)
-            /*
-            if (characterUser is CharacterWithGenjutsu) {
-               characterUser.showSelection()
-                characterUser.lostLifePoints(selectionUserString, characterComputer)
-
-            } else if (characterUser is CharacterWithMedicalSkills) {
-                characterUser.showSelection()
-                characterUser.lostLifePoints(selectionUserString, characterComputer)
-            } else {
-                characterUser.showSelection()
-                characterUser.lostLifePoints(selectionUserString, characterComputer)
-
-             */
             }
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm("user")
@@ -96,12 +83,14 @@ fun attackComputer(){
 fun valueOfCharacterPrint(){
 
     println("""
-        Spieler 1:                                                                           Spieler 2:
-                       $magenta$nameUser ${white}                                                       ${blue}Computer $white
-        Charakter:     $magenta${characterUser.name} ${white}                                           $blue${characterComputer.name} $white
-        Lebenspunkte:  $magenta${characterUser.lifePoints} $white/ ${characterUser.lifePointStart}      $blue${characterComputer.lifePoints} $white/ ${characterComputer.lifePointStart}
-        Chakra:        $magenta${characterUser.chakra} $white/ ${characterUser.chakraStart}             $blue${characterComputer.chakra} $white/ ${characterComputer.chakraStart}
-        Baumstamm:     $magenta${characterUser.baumstamm} $white/ 5                                     $blue${characterComputer.baumstamm} $white/ 5
+        
+    -------------------------------------------------------------------------------------------------------------------------------------------------------    
+        Spieler 1:     $magenta$nameUser ${white}     |       Spieler 2:     ${blue}Computer $white
+    
+        Charakter:     $magenta${characterUser.name} ${white}     |     Charakter:     $blue${characterComputer.name} $white
+        Lebenspunkte:  $magenta${characterUser.lifePoints} $white/ ${characterUser.lifePointStart}     Lebenspunkte:  $blue${characterComputer.lifePoints} $white/ ${characterComputer.lifePointStart}
+        Chakra:        $magenta${characterUser.chakra} $white/ ${characterUser.chakraStart}     |     Chakra:        $blue${characterComputer.chakra} $white/ ${characterComputer.chakraStart}
+        Baumstamm:     $magenta${characterUser.baumstamm} $white/ 5     |     Baumstamm:     $blue${characterComputer.baumstamm} $white/ 5
     -------------------------------------------------------------------------------------------------------------------------------------------------------
     """.trimIndent())
 }
@@ -122,31 +111,64 @@ fun defensePrint() {
     }
 }
 
+fun whichAttackComputerPrint(){
+
+    if (selectionComputer != "Baumstamm" && selectionComputer != "Heilung" && selectionUserString != "Baumstamm") {
+        println("\nDer Computer hat mit $selectionComputer angegriffen und dich getroffen.")
+    }
+}
+
 fun grafikForAttack(){
 
-        println("""
- 
-🌀 🔥 💣 
-        """.trimIndent())
+    if (selectionUserString.lowercase().contains("feuer"))
+        println("\n        \uD83D\uDD25 \n")
+
+    if (selectionUserString.lowercase().contains("bombe"))
+        println("\n        \uD83D\uDCA3 \n")
+
+    if (selectionUserString.lowercase().contains("baumstamm"))
+        println("\n        \uD83E\uDEB5 \n")
+
+    if (selectionUserString.lowercase().contains("blüte"))
+        println("\n         \uD83C\uDF38 \n")
+
+    if (selectionUserString.lowercase().contains("wind"))
+        println("\n         \uD83C\uDF2A\uFE0F \n")
+
+    if (selectionUserString.lowercase().contains("schwert"))
+        println("\n         \uD83D\uDDE1\uFE0F \n")
+
+    if (selectionUserString.lowercase().contains("wasser"))
+        println("\n         \uD83C\uDF0A \n")
+
+    if (selectionUserString.lowercase().contains("taijutsu"))
+        println("\n         \uD83D\uDC4A\uD83C\uDFFC \n")
 }
 
 // diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat
 fun winOrLosePrint(){
 
     if (characterComputer.lifePoints == 0) {
-        println("\n\uD83C\uDF87 Super! Du hast gewonnen. \uD83C\uDF87")
+        println("\nDer Computer ist gefallen und steht nicht mehr auf.")
+        Thread.sleep(2000)
+        println("\n      \uD83C\uDFC6 \n\uD83C\uDF87 Super! Du hast gewonnen. \uD83C\uDF87")
         println("""
+            
                  (((  
                 (o o)            
             ooO--(_)--Ooo
+            
         """.trimIndent())
     } else if (characterUser.lifePoints == 0){
+        println("\n Du bist gefallen und stehst nicht mehr auf.")
+        Thread.sleep(2000)
         println("\n\uD83D\uDE14 Schade! Du hast leider verloren \uD83D\uDE14")
         println("""
                !!!                   
               `  /_\  '
              -  (OXO)  -
             ooO--(_)--Ooo
+            
         """.trimIndent())
     }
 }

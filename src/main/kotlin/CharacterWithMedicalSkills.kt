@@ -22,13 +22,13 @@ class CharacterWithMedicalSkills: Character {
                         lifePoints = lifePointStart
                     }
                     coloredBar()
-                    println("\nDu wurdest geheilt!")
+                    println("\n\uD83D\uDCAA\uD83C\uDFFC Du wurdest geheilt!")
                 } else if (this.lifePoints == lifePointStart) {
-                    println("\nDeine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
+                    println("\n\uD83E\uDD14 Deine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
                 }
                 selectionUserString = "Heilung"
             } else {
-                println("\nDu hast nicht genügend Chakra um dich zu heilen. Wähle erneut!")
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um dich zu heilen. Wähle erneut!")
                 showSelection()
             }
         } else if (input == selectionComputer) {
@@ -39,7 +39,6 @@ class CharacterWithMedicalSkills: Character {
                     if (lifePoints > lifePointStart) {
                         lifePoints = lifePointStart
                     }
-                    coloredBar()
                     println("\nDer Computer wurde geheilt!")
                 }
             } else {
@@ -129,21 +128,13 @@ class CharacterWithMedicalSkills: Character {
                 characterUser.attackWithWeapon(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 4){
-                println("Möchtest du Heilung anwenden?")
-                print("Gib ein ja oder nein: ")
-                selectionUserString = readln().lowercase()
-                if (selectionUserString == "ja"){
-                    heal(selectionUserString)
-                    counter = selectionUserInt
-                } else {
-                    continue
-                }
+                heal(selectionUserString)
+                counter = selectionUserInt
             } else {
-                println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
         } while (counter != selectionUserInt)
     }
-
 
 }

@@ -13,7 +13,7 @@ open class Character(
 
     // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und den Gegner
     // wenn der Spieler sich nicht für das Ausweichen entschieden hat, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
-    // wurde vorher das Ausweichen ausgesucht, wird hier ein Boolean zurückgegeben mit dem Wert true
+    // zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert
     fun lostLifePoints(inputAttack: String, enemy: Character) {
 
         if (inputAttack != "Baumstamm") {
@@ -46,6 +46,9 @@ open class Character(
                 index++
             }
         }
+
+        lifePointsUser = characterUser.lifePoints
+        lifePointsComputer = characterComputer.lifePoints
     }
 
     // Chakra wird um einen bestimmten Wert verringert
@@ -127,7 +130,7 @@ open class Character(
                 attackWithWeapon(selectionUserInt)
                 counter = selectionUserInt
             } else {
-                println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
         } while (counter != selectionUserInt)
@@ -215,7 +218,7 @@ open class Character(
             lostChakra(valueOfAttack)
         } else {
             if (input == "user") {
-                println("\nDu hast nicht genügend Chakra um Ninjutsus anzuwenden. Wähle erneut!")
+                println("\n\uD83D\uDE2B Du hast nicht genügend Chakra um Ninjutsus anzuwenden. Wähle erneut!")
                 showSelection()
             }
         }

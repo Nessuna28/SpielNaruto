@@ -18,12 +18,13 @@ class CharacterWithGenjutsu : Character {
             enemy.lifePoints -= this.genjutsu
             lostChakra(genjutsu)
             Thread.sleep(2000)
+            println("\n             \uD83C\uDF00 \n       \uD83D\uDE35\u200D\uD83D\uDCAB \n")
             if (enemy == characterComputer) {
                 selectionUserString = "Genjutsu"
             }
         } else {
             if (enemy == characterComputer) {
-                println("\nDu hast nicht genügend Chakra um ein Genjutsu auszuführen. Wähle erneut!")
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um ein Genjutsu auszuführen. Wähle erneut!")
                 showSelection()
             } else {
                 attackComputer()
@@ -32,8 +33,8 @@ class CharacterWithGenjutsu : Character {
         }
     }
 
-        // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
-        override fun showSelection() {
+    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
+    override fun showSelection() {
 
             var counter = 0
 
@@ -85,17 +86,10 @@ class CharacterWithGenjutsu : Character {
                     characterUser.attackWithWeapon(selectionUserInt)
                     counter = selectionUserInt
                 } else if (selectionUserInt == 4) {
-                    println("Möchtest du ein Genjutsu anwenden?")
-                    print("Gib ein ja oder nein: ")
-                    selectionUserString = readln().lowercase()
-                    if (selectionUserString == "ja") {
                         attackWithGenjutsu(characterComputer)
                         counter = selectionUserInt
-                    } else {
-                        continue
-                    }
                 } else {
-                    println("Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                    println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                     counter = 0
                 }
             } while (counter != selectionUserInt)
