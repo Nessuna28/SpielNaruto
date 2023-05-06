@@ -62,15 +62,16 @@ class CharacterWithMedicalSkills: Character {
 
         for (point in 0..life){
             if (point < end){
-                coloredBar.append("$blueBackground | |")
+                coloredBar.append("$blueBackground | |$white")
                 print("\r$coloredBar")
                 Thread.sleep(800)
             }
 
             if (point > to){
-                coloredBar.append("$greenBackground | |")
+                coloredBar.append("$greenBackground | |$white")
                 print("\r$coloredBar")
                 Thread.sleep(800)
+
             }
         }
     }

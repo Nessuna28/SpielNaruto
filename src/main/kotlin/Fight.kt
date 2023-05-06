@@ -89,8 +89,10 @@ fun attackComputer(){
     }
 }
 
-fun printCharacterStats(){
+fun printValueOfCharacter(){
 
+    println("Spieler 1: $magenta$nameUser ${characterUser.name} ${characterUser.lifePoints} ${characterUser.baumstamm}")
+    println("Spieler 2: ${blue}Computer ${characterComputer.name} ${characterComputer.lifePoints} ${characterComputer.baumstamm}")
 }
 
 fun printForDodging(player: String){
@@ -103,5 +105,22 @@ fun printForDodging(player: String){
         }
     } else {
         println("\nDu wolltest mit $selectionUserString angreifen aber der Computer ist ausgewichen.")
+    }
+
+    fun grafikForAttack(){
+
+        println("""
+                             |               !!!            o                     
+     (((         |.===.       `  _ _  '      ` /_\ '        ()_()     
+    (o o)        {}o o{}     -  (OXO)  -    - (o o) -       (o o)     
+ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--`o'--Ooo-
+ #   ___      
+ #  <_*_>     
+ #  (o o)     
+-8---(_)--Ooo-
+
+
+🌀 🔥 💣 
+        """.trimIndent())
     }
 }

@@ -23,6 +23,8 @@ fun main() {
     //println(sasuke.lifePoints)
 
     sakura.coloredBar()
+    println("Hallo")
+    println("Du da")
 }
     fun nurso(input: String, enemy: Character){
 
