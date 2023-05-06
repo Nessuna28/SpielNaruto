@@ -26,8 +26,11 @@ fun main() {
     selectionTeamOrCharacter()
     characterComputer()
     do {
+        valueOfCharacterPrint()
         selectionAttackUser()
         attackComputer()
+        defensePrint()
+        valueOfCharacterPrint()
 
     } while (characterComputer.lifePoints == 0 || characterUser.lifePoints == 0)
 }
@@ -93,9 +96,12 @@ fun greeting() {
                       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬛⬛⬛⬛⬛⬛$white
     """.trimIndent())
 
+    Thread.sleep(2000)
+    print("\nWie ist dein Spielername? : ")
+    nameUser = readln()
 
-    Thread.sleep(3000)
-    print("Möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
+    Thread.sleep(2000)
+    print("\nHallo ${nameUser}, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
     selectionUserString = readln().lowercase()
 
     if (selectionUserString == "ja")

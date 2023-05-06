@@ -7,6 +7,9 @@ fun selectionAttackUser() {
         print("\nMöchtest du (1) angreifen oder (2) ausweichen? Gib die jeweilige Zahl ein: ")
         selectionUserInt = readln().toInt()
         if (selectionUserInt == 1) {
+            characterUser.showSelection()
+            characterUser.lostLifePoints(selectionUserString, characterComputer)
+            /*
             if (characterUser is CharacterWithGenjutsu) {
                characterUser.showSelection()
                 characterUser.lostLifePoints(selectionUserString, characterComputer)
@@ -17,13 +20,13 @@ fun selectionAttackUser() {
             } else {
                 characterUser.showSelection()
                 characterUser.lostLifePoints(selectionUserString, characterComputer)
+
+             */
             }
         } else if (selectionUserInt == 2) {
             characterUser.baumstamm("user")
-            printForDodging("user")
             characterUser.lostLifePoints(selectionUserString, characterComputer)
         }
-    }
 }
 
 // diese Funktion wählt ein Angriff oder Verteidigung per Zufall aus je nachdem welchen Charakter der Computer hat
@@ -85,42 +88,65 @@ fun attackComputer(){
         (characterComputer as CharacterWithMedicalSkills).heal(selectionComputer)
     } else if (selectionComputer == "Baumstamm") {
         characterComputer.baumstamm("com")
-        printForDodging("com")
+
     }
 }
 
-fun printValueOfCharacter(){
+// diese Funktion zeigt die Spielerdaten in einer Printline an
+fun valueOfCharacterPrint(){
 
-    println("Spieler 1: $magenta$nameUser ${characterUser.name} ${characterUser.lifePoints} ${characterUser.baumstamm}")
-    println("Spieler 2: ${blue}Computer ${characterComputer.name} ${characterComputer.lifePoints} ${characterComputer.baumstamm}")
+    println("""
+        Spieler 1:                                                                           Spieler 2:
+                       $magenta$nameUser ${white}                                                       ${blue}Computer $white
+        Charakter:     $magenta${characterUser.name} ${white}                                           $blue${characterComputer.name} $white
+        Lebenspunkte:  $magenta${characterUser.lifePoints} $white/ ${characterUser.lifePointStart}      $blue${characterComputer.lifePoints} $white/ ${characterComputer.lifePointStart}
+        Chakra:        $magenta${characterUser.chakra} $white/ ${characterUser.chakraStart}             $blue${characterComputer.chakra} $white/ ${characterComputer.chakraStart}
+        Baumstamm:     $magenta${characterUser.baumstamm} $white/ 5                                     $blue${characterComputer.baumstamm} $white/ 5
+    -------------------------------------------------------------------------------------------------------------------------------------------------------
+    """.trimIndent())
 }
 
-fun printForDodging(player: String){
+// diese Funktion gibt einen entsprechenden Text aus bei Nutzung der Abwehr
+fun defensePrint() {
 
-        if (selectionComputer != "Baumstamm") {
-            if (player == "user" && selectionUserString != "Baumstamm"){
-                println("\nDer Computer wollte mit $selectionComputer angreifen aber du bist ausgewichen.\nEr hat dich nicht getroffen.")
-        } else {
-            println("\nDer Computer ist ebenfalls ausgewichen")
-        }
+    if (selectionComputer == "Baumstamm") {
+            if (selectionUserString == "Baumstamm") {
+                println("\nDer Computer ist ebenfalls ausgewichen")
+            } else {
+                println("\nDu wolltest mit $selectionUserString angreifen aber der Computer ist ausgewichen.")
+            }
     } else {
-        println("\nDu wolltest mit $selectionUserString angreifen aber der Computer ist ausgewichen.")
+        if (selectionUserString == "Baumstamm") {
+            println("\nDer Computer wollte mit $selectionComputer angreifen aber du bist ausgewichen. \uD83D\uDE1D")
     }
+    }
+}
 
-    fun grafikForAttack(){
+fun grafikForAttack(){
 
         println("""
-                             |               !!!            o                     
-     (((         |.===.       `  _ _  '      ` /_\ '        ()_()     
-    (o o)        {}o o{}     -  (OXO)  -    - (o o) -       (o o)     
-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--(_)--Ooo-ooO--`o'--Ooo-
- #   ___      
- #  <_*_>     
- #  (o o)     
--8---(_)--Ooo-
-
-
+ 
 🌀 🔥 💣 
+        """.trimIndent())
+}
+
+// diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat
+fun winOrLosePrint(){
+
+    if (characterComputer.lifePoints == 0) {
+        println("\n\uD83C\uDF87 Super! Du hast gewonnen. \uD83C\uDF87")
+        println("""
+                 (((  
+                (o o)            
+            ooO--(_)--Ooo
+        """.trimIndent())
+    } else if (characterUser.lifePoints == 0){
+        println("\n\uD83D\uDE14 Schade! Du hast leider verloren \uD83D\uDE14")
+        println("""
+               !!!                   
+              `  /_\  '
+             -  (OXO)  -
+            ooO--(_)--Ooo
         """.trimIndent())
     }
 }

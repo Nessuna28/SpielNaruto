@@ -5,7 +5,8 @@ open class Character(
     var weapon: MutableMap<String, Int>,
 ) {
 
-    var lifePointStart = 500
+    val lifePointStart = 500
+    val chakraStart = 500
     var lifePoints = 500
     var chakra = 500
     var baumstamm = 5
@@ -13,36 +14,36 @@ open class Character(
     // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und den Gegner
     // wenn der Spieler sich nicht für das Ausweichen entschieden hat, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
     // wurde vorher das Ausweichen ausgesucht, wird hier ein Boolean zurückgegeben mit dem Wert true
-    fun lostLifePoints(input: String, enemy: Character) {
+    fun lostLifePoints(inputAttack: String, enemy: Character) {
 
-        if (input != "Baumstamm") {
+        if (inputAttack != "Baumstamm") {
 
-            var counter = 0
+            var index = 0
 
-            for (attack in attack.keys) {
-                if (input == attack) {
-                    enemy.lifePoints -= this.attack.values.elementAt(counter)
+            for (attack in this.attack.keys) {
+                if (inputAttack == attack) {
+                    enemy.lifePoints -= this.attack.values.elementAt(index)
                     break
                 }
-                counter++
+                index++
             }
 
-            counter = 0
+            index = 0
             for (attack in ninjutsu.keys) {
-                if (input == attack) {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(counter)
+                if (inputAttack == attack) {
+                    enemy.lifePoints -= this.ninjutsu.values.elementAt(index)
                     break
                 }
-                counter++
+                index++
             }
 
-            counter = 0
+            index = 0
             for (attack in weapon.keys) {
-                if (input == attack) {
-                    enemy.lifePoints -= this.weapon.values.elementAt(counter)
+                if (inputAttack == attack) {
+                    enemy.lifePoints -= this.weapon.values.elementAt(index)
                     break
                 }
-                counter++
+                index++
             }
         }
     }
