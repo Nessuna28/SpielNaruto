@@ -1,4 +1,12 @@
+import java.io.File
+import javax.sound.sampled.AudioSystem
+
 fun main() {
+
+    for (i in 0..5) {
+        sound("sounds/goat.wav")
+    }
+
 
     //println(naruto.attack.keys.elementAt(0))
     //println(naruto.attack.values.elementAt(0))
@@ -48,6 +56,7 @@ fun main() {
     } while (counter <= 5)
 
 }
+
 
 
 
