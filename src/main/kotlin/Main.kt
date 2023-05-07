@@ -1,3 +1,6 @@
+import java.io.File
+import javax.sound.sampled.AudioSystem
+
 val reset = "\u001b[0m"
 val magenta = "\u001b[35m"
 val blue = "\u001b[34m"
@@ -253,12 +256,13 @@ fun selectionSelfOrRandom() {
 fun selectionCharacter() {
 
     var counter = 0
+    var test = characterNameList.size
 
     println(
         """
-            Die Charaktere die du zur Auswahl hast sind: $blue
-            ${characterNameList.slice(0..5)}
-            ${characterNameList.slice(6..10)}
+            Die Charaktere die du zur Auswahl hast sind: $favoriteColorUser
+            ${characterNameList.slice(0..3)}
+            ${characterNameList.slice(4..9)}
             $reset
         """.trimIndent()
     )
@@ -270,7 +274,7 @@ fun selectionCharacter() {
         val lowercaseList = listToLowercaselist(characterNameList)
 
         if (lowercaseList.contains(selectionUserString)) {
-            println("\nSuper! Du hast dich für $favoriteColorUser{selectionUserString.uppercase()} ${reset}entschieden.")
+            println("\nSuper! Du hast dich für $favoriteColorUser${selectionUserString.uppercase()} ${reset}entschieden.")
             setCharacterForUser(selectionUserString)
             grafik(selectionUserString)
             break
@@ -424,6 +428,16 @@ fun setCharacterForComputer(string: String) {
     }
 }
 
+// eine Liste zu einer Liste mit nur Kleinbuchstaben umwandeln
+fun listToLowercaselist(list: List<String>): List<String>{
+
+    var lowercaseList = mutableListOf<String>()
+    for (characters in list){
+        lowercaseList.add(characters.lowercase())
+    }
+    return lowercaseList
+}
+
 // jeder Spieler hat seine eigene kleine Grafik
 fun grafik(selectionPlayer: String){
 
@@ -574,14 +588,14 @@ fun grafik(selectionPlayer: String){
     }
 }
 
-// eine Liste zu einer Liste mit nur Kleinbuchstaben umwandeln
-fun listToLowercaselist(list: List<String>): List<String>{
+// spielt Sounds ab
+fun sound(file: String) {
 
-    var lowercaseList = mutableListOf<String>()
-    for (characters in list){
-        lowercaseList.add(characters.lowercase())
-    }
-    return lowercaseList
+    val file = File("./$file")
+    val audio = AudioSystem.getAudioInputStream(file.toURI().toURL())
+    val clip = AudioSystem.getClip()
+    clip.open(audio)
+    clip.start()
 }
 
 

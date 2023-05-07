@@ -7,7 +7,12 @@ class CharacterWithMoreStrength: Character {
 
         this.extraStrength = extraStrength
 
-        attack["Taijutsu"] = attack["Taijutsu"]!! + extraStrength
+        var index = 0
+
+        for (attack in taijutsu) {
+            attack.key.elementAt(index) + extraStrength
+            index++
+        }
     }
 
 }

@@ -97,13 +97,13 @@ class CharacterWithMedicalSkills: Character {
             if (selectionUserInt == 1) {
                 println("\nDas hast du zur Auswahl:")
                 var index = 1
-                for (attack in attack.keys) {
+                for (attack in taijutsu.keys) {
                     println("$index für $attack")
                     index++
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                characterUser.attackNormal(selectionUserInt)
+                characterUser.attackWithTaijutsu(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")

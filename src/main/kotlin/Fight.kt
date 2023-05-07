@@ -32,7 +32,7 @@ fun attackComputer() {
     val attackList = mutableListOf<String>()
 
     if (characterComputer is CharacterWithGenjutsu) {
-        for (attack in characterComputer.attack)
+        for (attack in characterComputer.taijutsu)
             attackList.add(attack.key)
 
         for (attack in characterComputer.ninjutsu)
@@ -45,7 +45,7 @@ fun attackComputer() {
         attackList.add("Genjutsu")
 
     } else if (characterComputer is CharacterWithMedicalSkills) {
-        for (attack in characterComputer.attack)
+        for (attack in characterComputer.taijutsu)
             attackList.add(attack.key)
 
         for (attack in characterComputer.ninjutsu)
@@ -58,7 +58,7 @@ fun attackComputer() {
         attackList.add("Heilung")
 
     } else {
-        for (attack in characterComputer.attack)
+        for (attack in characterComputer.taijutsu)
             attackList.add(attack.key)
 
         for (attack in characterComputer.ninjutsu)
@@ -96,9 +96,9 @@ fun lostLifePoints(attackUser: String, attackComputer: String, enemyUser: Charac
 
         var index = 0
 
-        for (attack in characterUser.attack.keys) {
+        for (attack in characterUser.taijutsu.keys) {
             if (attackUser == attack) {
-                enemyComputer.lifePoints -= characterUser.attack.values.elementAt(index)
+                enemyComputer.lifePoints -= characterUser.taijutsu.values.elementAt(index)
                 break
             }
             index++
@@ -127,9 +127,9 @@ fun lostLifePoints(attackUser: String, attackComputer: String, enemyUser: Charac
 
         var index = 0
 
-        for (attack in characterComputer.attack.keys) {
+        for (attack in characterComputer.taijutsu.keys) {
             if (attackComputer == attack) {
-                enemyUser.lifePoints -= characterComputer.attack.values.elementAt(index)
+                enemyUser.lifePoints -= characterComputer.taijutsu.values.elementAt(index)
                 break
             }
             index++
@@ -264,7 +264,7 @@ fun grafikForAttack() {
 
     if (selectionUserString.lowercase().contains("schlange"))
         println("\n         \uD83D\uDC0D \n")
-
+/*
     if (selectionUserString.lowercase().contains("vertrauter")) {
         if (characterUser == kakashi)
             println("\n         \uD83D\uDC15 \n")
@@ -277,6 +277,8 @@ fun grafikForAttack() {
         if (characterUser == jiraiya)
             println("\n         \uD83D\uDC38 \n")
     }
+
+ */
 
     if (selectionUserString.lowercase().contains("susanoo"))
     println("\n             \uD83D\uDC80 \n")

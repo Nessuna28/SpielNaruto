@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="noch einen kleinen Fehler gefunden aber konnte noch nicht behoben werden">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Charaktere und kleine Bildchen hinzugefügt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMoreStrength.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMoreStrength.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +45,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sounds" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -365,7 +374,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683449174233</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Fehler behoben, dem Computer wird jetzt auch Chakra abgezogen">
+      <created>1683473152917</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1683473152917</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Charaktere und kleine Bildchen hinzugefügt">
+      <created>1683484567203</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1683484567203</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -380,8 +403,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kleinigkeiten bearbeitet" />
-    <MESSAGE value="mit der Funktion für die Attackenauswahl begonnen" />
     <MESSAGE value="Funktion für Attackenauswahl bearbeitet" />
     <MESSAGE value="Funktion in den Klassen erstellt" />
     <MESSAGE value="die Attacken in den Klassen umgebaut" />
@@ -405,20 +426,17 @@
     <MESSAGE value="alle Fehler beseitigt, Spiel mit einem Charakter läuft" />
     <MESSAGE value="Funktion loadChakra eingebaut" />
     <MESSAGE value="noch einen kleinen Fehler gefunden aber konnte noch nicht behoben werden" />
-    <option name="LAST_COMMIT_MESSAGE" value="noch einen kleinen Fehler gefunden aber konnte noch nicht behoben werden" />
+    <MESSAGE value="Fehler behoben, dem Computer wird jetzt auch Chakra abgezogen" />
+    <MESSAGE value="Charaktere und kleine Bildchen hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Charaktere und kleine Bildchen hinzugefügt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>420</line>
+          <line>421</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
-          <line>34</line>
-          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
@@ -429,6 +447,11 @@
           <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
           <line>184</line>
           <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>255</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

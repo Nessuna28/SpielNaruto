@@ -1,6 +1,6 @@
 open class Character(
     var name: String,
-    var attack: MutableMap<String, Int>,
+    var taijutsu: MutableMap<String, Int>,
     var ninjutsu: MutableMap<String, Int>,
     var weapon: MutableMap<String, Int>,
 ) {
@@ -21,7 +21,7 @@ open class Character(
     // Chakra läd sich auf, wenn der Angriff keine Attacke ist die Chakra verbraucht
     fun loadChakra(selectAttack: String) {
 
-        for (attack in this.attack.keys) {
+        for (attack in this.taijutsu.keys) {
             if (attack == selectAttack) {
                 if (chakra < chakraStart) {
                     chakra += 10
@@ -88,13 +88,13 @@ open class Character(
             if (selectionUserInt == 1) {
                 println("\nDas hast du zur Auswahl:")
                 var index = 1
-                for (attack in attack.keys) {
+                for (attack in taijutsu.keys) {
                     println("$index für $attack")
                     index++
                 }
                 print("Triff deine Auswahl per Zahl: ")
                 selectionUserInt = readln().toInt()
-                attackNormal(selectionUserInt)
+                attackWithTaijutsu(selectionUserInt)
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 println("\nDas hast du zur Auswahl:")
@@ -127,17 +127,17 @@ open class Character(
 
     // der Funktion wird ein Parameter mitgegeben, die Eingabe des Spielers
     // je nach Auswahl der Zahl wird die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
-    fun attackNormal(input: Int) {
+    fun attackWithTaijutsu(input: Int) {
 
-        if (input > attack.size) {
+        if (input > taijutsu.size) {
             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
             showSelection()
         } else {
             when (input) {
-                1 -> selectionUserString = this.attack.keys.elementAt(0)
-                2 -> selectionUserString = this.attack.keys.elementAt(1)
-                3 -> selectionUserString = this.attack.keys.elementAt(2)
-                4 -> selectionUserString = this.attack.keys.elementAt(3)
+                1 -> selectionUserString = this.taijutsu.keys.elementAt(0)
+                2 -> selectionUserString = this.taijutsu.keys.elementAt(1)
+                3 -> selectionUserString = this.taijutsu.keys.elementAt(2)
+                4 -> selectionUserString = this.taijutsu.keys.elementAt(3)
             }
         }
     }
