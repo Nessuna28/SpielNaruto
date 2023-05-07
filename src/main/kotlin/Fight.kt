@@ -223,7 +223,7 @@ fun grafikForAttack() {
     if (selectionUserString.lowercase().contains("feuer"))
         println("\n        \uD83D\uDD25 \n")
 
-    if (selectionUserString.lowercase().contains("bombe"))
+    if (selectionUserString.lowercase().contains("schlafbombe"))
         println("\n        \uD83D\uDCA3 \n")
 
     if (selectionUserString.lowercase().contains("baum"))
@@ -241,8 +241,48 @@ fun grafikForAttack() {
     if (selectionUserString.lowercase().contains("wasser"))
         println("\n         \uD83C\uDF0A \n")
 
-    if (selectionUserString.lowercase().contains("taijutsu"))
+    if (selectionUserString.lowercase().contains("punch"))
         println("\n         \uD83D\uDC4A\uD83C\uDFFC \n")
+
+    if (selectionUserString.lowercase().contains("kick"))
+        println("\n         \uD83E\uDDB6\uD83C\uDFFC \n")
+
+    if (selectionUserString.lowercase().contains("genjutsu"))
+         println("\n        \uD83C\uDF00 \n       \uD83D\uDE35\u200D\uD83D\uDCAB \n")
+
+    if (selectionUserString.lowercase().contains("strategie"))
+        println("\n         \uD83E\uDDD0 \n")
+
+    if (selectionUserString.lowercase().contains("fleisch"))
+        println("\n         \uD83C\uDF56 \n")
+
+    if (selectionUserString.lowercase().contains("insekt"))
+        println("\n         \uD83D\uDC1C \uD83E\uDD9F \uD83D\uDC1D \n")
+
+    if (selectionUserString.lowercase().contains("erd"))
+        println("\n         \uD83E\uDEA8 \n")
+
+    if (selectionUserString.lowercase().contains("schlange"))
+        println("\n         \uD83D\uDC0D \n")
+
+    if (selectionUserString.lowercase().contains("vertrauter")) {
+        if (characterUser == kakashi)
+            println("\n         \uD83D\uDC15 \n")
+        if (characterUser == naruto)
+            println("\n         \uD83D\uDC38 \n")
+        if (characterUser == tsunade)
+            println("\n         \uD83D\uDC0C \n")
+        if (characterUser == orochimaru)
+            println("\n         \uD83D\uDC0D \n")
+        if (characterUser == jiraiya)
+            println("\n         \uD83D\uDC38 \n")
+    }
+
+    if (selectionUserString.lowercase().contains("susanoo"))
+    println("\n             \uD83D\uDC80 \n")
+
+    if (selectionUserString.lowercase().contains("kurama"))
+        println("\n          \uD83E\uDD8A \n")
 }
 
 // diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat

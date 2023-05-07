@@ -257,8 +257,8 @@ fun selectionCharacter() {
     println(
         """
             Die Charaktere die du zur Auswahl hast sind: $blue
-            ${characterNameList.slice(0..3)}
-            ${characterNameList.slice(4..5)}
+            ${characterNameList.slice(0..5)}
+            ${characterNameList.slice(6..10)}
             $reset
         """.trimIndent()
     )

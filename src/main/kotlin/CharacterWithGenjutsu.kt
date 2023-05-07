@@ -17,8 +17,6 @@ class CharacterWithGenjutsu : Character {
         if (chakra > genjutsu) {
             enemy.lifePoints -= this.genjutsu
             lostChakra(genjutsu)
-            Thread.sleep(2000)
-            println("\n             \uD83C\uDF00 \n       \uD83D\uDE35\u200D\uD83D\uDCAB \n")
             if (enemy == characterComputer) {
                 selectionUserString = "Genjutsu"
             }

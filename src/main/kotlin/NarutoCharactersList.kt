@@ -1,12 +1,18 @@
 // Liste der Charaktere
 
-val naruto = Character("Naruto", mutableMapOf("Taijutsu" to 20), mutableMapOf("sexy Jutsu" to 25, "Rasengan" to 70, "Schattendoppelgänger" to 45), mutableMapOf("Kunai" to 30))
-val sasuke = CharacterWithGenjutsu("Sasuke", mutableMapOf("Taijutsu" to 20), mutableMapOf("Phönixblume" to 45, "Jutsu des flammenden Feuerballs" to 50, "Chidori" to 70), mutableMapOf("Kunai" to 30), 100)
-val sakura = CharacterWithMedicalSkills("Sakura", mutableMapOf("Taijutsu" to 20), mutableMapOf("Kirschblütenschlag" to 40, "große Sakura" to 30, "Kirschblütenformation" to 55), mutableMapOf("Kunai" to 30), 200)
+val naruto = Character("Naruto", mutableMapOf("Taijutsu" to 20), mutableMapOf("sexy Jutsu" to 25, "Rasengan" to 70, "Schattendoppelgänger" to 45, "Jutsu des vertrauten Geistes" to 90), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
+val sasuke = CharacterWithGenjutsu("Sasuke", mutableMapOf("Taijutsu" to 20), mutableMapOf("Phönixblume" to 45, "Jutsu des flammenden Feuerballs" to 50, "Chidori" to 70), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 100)
+val sakura = CharacterWithMedicalSkills("Sakura", mutableMapOf("Taijutsu" to 20), mutableMapOf("Kirschblütenschlag" to 40, "große Sakura" to 30, "Kirschblütenformation" to 55), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 200)
 
-val shikamaru = Character("Shikamaru", mutableMapOf("Taijutsu" to 20), mutableMapOf("Schattenfessel" to 70, "Schattenwürg" to 50, "Strategie" to 40), mutableMapOf("Kunai" to 30))
-val choji = CharacterWithMoreStrength("Choji", mutableMapOf("Taijutsu" to 20), mutableMapOf("Fleischbombenpanzer" to 45, "Schmetterlingsflügel" to 70, "Jutsu der Teilentfaltung" to 35), mutableMapOf("Kunai" to 30), 20)
-val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Taijutsu" to 20), mutableMapOf("Gedankenkontroll-Jutsu" to 60, "Schlafbomben-Jutsu" to 45), mutableMapOf("Kunai" to 30), 100)
+val shikamaru = Character("Shikamaru", mutableMapOf("Punch" to 20, "Kick" to 25, "Strategie" to 50), mutableMapOf("Schattenfessel" to 70, "Schattenwürg" to 50), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
+val choji = CharacterWithMoreStrength("Choji", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Fleischbombenpanzer" to 45, "Schmetterlingsflügel" to 70, "Jutsu der Teilentfaltung" to 35), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 20)
+val ino = CharacterWithMedicalSkills("Ino", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Gedankenkontroll-Jutsu" to 60, "Schlafbomben-Jutsu" to 45), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 100)
+
+val kakashi = CharacterWithGenjutsu("Kakashi", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Jutsu der flammenden Feuerkugel" to 50, "Mangekyo Sharingan" to 45, "Wasserdrache" to 55, "Chidori" to 70, "Jutsu des vertrauten Geistes" to 90), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 100)
+val tsunade = CharacterWithMedicalSkills("Tsundade", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Jutsu des vertrauten Geistes" to 90, "Bodenschlag" to 60), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 250)
+val jiraiya = Character("Jiraiya", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Rasengan" to 70, "Jutsu des vertrauten Geistes" to 90, "Riesen Rasengan" to 100), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
+
+val orochimaru = Character("Orochimaru", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Schlangenversteck" to 60, "Edo Tensei" to 50, "Jutsu des vertrauten Geistes" to 90, "Schlangeenarme" to 45, "Windversteck" to 55), mutableMapOf("Kunai" to 30, "Shuriken" to 35, "Explosionskarten" to 40))
 
 
 /*
@@ -15,8 +21,8 @@ val teamAsuma = listOf(shikamaru.name, choji.name, ino.name)
 
 // Team Kurenai
 val hinata = Characters("Hinata")
-val kiba = Characters("Kiba")
-val shino = Characters("Shino")
+val kiba = Characters("Kiba") Akamaru (Hund)
+val shino = Characters("Shino") Insekten
 
 val teamKurenai = listOf(hinata.name, kiba.name, shino.name)
 
@@ -28,23 +34,21 @@ val tenten = Characters("Tenten")
 val teamGuy = listOf(rockLee.name, neji.name, tenten.name)
 
 // Team aus Sunagakure
-val gaara = Characters("Gaara")
-val kankuro = Characters("Kankuro")
-val temari = Characters("Temari")
+val gaara = Characters("Gaara") Sand, Chukaku
+val kankuro = Characters("Kankuro") Marionette
+val temari = Characters("Temari") Mader
 
 val teamSunagakure = listOf(gaara.name, kankuro.name, temari.name)
 
 // Einzelkämpfer
-val kakashi = Characters("Kakashi")
+
 val asuma = Characters("Asuma")
 val kurenai = Characters("Kurenai")
 val mightyGuy = Characters("Mighty Guy")
 val minato = Characters("Minato")
-val tsunade = Characters("Tsunade")
-val jiraiya = Characters("Jiraiya")
 
 // böse Charakter
-val orochimaru = Characters("Orochimaru")
+
 val zabuza = Characters("Zabuza")
 val haku = Characters("Haku")
 val kabuto = Characters("Kabuto")
@@ -61,11 +65,13 @@ val zouriAndWaraji = listOf(zouri.name, waraji.name)
 
 
  */
-var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino)
+var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino, kakashi, tsunade, jiraiya, orochimaru)
 
 val characterNameList = listOf(
     naruto.name, sasuke.name, sakura.name,
-    shikamaru.name, choji.name, ino.name
+    shikamaru.name, choji.name, ino.name,
+    kakashi.name, tsunade.name, jiraiya.name,
+    orochimaru.name
     )
 
 
