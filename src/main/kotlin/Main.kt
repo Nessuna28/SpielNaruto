@@ -13,10 +13,10 @@ val blackBackground = "\u001b[40m"
 
 // diese Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
 // und nach Belieben aufrufen kann ohne ständig zwischendurch viele Variablen anlegen zu müssen
-var selectionUserString = ""
-var selectionUserInt = 0
 var nameUser = ""
 var favoriteColorUser = ""
+var selectionUserString = ""
+var selectionUserInt = 0
 var characterUser = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
 var teamUser = mutableListOf<Character>()
 var characterComputer = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
@@ -36,6 +36,7 @@ fun main() {
         selectionAttackUser()
         grafikForAttack()
         attackComputer()
+        lostLifePoints(selectionUserString, selectionComputer, characterUser, characterComputer)
         defensePrint()
         wichAttackUserPrint()
         whichAttackComputerPrint()

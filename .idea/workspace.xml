@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="alle Fehler beseitigt, Spiel mit einem Charakter läuft">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktion loadChakra eingebaut">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -350,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683408422426</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Funktion loadChakra eingebaut">
+      <created>1683412301729</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1683412301729</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -365,7 +373,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Klassen überarbeitet und Funktionen hinzugefügt" />
     <MESSAGE value="Funktionen in der Main bearbeitet" />
     <MESSAGE value="Kleinigkeiten bearbeitet" />
     <MESSAGE value="mit der Funktion für die Attackenauswahl begonnen" />
@@ -390,30 +397,31 @@
     <MESSAGE value="Grafiken eingebaut und kleine Fehler behoben" />
     <MESSAGE value="Funktion greeting umgebaut und Farben eingefügt" />
     <MESSAGE value="alle Fehler beseitigt, Spiel mit einem Charakter läuft" />
-    <option name="LAST_COMMIT_MESSAGE" value="alle Fehler beseitigt, Spiel mit einem Charakter läuft" />
+    <MESSAGE value="Funktion loadChakra eingebaut" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funktion loadChakra eingebaut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>412</line>
+          <line>409</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
-          <line>173</line>
+          <line>145</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
-          <line>38</line>
-          <option name="timeStamp" value="57" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>37</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>35</line>
-          <option name="timeStamp" value="65" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
+          <line>34</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

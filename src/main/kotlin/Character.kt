@@ -11,45 +11,7 @@ open class Character(
     var chakra = 500
     var baumstamm = 5
 
-    // der Funktion werden 2 Parameter mitgegeben, die Eingabe des Users oder die Auswahl des Computers und den Gegner
-    // wenn der Spieler sich nicht für das Ausweichen entschieden hat, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
-    // zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert
-    fun lostLifePoints(attackUser: String, attackComputer: String, enemy: Character) {
 
-        if (attackUser != "Baumstamm" || attackComputer != "Baumstamm") {
-
-            var index = 0
-
-            for (attack in this.attack.keys) {
-                if (attackUser == attack) {
-                    enemy.lifePoints -= this.attack.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-
-            index = 0
-            for (attack in ninjutsu.keys) {
-                if (attackUser == attack) {
-                    enemy.lifePoints -= this.ninjutsu.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-
-            index = 0
-            for (attack in weapon.keys) {
-                if (attackUser == attack) {
-                    enemy.lifePoints -= this.weapon.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-        }
-
-        lifePointsUser = characterUser.lifePoints
-        lifePointsComputer = characterComputer.lifePoints
-    }
 
     // Chakra wird um einen bestimmten Wert verringert
     fun lostChakra(value: Int) {
@@ -217,7 +179,6 @@ open class Character(
                     this.ninjutsu.keys.elementAt(3) -> notEnoughChakra("com")
                     this.ninjutsu.keys.elementAt(4) -> notEnoughChakra("com")
                 }
-                attackComputer()
             }
     }
 
@@ -248,6 +209,8 @@ open class Character(
             if (input == "user") {
                 println("\n\uD83D\uDE2B Du hast nicht genügend Chakra um Ninjutsus anzuwenden. Wähle erneut!")
                 showSelection()
+            } else {
+                attackComputer()
             }
         }
     }

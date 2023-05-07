@@ -29,40 +29,27 @@ fun main() {
 
      */
 
+    characterUser = sakura
+    characterComputer = naruto
+    selectionUserString = "Kunai"
+    selectionComputer = "Taijutzu"
+
+    var counter = 0
+
+    do {
+        lostLifePoints(selectionUserString, selectionComputer, characterUser, characterComputer)
+        defensePrint()
+        wichAttackUserPrint()
+        whichAttackComputerPrint()
+        valueOfCharacterPrint()
+        selectionUserString = "große Sakura"
+        selectionComputer = "sexy Jutzu"
+        counter++
+    } while (counter <= 5)
+
 }
-    fun nurso(input: String, enemy: Character){
 
-        if (input != "Baumstamm") {
 
-            var counter = 0
-
-            for (attack in naruto.attack.keys) {
-                if (input == attack) {
-                    enemy.lifePoints -= naruto.attack.values.elementAt(counter)
-                    break
-                }
-                counter++
-            }
-
-            counter = 0
-            for (attack in naruto.ninjutsu.keys) {
-                if (input == attack) {
-                    enemy.lifePoints -= naruto.attack.values.elementAt(counter)
-                    break
-                }
-                counter++
-            }
-
-            counter = 0
-            for (attack in naruto.weapon.keys) {
-                if (input == attack) {
-                    enemy.lifePoints -= naruto.attack.values.elementAt(counter)
-                    break
-                }
-                counter++
-            }
-        }
-    }
 
 
 
