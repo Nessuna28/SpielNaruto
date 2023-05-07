@@ -3,15 +3,24 @@ fun fight() {}
 // diese Funktion fragt den Spieler, ob er angreifen oder ausweichen möchte und ruft je nach Antwort die dazugehörigen Funktionen auf
 fun selectionAttackUser() {
 
-    if (characterUser.name.isNotEmpty()) {
-        print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
-        selectionUserInt = readln().toInt()
-        if (selectionUserInt == 1) {
-            characterUser.showSelection()
-        } else if (selectionUserInt == 2) {
-            characterUser.baumstamm("user")
+    var counter = 0
+
+    do {
+        if (characterUser.name.isNotEmpty()) {
+            print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
+            selectionUserInt = readln().toInt()
+            if (selectionUserInt == 1) {
+                characterUser.showSelection()
+                counter = selectionUserInt
+            } else if (selectionUserInt == 2) {
+                characterUser.baumstamm("user")
+                counter = selectionUserInt
+            } else {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                counter = 0
+            }
         }
-    }
+    } while (counter != selectionUserInt)
 
     characterUser.loadChakra(selectionUserString)
 }
@@ -72,10 +81,13 @@ fun attackComputer() {
     if (selectionComputer == "Baumstamm")
         characterComputer.baumstamm("com")
 
+    if (selectionComputer in characterComputer.ninjutsu)
+        characterComputer.attackWithNinjutsu(selectionComputer, 0)
+
     characterComputer.loadChakra(selectionComputer)
 }
 
-// der Funktion werden 4 Parameter mitgegeben, die Attacken der Spieler und die jeweiligen Charaktere
+// der Funktion werden 4 Parameter mitgegeben, die Attacken der Spieler und die jeweiligen Charaktere,
 // wenn die Spieler sich nicht für das Ausweichen entscheiden, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
 // zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert
 fun lostLifePoints(attackUser: String, attackComputer: String, enemyUser: Character, enemyComputer: Character) {
@@ -188,7 +200,7 @@ fun defensePrint() {
 fun wichAttackUserPrint() {
 
     if (selectionUserInt != 2) {
-        if (selectionUserString != "Baumstamm" && selectionUserString != "Heilung" && selectionComputer != "Baumstamm") {
+        if (selectionUserString != "Baumstamm" && selectionUserString != "Heilung" && selectionComputer != "Baumstamm" && selectionComputer != "Heilung") {
             println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen und deinen Gegner getroffen.")
             if (selectionComputer == "Heilung") {
                 println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen aber der Gegner hat sich geheilt.")

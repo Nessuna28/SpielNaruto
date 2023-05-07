@@ -41,7 +41,7 @@ fun main() {
         wichAttackUserPrint()
         whichAttackComputerPrint()
         valueOfCharacterPrint()
-    } while (characterComputer.lifePoints > 0 || characterUser.lifePoints > 0)
+    } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
 
     winOrLosePrint()
 }
@@ -126,25 +126,36 @@ fun playerNameUser() {
 // diese wird dann gespeichert und eingesetzt als Akzentfarbe für die Ausgabe seiner Daten
 fun favoriteColorUser() {
 
-    println("""
+    var counter = ""
+
+    do {
+        println("""
         
         Welche ist deine Lieblingsfarbe?
         ${red}rot$reset, ${green}grün$reset, ${yellow}gelb$reset, ${blue}blau$reset, ${magenta}magenta$reset, ${cyan}cyan $reset
     """.trimIndent())
-    print("Wähle deine Farbe! : ")
-    val color = readln()
+        print("Wähle deine Farbe! : ")
+        val color = readln().lowercase()
 
-    when (color) {
-        "rot" -> favoriteColorUser = red
-        "grün" -> favoriteColorUser = green
-        "gelb" -> favoriteColorUser = yellow
-        "blau" -> favoriteColorUser = blue
-        "magenta" -> favoriteColorUser = magenta
-        "cyan" -> favoriteColorUser = cyan
-    }
+        if (color != "rot" && color != "grün" && color != "gelb" && color != "blau" && color != "magenta" && color != "cyan") {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+            continue
+        } else {
+            when (color) {
+                "rot" -> favoriteColorUser = red
+                "grün" -> favoriteColorUser = green
+                "gelb" -> favoriteColorUser = yellow
+                "blau" -> favoriteColorUser = blue
+                "magenta" -> favoriteColorUser = magenta
+                "cyan" -> favoriteColorUser = cyan
+            }
+            counter = color
+        }
+    } while (counter != color)
+
 }
 
-// der Spieler wird gefragt ob er die Regeln hören möchte
+// der Spieler wird gefragt, ob er die Regeln hören möchte
 fun askListenRules() {
 
     Thread.sleep(2000)

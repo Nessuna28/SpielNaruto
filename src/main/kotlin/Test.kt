@@ -32,7 +32,7 @@ fun main() {
     characterUser = sakura
     characterComputer = naruto
     selectionUserString = "Kunai"
-    selectionComputer = "Taijutzu"
+    selectionComputer = "Taijutsu"
 
     var counter = 0
 
@@ -43,7 +43,7 @@ fun main() {
         whichAttackComputerPrint()
         valueOfCharacterPrint()
         selectionUserString = "große Sakura"
-        selectionComputer = "sexy Jutzu"
+        selectionComputer = "sexy Jutsu"
         counter++
     } while (counter <= 5)
 

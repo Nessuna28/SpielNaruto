@@ -12,7 +12,6 @@ open class Character(
     var baumstamm = 5
 
 
-
     // Chakra wird um einen bestimmten Wert verringert
     fun lostChakra(value: Int) {
 
@@ -51,19 +50,19 @@ open class Character(
     // der Spieler hat nur 5 Mal die Möglichkeit Baumstamm einzusetzen, nach jedem Mal wird einmal abgezogen
     fun baumstamm(input: String) {
 
-            if (this.baumstamm > 0) {
-                baumstamm--
-                if (input == "user") {
-                    selectionUserString = "Baumstamm"
-                }
-            } else {
-                if (input == "user") {
-                    println("\nDu hast Baumstamm bereits 5x angewendet und kannst es nicht mehr nutzen. Wähle erneut!")
-                    showSelection()
-                } else {
-                attackComputer()
-                }
+        if (this.baumstamm > 0) {
+            baumstamm--
+            if (input == "user") {
+                selectionUserString = "Baumstamm"
             }
+        } else {
+            if (input == "user") {
+                println("\nDu hast Baumstamm bereits 5x angewendet und kannst es nicht mehr nutzen. Wähle erneut!")
+                showSelection()
+            } else {
+                attackComputer()
+            }
+        }
     }
 
     // der Spieler wird gefragt, womit er angreifen möchte
@@ -130,20 +129,28 @@ open class Character(
     // je nach Auswahl der Zahl wird die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
     fun attackNormal(input: Int) {
 
-        when (input) {
-            1 -> selectionUserString = this.attack.keys.elementAt(0)
-            2 -> selectionUserString = this.attack.keys.elementAt(1)
-            3 -> selectionUserString = this.attack.keys.elementAt(2)
-            4 -> selectionUserString = this.attack.keys.elementAt(3)
+        if (input > attack.size) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+            showSelection()
+        } else {
+            when (input) {
+                1 -> selectionUserString = this.attack.keys.elementAt(0)
+                2 -> selectionUserString = this.attack.keys.elementAt(1)
+                3 -> selectionUserString = this.attack.keys.elementAt(2)
+                4 -> selectionUserString = this.attack.keys.elementAt(3)
+            }
         }
     }
-
 
     // der Funktion wird ein Parameter mitgegeben, die Eingabe des Spielers
     // je nach Auswahl wird dem Spieler Chakra abgezogen um den Wert der Attacke und die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
     // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
     fun attackWithNinjutsu(attack: String, input: Int) {
 
+        if (input > ninjutsu.size) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+            showSelection()
+        } else {
             if (input == selectionUserInt) {
                 when (input) {
                     1 -> {
@@ -171,44 +178,55 @@ open class Character(
                         notEnoughChakra("user")
                     }
                 }
-            } else if (attack == selectionComputer) {
-                when (attack) {
-                    this.ninjutsu.keys.elementAt(0) -> notEnoughChakra("com")
-                    this.ninjutsu.keys.elementAt(1) -> notEnoughChakra("com")
-                    this.ninjutsu.keys.elementAt(2) -> notEnoughChakra("com")
-                    this.ninjutsu.keys.elementAt(3) -> notEnoughChakra("com")
-                    this.ninjutsu.keys.elementAt(4) -> notEnoughChakra("com")
-                }
             }
+        }
+
+        if (attack == selectionComputer) {
+            when (attack) {
+                this.ninjutsu.keys.elementAt(0) -> notEnoughChakra("com")
+                this.ninjutsu.keys.elementAt(1) -> notEnoughChakra("com")
+                this.ninjutsu.keys.elementAt(2) -> notEnoughChakra("com")
+                this.ninjutsu.keys.elementAt(3) -> notEnoughChakra("com")
+                this.ninjutsu.keys.elementAt(4) -> notEnoughChakra("com")
+            }
+        }
     }
 
     // der Funktion wird ein Parameter mitgegeben, die Eingabe des Spielers
     // je nach Auswahl wird die dementsprechende Attacke in der Variablen selectionUser gespeichert zum Weiterbearbeiten
     fun attackWithWeapon(input: Int) {
 
-        when (input) {
-            1 -> selectionUserString = this.weapon.keys.elementAt(0)
-            2 -> selectionUserString = this.weapon.keys.elementAt(1)
-            3 -> selectionUserString = this.weapon.keys.elementAt(2)
-            4 -> selectionUserString = this.weapon.keys.elementAt(3)
+        if (input > weapon.size) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+            showSelection()
+        } else {
+            when (input) {
+                1 -> selectionUserString = this.weapon.keys.elementAt(0)
+                2 -> selectionUserString = this.weapon.keys.elementAt(1)
+                3 -> selectionUserString = this.weapon.keys.elementAt(2)
+                4 -> selectionUserString = this.weapon.keys.elementAt(3)
+            }
         }
     }
 
-    fun notEnoughChakra(input: String){
+    // diese Funktion guckt ob der Spieler genügend Chakra für den Angriff hat,
+    // wenn ja wird ihm Chakra um den Wert der Attacke abgezogen, wenn nicht dann bekommt er gesagt, dass er nicht genügend Chakra hat
+    fun notEnoughChakra(input: String) {
 
         var valueOfAttack = 0
 
         if (input == "user") {
             valueOfAttack = ninjutsu[selectionUserString]!!
-        } else {
-            valueOfAttack = ninjutsu[selectionComputer]!!
-        }
-        if (this.chakra >= valueOfAttack) {
-            lostChakra(valueOfAttack)
-        } else {
-            if (input == "user") {
+            if (this.chakra >= valueOfAttack) {
+                lostChakra(valueOfAttack)
+            } else {
                 println("\n\uD83D\uDE2B Du hast nicht genügend Chakra um Ninjutsus anzuwenden. Wähle erneut!")
                 showSelection()
+            }
+        } else {
+            valueOfAttack = ninjutsu[selectionComputer]!!
+            if (this.chakra >= valueOfAttack) {
+                lostChakra(valueOfAttack)
             } else {
                 attackComputer()
             }
