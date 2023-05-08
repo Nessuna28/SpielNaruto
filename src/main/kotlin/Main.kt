@@ -264,13 +264,13 @@ fun selectionSelfOrRandom() {
 fun selectionCharacter() {
 
     var counter = 0
-    var test = characterNameList.size
 
     println(
         """
             Die Charaktere die du zur Auswahl hast sind: $favoriteColorUser
-            ${characterNameList.slice(0..4)}
-            ${characterNameList.slice(5..9)}
+            ${characterNameList.slice(0..6)}
+            ${characterNameList.slice(7..11)}
+            ${characterNameList.slice(12..13)}
             $reset
         """.trimIndent()
     )
@@ -916,7 +916,15 @@ fun songForCharacter(selectionPlayer: String) {
         "minato" -> soundThread.file = "sounds/minatoSong.wav"
         "deidara" -> soundThread.file = "sounds/deidaraSong.wav"
         "neji" -> soundThread.file = "sounds/nejiSong.wav"
-
+        "maito gai" -> soundThread.file = "sounds/maitoGaiSong.wav"
+        "naruto" -> soundThread.file = "sounds/narutoSong.wav"
+        "zabuza" -> soundThread.file = "sounds/zabuzaSong.wav"
+        "haku" -> soundThread.file = "sounds/hakuSong.wav"
+        "kiba" -> soundThread.file = "sounds/kibaSong.wav"
+        "hinata" -> soundThread.file = "sounds/hinataSong.wav"
+        "rocklee" -> soundThread.file = "sounds/rockLeeSong.wav"
+        "gaara" -> soundThread.file = "sounds/gaaraSong.wav"
+        "pain" -> soundThread.file = "sounds/painSong.wav"
     }
 }
 

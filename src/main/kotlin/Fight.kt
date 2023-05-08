@@ -293,8 +293,8 @@ fun grafikForAttack() {
 // diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat
 fun winOrLosePrint() {
 
-    if (characterComputer.lifePoints == 0) {
-        println("\nDer Computer ist gefallen und steht nicht mehr auf.")
+    if (characterComputer.lifePoints <= 0) {
+        println("\nDer Computer ist gefallen und steht nicht mehr auf. \n")
         Thread.sleep(2000)
         println("\n      \uD83C\uDFC6 \n\uD83C\uDF87 ${favoriteColorUser} Super! Du hast gewonnen. $reset \uD83C\uDF87")
         println(
@@ -306,8 +306,8 @@ fun winOrLosePrint() {
             
         """.trimIndent()
         )
-    } else if (characterUser.lifePoints == 0) {
-        println("\n Du bist gefallen und stehst nicht mehr auf.")
+    } else if (characterUser.lifePoints <= 0) {
+        println("\n Du bist gefallen und stehst nicht mehr auf. \n")
         Thread.sleep(2000)
         println("\n\uD83D\uDE14 ${favoriteColorUser} Schade! Du hast leider verloren. $reset \uD83D\uDE14")
         println(
