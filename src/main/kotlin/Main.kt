@@ -912,6 +912,10 @@ fun songForCharacter(selectionPlayer: String) {
         "sakura" -> soundThread.file = "sounds/sakuraSong.wav"
         "kakashi" -> soundThread.file = "sounds/kakashiSong.wav"
         "jiraiya" -> soundThread.file = "sounds/jiraiyaSong.wav"
+        "orochimaru" -> soundThread.file = "sounds/orochimaruSong.wav"
+        "minato" -> soundThread.file = "sounds/minatoSong.wav"
+        "deidara" -> soundThread.file = "sounds/deidaraSong.wav"
+        "neji" -> soundThread.file = "sounds/nejiSong.wav"
 
     }
 }
