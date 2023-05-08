@@ -27,26 +27,34 @@ var teamComputer = mutableListOf<Character>()
 var selectionComputer = ""
 var lifePointsUser = 500
 var lifePointsComputer = 500
+val soundThread = SoundThread("sounds/tsunadeSong.wav")
+
 
 fun main() {
 
-    greeting()
+    val game = Thread {
 
-    selectionTeamOrCharacter()
-    characterComputer()
-    valueOfCharacterPrint()
-    do {
-        selectionAttackUser()
-        grafikForAttack()
-        attackComputer()
-        lostLifePoints(selectionUserString, selectionComputer, characterUser, characterComputer)
-        defensePrint()
-        wichAttackUserPrint()
-        whichAttackComputerPrint()
+        greeting()
+        selectionTeamOrCharacter()
+        songForCharacter(selectionUserString)
+        soundThread.start()
+        characterComputer()
         valueOfCharacterPrint()
-    } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
+        do {
+            selectionAttackUser()
+            grafikForAttack()
+            attackComputer()
+            lostLifePoints(selectionUserString, selectionComputer, characterUser, characterComputer)
+            defensePrint()
+            wichAttackUserPrint()
+            whichAttackComputerPrint()
+            valueOfCharacterPrint()
+        } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
 
-    winOrLosePrint()
+        winOrLosePrint()
+    }
+
+    game.start()
 }
 
 
@@ -161,7 +169,7 @@ fun favoriteColorUser() {
 // der Spieler wird gefragt, ob er die Regeln hören möchte
 fun askListenRules() {
 
-    Thread.sleep(1500)
+    Thread.sleep(1000)
     print("\nHallo $favoriteColorUser${nameUser}$reset, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
     selectionUserString = readln().lowercase()
 
@@ -439,8 +447,10 @@ fun listToLowercaselist(list: List<String>): List<String>{
     return lowercaseList
 }
 
-// jeder Spieler hat seine eigene kleine Grafik
+// fast jeder Charakter hat seine eigene kleine Grafik
 fun grafik(selectionPlayer: String){
+
+    Thread.sleep(1000)
 
     when (selectionPlayer) {
         "naruto" -> println(
@@ -892,15 +902,20 @@ fun grafik(selectionPlayer: String){
     }
 }
 
-// spielt Sounds ab
-fun sound(file: String) {
+// fast jeder Charakter hat seinen eigenen Song
+fun songForCharacter(selectionPlayer: String) {
 
-    val file = File("./$file")
-    val audio = AudioSystem.getAudioInputStream(file.toURI().toURL())
-    val clip = AudioSystem.getClip()
-    clip.open(audio)
-    clip.start()
+    when (selectionPlayer) {
+        "shikamaru" -> soundThread.file = "sounds/shikamaruSong.wav"
+        "tsunade" -> soundThread.file = "sounds/tsunadeSong.wav"
+        "sasuke" -> soundThread.file = "sounds/sasukeSong.wav"
+        "sakura" -> soundThread.file = "sounds/sakuraSong.wav"
+        "kakashi" -> soundThread.file = "sounds/kakashiSong.wav"
+        "jiraiya" -> soundThread.file = "sounds/jiraiyaSong.wav"
+
+    }
 }
+
 
 
 

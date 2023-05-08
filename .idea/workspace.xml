@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Charaktere und kleine Bildchen hinzugefügt">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Grafiken zugefügt, Teamspiel begonnen">
+      <change afterPath="$PROJECT_DIR$/sounds/jiraiyaSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/kakashiSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/sakuraSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/sasukeSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/shikamaruSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/tsunadeSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TeamFight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,15 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/angeliquefreier/Documents/Syntax/Kotlin Grundlagen/SpielNaruto/sounds",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sounds" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sounds" />
     </key>
@@ -389,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683490842891</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Grafiken zugefügt, Teamspiel begonnen">
+      <created>1683495681330</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1683495681331</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -404,7 +424,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Funktion für Attackenauswahl bearbeitet" />
     <MESSAGE value="Funktion in den Klassen erstellt" />
     <MESSAGE value="die Attacken in den Klassen umgebaut" />
     <MESSAGE value="neue Klasse Charakter mit mehr Stärke erstellt" />
@@ -429,20 +448,16 @@
     <MESSAGE value="noch einen kleinen Fehler gefunden aber konnte noch nicht behoben werden" />
     <MESSAGE value="Fehler behoben, dem Computer wird jetzt auch Chakra abgezogen" />
     <MESSAGE value="Charaktere und kleine Bildchen hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Charaktere und kleine Bildchen hinzugefügt" />
+    <MESSAGE value="Grafiken zugefügt, Teamspiel begonnen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grafiken zugefügt, Teamspiel begonnen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>424</line>
+          <line>433</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
-          <line>217</line>
-          <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>

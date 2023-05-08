@@ -1,5 +1,3 @@
-import java.lang.Character
-
 fun teamFight() {}
 
 var mainCharacter = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())

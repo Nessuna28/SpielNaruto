@@ -221,7 +221,7 @@ fun whichAttackComputerPrint() {
 fun grafikForAttack() {
 
     if (selectionUserString.lowercase().contains("feuer"))
-        println("\n        \uD83D\uDD25 \n")
+        println("\n        ☄\uFE0F \n")
 
     if (selectionUserString.lowercase().contains("schlafbombe"))
         println("\n        \uD83D\uDCA3 \n")
@@ -264,6 +264,9 @@ fun grafikForAttack() {
 
     if (selectionUserString.lowercase().contains("schlange"))
         println("\n         \uD83D\uDC0D \n")
+
+    if (selectionUserString.lowercase().contains("feuerball"))
+        println("\n         ☄\uFE0F \n")
 /*
     if (selectionUserString.lowercase().contains("vertrauter")) {
         if (characterUser == kakashi)

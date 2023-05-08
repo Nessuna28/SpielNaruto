@@ -1,11 +1,6 @@
-import java.io.File
-import javax.sound.sampled.AudioSystem
-
 fun main() {
 
-    for (i in 0..5) {
-        sound("sounds/goat.wav")
-    }
+
 
 
     //println(naruto.attack.keys.elementAt(0))
@@ -35,7 +30,7 @@ fun main() {
     println("Hallo")
     println("Du da")
 
-     */
+
 
     characterUser = sakura
     characterComputer = naruto
@@ -54,6 +49,8 @@ fun main() {
         selectionComputer = "sexy Jutsu"
         counter++
     } while (counter <= 5)
+
+     */
 
 }
 
