@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="mehr Charaktere initialisiert und Sounds hinzugefügt">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithBijuu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="noch zwei Klassen mit extra Attacken eingebaut">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TeamFight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,13 +60,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Spiel weiter bearbeitet">
-      <created>1682462756051</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1682462756051</updated>
     </task>
     <task id="LOCAL-00005" summary="Spiel weiter bearbeitet">
       <created>1682524634786</created>
@@ -404,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683579056019</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="noch zwei Klassen mit extra Attacken eingebaut">
+      <created>1683621829590</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1683621829590</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,7 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="neue Klasse Charakter mit mehr Stärke erstellt" />
     <MESSAGE value="Klasse Charakter mit mehr Stärke bearbeitet" />
     <MESSAGE value="Eigenschaften und Funktionen der Klassen nochmals überarbeitet" />
     <MESSAGE value="Funktion showSelection in Klasse character fertig" />
@@ -444,15 +443,26 @@
     <MESSAGE value="Grafiken zugefügt, Teamspiel begonnen" />
     <MESSAGE value="Sound hinzugefügt" />
     <MESSAGE value="mehr Charaktere initialisiert und Sounds hinzugefügt" />
-    <option name="LAST_COMMIT_MESSAGE" value="mehr Charaktere initialisiert und Sounds hinzugefügt" />
+    <MESSAGE value="noch zwei Klassen mit extra Attacken eingebaut" />
+    <option name="LAST_COMMIT_MESSAGE" value="noch zwei Klassen mit extra Attacken eingebaut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>433</line>
+          <line>441</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
+          <line>3</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Fight.kt</url>
+          <line>120</line>
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

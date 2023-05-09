@@ -36,14 +36,16 @@ fun main() {
 
         greeting()
         selectionTeamOrCharacter()
-        songForCharacter(selectionUserString)
+        useSong()
         soundThread.start()
         characterComputer()
         valueOfCharacterPrint()
         do {
             selectionAttackUser()
+            selectionAttackTeamUser()
             grafikForAttack()
             attackComputer()
+            selectionAttackTeamComputer()
             lostLifePoints(selectionUserString, selectionComputer, characterUser, characterComputer)
             defensePrint()
             wichAttackUserPrint()
@@ -319,7 +321,7 @@ fun selectionTeam(){
     )
 
     while (counter < 3) {
-        print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma: ")
+        print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma und Leerzeichen: ")
         selectionUserString = readln().lowercase()
         val inputList = selectionUserString.split(", ")
 
@@ -342,6 +344,8 @@ fun selectionTeam(){
             randomGeneratorForTeam()
         }
     }
+
+    selectionMainCharacter()
 }
 
 // der Zufallsgenerator für einen Charakter
@@ -930,6 +934,16 @@ fun songForCharacter(selectionPlayer: String) {
         "gaara" -> soundThread.file = "sounds/gaaraSong.wav"
         "pain" -> soundThread.file = "sounds/painSong.wav"
     }
+}
+
+// wählt den Sound aus für Einzelcharakter oder Team
+fun useSong() {
+
+    if (characterComputer.name.isNotEmpty())
+        songForCharacter(characterComputer.name)
+
+    if (mainCharacterUser.name.isNotEmpty())
+        songForCharacter(mainCharacterUser.name)
 }
 
 

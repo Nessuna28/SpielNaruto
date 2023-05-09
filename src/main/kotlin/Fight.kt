@@ -19,6 +19,8 @@ fun selectionAttackUser() {
                 println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
+        } else {
+            selectionMainCharacter()
         }
     } while (counter != selectionUserInt)
 
@@ -32,6 +34,20 @@ fun attackComputer() {
     val attackList = mutableListOf<String>()
 
     if (characterComputer is CharacterWithGenjutsu) {
+        if (characterComputer is CharacterWithGenjutsuAndSusanoo) {
+            for (attack in characterComputer.taijutsu)
+                attackList.add(attack.key)
+
+            for (attack in characterComputer.ninjutsu)
+                attackList.add(attack.key)
+
+            for (attack in characterComputer.weapon)
+                attackList.add(attack.key)
+
+            attackList.add("Genjutsu")
+            attackList.add("Susanoo")
+            attackList.add("Baumstamm")
+    } else {
         for (attack in characterComputer.taijutsu)
             attackList.add(attack.key)
 
@@ -43,7 +59,7 @@ fun attackComputer() {
 
         attackList.add("Baumstamm")
         attackList.add("Genjutsu")
-
+    }
     } else if (characterComputer is CharacterWithMedicalSkills) {
         for (attack in characterComputer.taijutsu)
             attackList.add(attack.key)
@@ -56,6 +72,20 @@ fun attackComputer() {
 
         attackList.add("Baumstamm")
         attackList.add("Heilung")
+
+    } else if (characterComputer is CharacterWithBijuu) {
+        for (attack in characterComputer.taijutsu)
+            attackList.add(attack.key)
+
+        for (attack in characterComputer.ninjutsu)
+            attackList.add(attack.key)
+
+        for (attack in characterComputer.weapon)
+            attackList.add(attack.key)
+
+        attackList.add((characterComputer as CharacterWithBijuu).bijuu.first)
+        attackList.add("Baumstamm")
+        attackList.add("Bijuu")
 
     } else {
         for (attack in characterComputer.taijutsu)
@@ -83,6 +113,14 @@ fun attackComputer() {
 
     if (selectionComputer in characterComputer.ninjutsu)
         characterComputer.attackWithNinjutsu(selectionComputer, 0)
+
+    if (selectionComputer == "Susanoo")
+        (characterComputer as CharacterWithGenjutsuAndSusanoo).attackWithSusanoo(characterUser)
+
+    if (characterComputer is CharacterWithBijuu) {
+        if (selectionComputer == (characterComputer as CharacterWithBijuu).bijuu.first)
+            (characterComputer as CharacterWithBijuu).attackWithBijuu(characterUser)
+    }
 
     characterComputer.loadChakra(selectionComputer)
 }
@@ -296,26 +334,21 @@ fun winOrLosePrint() {
     if (characterComputer.lifePoints <= 0) {
         println("\nDer Computer ist gefallen und steht nicht mehr auf. \n")
         Thread.sleep(2000)
-        println("\n      \uD83C\uDFC6 \n\uD83C\uDF87 ${favoriteColorUser} Super! Du hast gewonnen. $reset \uD83C\uDF87")
-        println(
-            """
+        println("""
             
-                 (((  
-                (o o)            
-            ooO--(_)--Ooo
+                         🏆 
+
+        🎇 ${favoriteColorUser} Super! Du hast gewonnen. $reset 🎇
             
         """.trimIndent()
         )
     } else if (characterUser.lifePoints <= 0) {
         println("\n Du bist gefallen und stehst nicht mehr auf. \n")
         Thread.sleep(2000)
-        println("\n\uD83D\uDE14 ${favoriteColorUser} Schade! Du hast leider verloren. $reset \uD83D\uDE14")
-        println(
-            """
-               !!!                   
-              `  /_\  '
-             -  (OXO)  -
-            ooO--(_)--Ooo
+        println("\n")
+        println("""
+            
+        😔 ${favoriteColorUser} Schade! Du hast leider verloren. $reset 😔
             
         """.trimIndent()
         )

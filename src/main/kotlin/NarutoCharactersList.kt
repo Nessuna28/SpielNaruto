@@ -1,4 +1,3 @@
-
 // Liste der Charaktere
 
 val naruto = CharacterWithBijuu("Naruto", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("sexy Jutsu" to 25, "Rasengan" to 50, "Schattendoppelgänger" to 45, "Jutsu des vertrauten Geistes" to 90, "Riesen Rasengan" to 90), mutableMapOf("Kunai" to 30, "Shuriken" to 35), Pair("Kurama", 150))

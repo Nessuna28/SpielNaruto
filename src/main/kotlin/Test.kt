@@ -1,5 +1,9 @@
 fun main() {
 
+    characterComputer = naruto
+    attackComputer()
+    println(selectionComputer)
+
 
 
 
