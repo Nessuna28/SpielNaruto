@@ -23,7 +23,7 @@ shino = Beschwörungstechnik (Rieseninsekt) 60, Insektenklontechnik 30, Insekten
 kiba =
 hinata = Zwillingslöwenfäuste 45, Byakugan 45, Rotation 50, Hakke Shou Kaiten 30,
 
-gaara = Chukaku
+gaara = Shukaku
 
 neji
 tenten

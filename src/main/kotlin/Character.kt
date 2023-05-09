@@ -73,15 +73,26 @@ open class Character(
         var counter = 0
 
         do {
-            println(
-                """
+            if (ninjutsu.size <= 0) {
+                println(
+                    """
                     
-            Womit möchtest du angreifen?
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            3 für eine Waffe $reset
+        """.trimIndent()
+                )
+            } else {
+                println(
+                    """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für ein Ninjutsu
-            3 für eine Waffe
+            3 für eine Waffe $reset
         """.trimIndent()
-            )
+                )
+            }
             print("Gib die jeweilige Zahl ein: ")
             selectionUserInt = readln().toInt()
 
@@ -138,6 +149,7 @@ open class Character(
                 2 -> selectionUserString = this.taijutsu.keys.elementAt(1)
                 3 -> selectionUserString = this.taijutsu.keys.elementAt(2)
                 4 -> selectionUserString = this.taijutsu.keys.elementAt(3)
+                5 -> selectionUserString = this.taijutsu.keys.elementAt(4)
             }
         }
     }
@@ -210,7 +222,7 @@ open class Character(
     }
 
     // diese Funktion guckt ob der Spieler genügend Chakra für den Angriff hat,
-    // wenn ja wird ihm Chakra um den Wert der Attacke abgezogen, wenn nicht dann bekommt er gesagt, dass er nicht genügend Chakra hat
+    // wenn, ja wird ihm Chakra um den Wert der Attacke abgezogen, wenn nicht dann bekommt er gesagt, dass er nicht genügend Chakra hat
     fun notEnoughChakra(input: String) {
 
         var valueOfAttack = 0

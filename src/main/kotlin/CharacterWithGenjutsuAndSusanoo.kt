@@ -1,33 +1,30 @@
-open class CharacterWithGenjutsu : Character {
+class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
 
-    var genjutsu: Int
+    val susanoo: Int
 
     constructor(
         name: String,
         attack: MutableMap<String, Int>,
         ninjutsu: MutableMap<String, Int>,
         weapon: MutableMap<String, Int>,
-        genjutsu: Int,
-    ) : super(name, attack, ninjutsu, weapon) {
+        genjutsu: Int, susanoo: Int,
+    ) : super(name, attack, ninjutsu, weapon, genjutsu) {
 
-        this.genjutsu = genjutsu
+        this.susanoo = susanoo
     }
 
-    // bei der Funktion wird dem Gegner der Wert des Schadens von dem Genjutsu von seinen Lebenspunkten abgezogen
-    // und der Spieler verliert Chakra um den Wert der Attacke
-    // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
-    fun attackWithGenjutsu(enemy: Character) {
+    // Spieler greift mit Susanoo an und dem Gegner werden der entsprechende Wert von seinen lifePoints abgezogen
+    fun attackWithSusanoo(enemy: Character) {
 
-
-        if (chakra > genjutsu) {
-            enemy.lifePoints -= this.genjutsu
-            lostChakra(genjutsu)
+        if (chakra > susanoo) {
+            enemy.lifePoints -= this.susanoo
+            lostChakra(susanoo)
             if (enemy == characterComputer) {
-                selectionUserString = "Genjutsu"
+                selectionUserString = "Susanoo"
             }
         } else {
             if (enemy == characterComputer) {
-                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um ein Genjutsu auszuführen. Wähle erneut!")
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um Susanoo zu erwecken. Wähle erneut!")
                 showSelection()
             } else {
                 attackComputer()
@@ -36,7 +33,7 @@ open class CharacterWithGenjutsu : Character {
         }
     }
 
-    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
+    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden oder Susanoo zu erwecken erweitert
     override fun showSelection() {
 
         var counter = 0
@@ -49,7 +46,8 @@ open class CharacterWithGenjutsu : Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe
-            4 für Genjutsu $reset
+            4 für Genjutsu
+            5 für Susanoo erwecken $reset
         """.trimIndent()
                 )
                 print("Gib die jeweilige Zahl ein: ")
@@ -90,6 +88,9 @@ open class CharacterWithGenjutsu : Character {
                     counter = selectionUserInt
                 } else if (selectionUserInt == 4) {
                     attackWithGenjutsu(characterComputer)
+                    counter = selectionUserInt
+                } else if (selectionUserInt == 5) {
+                    attackWithSusanoo(characterComputer)
                     counter = selectionUserInt
                 } else {
                     println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")

@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="mehr Charaktere initialisiert und Sounds hinzugefügt">
-      <change afterPath="$PROJECT_DIR$/sounds/deidaraSong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/maitoGaiSong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/minatoSong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/nejiSong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/orochimaruSong.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithBijuu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,13 +60,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Spiel weiter bearbeitet">
-      <created>1682454395437</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1682454395437</updated>
     </task>
     <task id="LOCAL-00004" summary="Spiel weiter bearbeitet">
       <created>1682462756051</created>
@@ -406,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683564177104</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="mehr Charaktere initialisiert und Sounds hinzugefügt">
+      <created>1683579056019</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1683579056019</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,11 +453,6 @@
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
           <line>433</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Character.kt</url>
-          <line>184</line>
-          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

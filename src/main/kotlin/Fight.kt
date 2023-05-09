@@ -199,13 +199,11 @@ fun defensePrint() {
 // diese Funktion gibt die Attacke des Spielers in einer Println aus, wenn der Gegner nicht ausgewichen ist oder der Spieler Heilung benutzt hat
 fun wichAttackUserPrint() {
 
-    if (selectionUserInt != 2) {
         if (selectionUserString != "Baumstamm" && selectionUserString != "Heilung" && selectionComputer != "Baumstamm" && selectionComputer != "Heilung") {
             println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen und deinen Gegner getroffen.")
             if (selectionComputer == "Heilung") {
                 println("\nDu hast mit $favoriteColorUser$selectionUserString$reset angegriffen aber der Gegner hat sich geheilt.")
             }
-        }
     }
 }
 
@@ -267,7 +265,7 @@ fun grafikForAttack() {
 
     if (selectionUserString.lowercase().contains("feuerball"))
         println("\n         ☄\uFE0F \n")
-/*
+
     if (selectionUserString.lowercase().contains("vertrauter")) {
         if (characterUser == kakashi)
             println("\n         \uD83D\uDC15 \n")
@@ -281,13 +279,15 @@ fun grafikForAttack() {
             println("\n         \uD83D\uDC38 \n")
     }
 
- */
 
     if (selectionUserString.lowercase().contains("susanoo"))
     println("\n             \uD83D\uDC80 \n")
 
     if (selectionUserString.lowercase().contains("kurama"))
         println("\n          \uD83E\uDD8A \n")
+
+    if (selectionUserString.lowercase().contains("shukaka"))
+        println("\n          ฅ՞•ﻌ•՞ฅ \n")
 }
 
 // diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat
