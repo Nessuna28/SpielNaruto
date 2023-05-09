@@ -62,7 +62,7 @@ open class CharacterWithGenjutsu : Character {
                         println("\nDas hast du zur Auswahl:")
                         var index = 1
                         for (attack in taijutsu.keys) {
-                            println("$index für $attack")
+                            println("$favoriteColorUser$index für $attack $reset")
                             index++
                         }
                         print("Triff deine Auswahl per Zahl: ")
@@ -74,7 +74,7 @@ open class CharacterWithGenjutsu : Character {
                         println("\nDas hast du zur Auswahl:")
                         var index = 1
                         for (attack in weapon.keys) {
-                            println("$index für $attack")
+                            println("$favoriteColorUser$index für $attack $reset")
                             index++
                         }
                         print("Triff deine Auswahl per Zahl: ")
@@ -113,7 +113,7 @@ open class CharacterWithGenjutsu : Character {
                         println("\nDas hast du zur Auswahl:")
                         var index = 1
                         for (attack in taijutsu.keys) {
-                            println("$index für $attack")
+                            println("$favoriteColorUser$index für $attack $reset")
                             index++
                         }
                         print("Triff deine Auswahl per Zahl: ")
@@ -125,7 +125,7 @@ open class CharacterWithGenjutsu : Character {
                         println("\nDas hast du zur Auswahl:")
                         var index = 1
                         for (attack in ninjutsu.keys) {
-                            println("$index für $attack")
+                            println("$favoriteColorUser$index für $attack $reset")
                             index++
                         }
                         print("Triff deine Auswahl per Zahl: ")
@@ -137,7 +137,7 @@ open class CharacterWithGenjutsu : Character {
                         println("\nDas hast du zur Auswahl:")
                         var index = 1
                         for (attack in weapon.keys) {
-                            println("$index für $attack")
+                            println("$favoriteColorUser$index für $attack $reset")
                             index++
                         }
                         print("Triff deine Auswahl per Zahl: ")
@@ -176,7 +176,7 @@ open class CharacterWithGenjutsu : Character {
                     println("\nDas hast du zur Auswahl:")
                     var index = 1
                     for (attack in taijutsu.keys) {
-                        println("$index für $attack")
+                        println("$favoriteColorUser$index für $attack $reset")
                         index++
                     }
                     print("Triff deine Auswahl per Zahl: ")
@@ -188,7 +188,7 @@ open class CharacterWithGenjutsu : Character {
                     println("\nDas hast du zur Auswahl:")
                     var index = 1
                     for (attack in weapon.keys) {
-                        println("$index für $attack")
+                        println("$favoriteColorUser$index für $attack $reset")
                         index++
                     }
                     print("Triff deine Auswahl per Zahl: ")
@@ -223,7 +223,7 @@ open class CharacterWithGenjutsu : Character {
                     println("\nDas hast du zur Auswahl:")
                     var index = 1
                     for (attack in taijutsu.keys) {
-                        println("$index für $attack")
+                        println("$favoriteColorUser$index für $attack $reset")
                         index++
                     }
                     print("Triff deine Auswahl per Zahl: ")
@@ -235,7 +235,7 @@ open class CharacterWithGenjutsu : Character {
                     println("\nDas hast du zur Auswahl:")
                     var index = 1
                     for (attack in ninjutsu.keys) {
-                        println("$index für $attack")
+                        println("$favoriteColorUser$index für $attack $reset")
                         index++
                     }
                     print("Triff deine Auswahl per Zahl: ")
@@ -247,7 +247,7 @@ open class CharacterWithGenjutsu : Character {
                     println("\nDas hast du zur Auswahl:")
                     var index = 1
                     for (attack in weapon.keys) {
-                        println("$index für $attack")
+                        println("$favoriteColorUser$index für $attack $reset")
                         index++
                     }
                     print("Triff deine Auswahl per Zahl: ")

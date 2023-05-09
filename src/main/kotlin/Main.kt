@@ -42,7 +42,6 @@ fun main() {
         valueOfCharacterPrint()
         do {
             selectionAttackUser()
-            selectionAttackTeamUser()
             grafikForAttack()
             attackComputer()
             selectionAttackTeamComputer()
@@ -376,13 +375,15 @@ fun randomGeneratorForTeam(){
     }
     Thread.sleep(2000)
     println("Deine Charaktere sind: $favoriteColorUser${listOfCharactersForRandom.toString().uppercase()} $reset")
+
+    selectionMainCharacter()
 }
 
 // die Auswahl für den Computer wird per Zufallsgenerator, je nachdem ob Team oder einzelner Charakter, getroffen
 // es kommt kein Charakter doppelt in einem Team vor
 fun characterComputer(){
 
-    if (characterUser.name == ""){
+    if (characterUser.name.isEmpty()){
         val listOfCharactersForRandom = mutableListOf<String>()
 
         while (listOfCharactersForRandom.size < 3) {
@@ -395,7 +396,7 @@ fun characterComputer(){
         }
         Thread.sleep(2000)
         println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $reset")
-    } else {
+    } else if (characterUser.name.isNotEmpty()){
         val selection = characterList.random()
         characterComputer = selection
         Thread.sleep(2000)
@@ -406,6 +407,8 @@ fun characterComputer(){
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
 // speichert den Charakter vom Typ Character, CharacterWithGenjutsu oder CharacterWithMedicalSkills in der Variablen characterUser
 fun setCharacterForUser(string: String) {
+
+    val inputList = selectionUserString.split(", ")
 
         for (character in characterList) {
             if (character is CharacterWithMedicalSkills) {
@@ -422,6 +425,9 @@ fun setCharacterForUser(string: String) {
                 }
             }
         }
+
+    if (inputList.size >= 3)
+        characterUser.name = ""
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
@@ -930,20 +936,22 @@ fun songForCharacter(selectionPlayer: String) {
         "haku" -> soundThread.file = "sounds/hakuSong.wav"
         "kiba" -> soundThread.file = "sounds/kibaSong.wav"
         "hinata" -> soundThread.file = "sounds/hinataSong.wav"
-        "rocklee" -> soundThread.file = "sounds/rockLeeSong.wav"
+        "rock lee" -> soundThread.file = "sounds/rockLeeSong.wav"
         "gaara" -> soundThread.file = "sounds/gaaraSong.wav"
         "pain" -> soundThread.file = "sounds/painSong.wav"
+        "madara" -> soundThread.file = "sounds/madaraSong.wav"
+        "asuma" -> soundThread.file = "sounds/asumaSong.wav"
     }
 }
 
 // wählt den Sound aus für Einzelcharakter oder Team
 fun useSong() {
 
-    if (characterComputer.name.isNotEmpty())
-        songForCharacter(characterComputer.name)
+    if (characterUser.name.isNotEmpty())
+        songForCharacter(characterUser.name.lowercase())
 
     if (mainCharacterUser.name.isNotEmpty())
-        songForCharacter(mainCharacterUser.name)
+        songForCharacter(mainCharacterUser.name.lowercase())
 }
 
 

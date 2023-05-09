@@ -304,7 +304,7 @@ fun grafikForAttack() {
     if (selectionUserString.lowercase().contains("feuerball"))
         println("\n         ☄\uFE0F \n")
 
-    if (selectionUserString.lowercase().contains("vertrauter")) {
+    if (selectionUserString.lowercase().contains("vertrauten")) {
         if (characterUser == kakashi)
             println("\n         \uD83D\uDC15 \n")
         if (characterUser == naruto)
