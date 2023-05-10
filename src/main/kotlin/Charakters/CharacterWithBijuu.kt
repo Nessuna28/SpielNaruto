@@ -1,33 +1,41 @@
-open class CharacterWithGenjutsu : Character {
+package Charakters
 
-    var genjutsu: Int
+import Fights.attackComputer
+import characterComputer
+import characterUser
+import favoriteColorUser
+import Fights.mainCharacterComputer
+import Fights.mainCharacterUser
+import Fights.randomAttackTeamUser
+import reset
+import selectionUserInt
+import selectionUserString
 
-    constructor(
-        name: String,
-        attack: MutableMap<String, Int>,
-        ninjutsu: MutableMap<String, Int>,
-        weapon: MutableMap<String, Int>,
-        genjutsu: Int,
-    ) : super(name, attack, ninjutsu, weapon) {
+class CharacterWithBijuu: Character {
 
-        this.genjutsu = genjutsu
-    }
-
-    // bei der Funktion wird dem Gegner der Wert des Schadens von dem Genjutsu von seinen Lebenspunkten abgezogen
-    // und der Spieler verliert Chakra um den Wert der Attacke
-    // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
-    fun attackWithGenjutsu(enemy: Character) {
+    var bijuu: Pair<String, Int>
 
 
-        if (chakra > genjutsu) {
-            enemy.lifePoints -= this.genjutsu
-            lostChakra(genjutsu)
+    constructor(name: String, attack: MutableMap<String, Int>, ninjutsu: MutableMap<String, Int>, weapon: MutableMap<String, Int>, bijuu: Pair<String, Int>):
+            super(name, attack, ninjutsu, weapon) {
+
+                this.bijuu = bijuu
+            }
+
+    fun attackWithBijuu(enemy: Character) {
+
+        val bijuuName = this.bijuu.first
+        val bijuuValue = this.bijuu.second
+
+        if (chakra > bijuuValue) {
+            enemy.lifePoints -= bijuuValue
+            lostChakra(bijuuValue)
             if (enemy == characterComputer) {
-                selectionUserString = "Genjutsu"
+                selectionUserString = bijuuName
             }
         } else {
             if (enemy == characterComputer) {
-                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um ein Genjutsu auszuführen. Wähle erneut!")
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um dein Bijuu zu erwecken. Wähle erneut!")
                 showSelection()
             } else {
                 attackComputer()
@@ -36,9 +44,10 @@ open class CharacterWithGenjutsu : Character {
         }
     }
 
-    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
+    // die Funktion aus Charakters.Character um die Möglichkeit ein Bijuu oder Kami zu erwecken erweitert
     override fun showSelection() {
 
+        val bijuuName = this.bijuu.first
         var counter = 0
 
         do {
@@ -50,7 +59,7 @@ open class CharacterWithGenjutsu : Character {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe
-            3 für Genjutsu 
+            3 für $bijuuName erwecken 
             4 für Hilfe des Teams $reset
         """.trimIndent()
                     )
@@ -83,7 +92,7 @@ open class CharacterWithGenjutsu : Character {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 3) {
-                        attackWithGenjutsu(mainCharacterComputer)
+                        attackWithBijuu(mainCharacterComputer)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
@@ -93,7 +102,7 @@ open class CharacterWithGenjutsu : Character {
                         println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         counter = 0
                     }
-                } else {
+                } else if (characterUser.name.isNotEmpty()){
                     println(
                         """
                     
@@ -101,7 +110,7 @@ open class CharacterWithGenjutsu : Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe
-            4 für Genjutsu 
+            4 für $bijuuName erwecken 
             5 für Hilfe des Teams $reset
         """.trimIndent()
                     )
@@ -146,7 +155,7 @@ open class CharacterWithGenjutsu : Character {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
-                        attackWithGenjutsu(mainCharacterComputer)
+                        attackWithBijuu(mainCharacterComputer)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 5) {
@@ -165,7 +174,7 @@ open class CharacterWithGenjutsu : Character {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe 
-            3 für Genjutsu $reset
+            3 für $bijuuName erwecken $reset
         """.trimIndent()
                 )
 
@@ -197,7 +206,7 @@ open class CharacterWithGenjutsu : Character {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 3) {
-                    attackWithGenjutsu(characterComputer)
+                    attackWithBijuu(characterComputer)
                     counter = selectionUserInt
 
                 } else {
@@ -212,7 +221,7 @@ open class CharacterWithGenjutsu : Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe 
-            4 für Genjutsu $reset
+            4 für $bijuuName erwecken $reset
         """.trimIndent()
                 )
 
@@ -256,7 +265,7 @@ open class CharacterWithGenjutsu : Character {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 4) {
-                    attackWithGenjutsu(characterComputer)
+                    attackWithBijuu(characterComputer)
                     counter = selectionUserInt
 
                 } else {

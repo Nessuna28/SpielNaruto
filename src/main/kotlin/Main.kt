@@ -1,3 +1,6 @@
+import Charakters.*
+import Fights.*
+
 val reset = "\u001b[0m"
 val magenta = "\u001b[35m"
 val blue = "\u001b[34m"
@@ -272,10 +275,10 @@ fun selectionCharacter() {
         """
             Die Charaktere die du zur Auswahl hast sind: $favoriteColorUser
             ${characterNameList.slice(0..5)}
-            ${characterNameList.slice(6..9)}
-            ${characterNameList.slice(10..14)}
-            ${characterNameList.slice(15..15)}
-            ${characterNameList.slice(16..20)}
+            ${characterNameList.slice(6..11)}
+            ${characterNameList.slice(12..17)}
+            ${characterNameList.slice(18..18)}
+            ${characterNameList.slice(19..23)}
             $reset
         """.trimIndent()
     )
@@ -313,10 +316,10 @@ fun selectionTeam(){
                 
             Die Charaktere die du zur Auswahl hast sind: $blue
             ${characterNameList.slice(0..5)}
-            ${characterNameList.slice(6..9)}
-            ${characterNameList.slice(10..14)}
-            ${characterNameList.slice(15..15)}
-            ${characterNameList.slice(16..20)}
+            ${characterNameList.slice(6..11)}
+            ${characterNameList.slice(12..17)}
+            ${characterNameList.slice(18..18)}
+            ${characterNameList.slice(19..23)}
             $reset
         """.trimIndent()
     )
@@ -467,7 +470,7 @@ fun newRoundOrNotAndCountRoundsWon() {
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
-// speichert den Charakter vom Typ Character, CharacterWithGenjutsu oder CharacterWithMedicalSkills in der Variablen characterUser
+// speichert den Charakter vom Typ Charakters.Character, Charakters.CharacterWithGenjutsu oder Charakters.CharacterWithMedicalSkills in der Variablen characterUser
 fun setCharacterForUser(string: String) {
 
     val inputList = selectionUserString.split(", ")
@@ -506,7 +509,7 @@ fun setCharacterForUser(string: String) {
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
-// speichert den Charakter vom Typ Character, CharacterWithGenjutsu oder CharacterWithMedicalSkills in der Variablen characterComputer
+// speichert den Charakter vom Typ Charakters.Character, Charakters.CharacterWithGenjutsu oder Charakters.CharacterWithMedicalSkills in der Variablen characterComputer
 fun setCharacterForComputer(string: String) {
 
     for (character in characterList) {

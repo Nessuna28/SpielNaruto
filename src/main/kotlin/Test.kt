@@ -1,3 +1,6 @@
+import Charakters.naruto
+import Fights.attackComputer
+
 fun main() {
 
     characterComputer = naruto

@@ -1,28 +1,43 @@
-class CharacterWithBijuu: Character {
+package Charakters
 
-    var bijuu: Pair<String, Int>
+import Fights.attackComputer
+import characterComputer
+import characterUser
+import favoriteColorUser
+import Fights.mainCharacterComputer
+import Fights.mainCharacterUser
+import Fights.randomAttackTeamUser
+import reset
+import selectionUserInt
+import selectionUserString
 
+class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
 
-    constructor(name: String, attack: MutableMap<String, Int>, ninjutsu: MutableMap<String, Int>, weapon: MutableMap<String, Int>, bijuu: Pair<String, Int>):
-            super(name, attack, ninjutsu, weapon) {
+    val susanoo: Int
 
-                this.bijuu = bijuu
-            }
+    constructor(
+        name: String,
+        attack: MutableMap<String, Int>,
+        ninjutsu: MutableMap<String, Int>,
+        weapon: MutableMap<String, Int>,
+        genjutsu: Int, susanoo: Int,
+    ) : super(name, attack, ninjutsu, weapon, genjutsu) {
 
-    fun attackWithBijuu(enemy: Character) {
+        this.susanoo = susanoo
+    }
 
-        val bijuuName = this.bijuu.first
-        val bijuuValue = this.bijuu.second
+    // Spieler greift mit Susanoo an und dem Gegner werden der entsprechende Wert von seinen lifePoints abgezogen
+    fun attackWithSusanoo(enemy: Character) {
 
-        if (chakra > bijuuValue) {
-            enemy.lifePoints -= bijuuValue
-            lostChakra(bijuuValue)
+        if (chakra > susanoo) {
+            enemy.lifePoints -= this.susanoo
+            lostChakra(susanoo)
             if (enemy == characterComputer) {
-                selectionUserString = bijuuName
+                selectionUserString = "Susanoo"
             }
         } else {
             if (enemy == characterComputer) {
-                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um dein Bijuu zu erwecken. Wähle erneut!")
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um Susanoo zu erwecken. Wähle erneut!")
                 showSelection()
             } else {
                 attackComputer()
@@ -31,10 +46,9 @@ class CharacterWithBijuu: Character {
         }
     }
 
-    // die Funktion aus Character um die Möglichkeit ein Bijuu oder Kami zu erwecken erweitert
+    // die Funktion aus Charakters.Character um die Möglichkeit ein Genjutsu anzuwenden oder Susanoo zu erwecken erweitert
     override fun showSelection() {
 
-        val bijuuName = this.bijuu.first
         var counter = 0
 
         do {
@@ -46,8 +60,9 @@ class CharacterWithBijuu: Character {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe
-            3 für $bijuuName erwecken 
-            4 für Hilfe des Teams $reset
+            3 für Genjutsu 
+            4 für Susanoo erwecken
+            5 für Hilfe des Teams $reset
         """.trimIndent()
                     )
 
@@ -79,17 +94,21 @@ class CharacterWithBijuu: Character {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 3) {
-                        attackWithBijuu(mainCharacterComputer)
+                        attackWithGenjutsu(mainCharacterComputer)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
+                        attackWithSusanoo(mainCharacterComputer)
+                        counter = selectionUserInt
+
+                    } else if (selectionUserInt == 5) {
                         randomAttackTeamUser()
 
                     } else {
                         println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         counter = 0
                     }
-                } else if (characterUser.name.isNotEmpty()){
+                } else {
                     println(
                         """
                     
@@ -97,8 +116,9 @@ class CharacterWithBijuu: Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe
-            4 für $bijuuName erwecken 
-            5 für Hilfe des Teams $reset
+            4 für Genjutsu 
+            5 für Susanoo erwecken
+            6 für Hilfe des Teams $reset
         """.trimIndent()
                     )
 
@@ -142,10 +162,13 @@ class CharacterWithBijuu: Character {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
-                        attackWithBijuu(mainCharacterComputer)
+                        attackWithGenjutsu(mainCharacterComputer)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 5) {
+                        attackWithSusanoo(mainCharacterComputer)
+
+                    } else if (selectionUserInt == 6) {
                         randomAttackTeamUser()
 
                     } else {
@@ -161,7 +184,8 @@ class CharacterWithBijuu: Character {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe 
-            3 für $bijuuName erwecken $reset
+            3 für Genjutsu 
+            4 für Susanoo erwecken $reset
         """.trimIndent()
                 )
 
@@ -193,7 +217,11 @@ class CharacterWithBijuu: Character {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 3) {
-                    attackWithBijuu(characterComputer)
+                    attackWithGenjutsu(characterComputer)
+                    counter = selectionUserInt
+
+                } else if (selectionUserInt == 4) {
+                    attackWithSusanoo(characterComputer)
                     counter = selectionUserInt
 
                 } else {
@@ -208,7 +236,8 @@ class CharacterWithBijuu: Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe 
-            4 für $bijuuName erwecken $reset
+            4 für Genjutsu 
+            5 für Susanoo erwecken $reset
         """.trimIndent()
                 )
 
@@ -252,7 +281,11 @@ class CharacterWithBijuu: Character {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 4) {
-                    attackWithBijuu(characterComputer)
+                    attackWithGenjutsu(characterComputer)
+                    counter = selectionUserInt
+
+                } else if (selectionUserInt == 5) {
+                    attackWithSusanoo(characterComputer)
                     counter = selectionUserInt
 
                 } else {

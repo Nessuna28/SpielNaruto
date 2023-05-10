@@ -1,3 +1,16 @@
+package Charakters
+
+import Fights.attackComputer
+import characterComputer
+import characterUser
+import favoriteColorUser
+import Fights.mainCharacterUser
+import Fights.randomAttackTeamUser
+import reset
+import selectionComputer
+import selectionUserInt
+import selectionUserString
+
 open class Character(
     var name: String,
     var taijutsu: MutableMap<String, Int>,
@@ -11,7 +24,7 @@ open class Character(
     var chakra = 500
     var baumstamm = 5
 
-   /* fun lostLifePointsSinglePlay(attackPlayer: String, attackEnemy: String, enemy: Character) {
+   /* fun lostLifePointsSinglePlay(attackPlayer: String, attackEnemy: String, enemy: Charakters.Character) {
 
         if (characterUser.name.isNotEmpty()) {
             if (attackPlayer != "Baumstamm") {

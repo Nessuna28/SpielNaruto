@@ -1,87 +1,55 @@
-class CharacterWithMedicalSkills: Character {
+package Charakters
 
-    var medicalSkills: Int
+import Fights.attackComputer
+import characterComputer
+import characterUser
+import favoriteColorUser
+import Fights.mainCharacterComputer
+import Fights.mainCharacterUser
+import Fights.randomAttackTeamUser
+import reset
+import selectionUserInt
+import selectionUserString
+
+open class CharacterWithGenjutsu : Character {
+
+    var genjutsu: Int
 
     constructor(
         name: String,
         attack: MutableMap<String, Int>,
         ninjutsu: MutableMap<String, Int>,
         weapon: MutableMap<String, Int>,
-        medicalSkills: Int
-    ) :
-            super(name, attack, ninjutsu, weapon) {
+        genjutsu: Int,
+    ) : super(name, attack, ninjutsu, weapon) {
 
-        this.medicalSkills = medicalSkills
+        this.genjutsu = genjutsu
     }
 
-    // diese Funktion ermöglicht es dem Spieler sich zu heilen in dem seinen lifePoints den Wert des Skills dazu gerechnet werden
-    // aber mehr als 500 (Anfangswert) gehen nicht
-    // diese Fähigkeit verbraucht Chakra um den Wert des Skills
-    fun heal(input: String) {
+    // bei der Funktion wird dem Gegner der Wert des Schadens von dem Genjutsu von seinen Lebenspunkten abgezogen
+    // und der Spieler verliert Chakra um den Wert der Attacke
+    // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
+    fun attackWithGenjutsu(enemy: Character) {
 
-        if (input == selectionUserString) {
-            if (this.chakra >= medicalSkills) {
-                if (lifePoints < lifePointStart) {
-                    this.lifePoints += medicalSkills
-                    lostChakra(medicalSkills)
-                    if (lifePoints > lifePointStart) {
-                        lifePoints = lifePointStart
-                    }
-                    coloredBar()
-                    println("\n\uD83D\uDCAA\uD83C\uDFFC ${favoriteColorUser} Du wurdest geheilt! $reset")
-                } else if (this.lifePoints == lifePointStart) {
-                    println("\n\uD83E\uDD14 Deine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
-                }
-                selectionUserString = "Heilung"
-            } else {
-                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um dich zu heilen. Wähle erneut!")
-                showSelection()
+
+        if (chakra > genjutsu) {
+            enemy.lifePoints -= this.genjutsu
+            lostChakra(genjutsu)
+            if (enemy == characterComputer) {
+                selectionUserString = "Genjutsu"
             }
-        } else if (input == selectionComputer) {
-            if (this.chakra >= medicalSkills) {
-                if (lifePoints < lifePointStart) {
-                    this.lifePoints += medicalSkills
-                    lostChakra(medicalSkills)
-                    if (lifePoints > lifePointStart) {
-                        lifePoints = lifePointStart
-                    }
-                    println("\n${blue}Der Computer wurde geheilt! $reset")
-                }
+        } else {
+            if (enemy == characterComputer) {
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um ein Genjutsu auszuführen. Wähle erneut!")
+                showSelection()
             } else {
                 attackComputer()
             }
+
         }
     }
 
-    // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
-    fun coloredBar() {
-
-        val life = lifePoints / 50
-        val to = life + (medicalSkills / 50)
-        val end = lifePointStart / 50
-
-        var coloredBar = StringBuilder()
-        coloredBar.append("$greyBackground| | | | | | | | | | ")
-
-        print(coloredBar)
-
-        for (point in 0..life) {
-            if (point < end) {
-                coloredBar.append("$blueBackground | |$reset")
-                print("\r$coloredBar")
-                Thread.sleep(800)
-            }
-
-            if (point > to) {
-                coloredBar.append("$greenBackground | |$reset")
-                print("\r$coloredBar")
-                Thread.sleep(800)
-
-            }
-        }
-    }
-
-    // die Funktion aus Character um die Möglichkeit der Heilung erweitert
+    // die Funktion aus Charakters.Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
     override fun showSelection() {
 
         var counter = 0
@@ -95,7 +63,7 @@ class CharacterWithMedicalSkills: Character {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe
-            3 für Heilung 
+            3 für Genjutsu 
             4 für Hilfe des Teams $reset
         """.trimIndent()
                     )
@@ -128,7 +96,7 @@ class CharacterWithMedicalSkills: Character {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 3) {
-                        heal(selectionUserString)
+                        attackWithGenjutsu(mainCharacterComputer)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
@@ -146,7 +114,7 @@ class CharacterWithMedicalSkills: Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe
-            4 für Heilung 
+            4 für Genjutsu 
             5 für Hilfe des Teams $reset
         """.trimIndent()
                     )
@@ -191,7 +159,7 @@ class CharacterWithMedicalSkills: Character {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
-                        heal(selectionUserString)
+                        attackWithGenjutsu(mainCharacterComputer)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 5) {
@@ -210,7 +178,7 @@ class CharacterWithMedicalSkills: Character {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe 
-            3 für Heilung $reset
+            3 für Genjutsu $reset
         """.trimIndent()
                 )
 
@@ -242,7 +210,7 @@ class CharacterWithMedicalSkills: Character {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 3) {
-                    heal(selectionUserString)
+                    attackWithGenjutsu(characterComputer)
                     counter = selectionUserInt
 
                 } else {
@@ -257,7 +225,7 @@ class CharacterWithMedicalSkills: Character {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe 
-            4 für Heilung $reset
+            4 für Genjutsu $reset
         """.trimIndent()
                 )
 
@@ -301,7 +269,7 @@ class CharacterWithMedicalSkills: Character {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 4) {
-                    heal(selectionUserString)
+                    attackWithGenjutsu(characterComputer)
                     counter = selectionUserInt
 
                 } else {

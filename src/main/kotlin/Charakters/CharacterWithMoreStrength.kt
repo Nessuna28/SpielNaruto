@@ -1,3 +1,5 @@
+package Charakters
+
 class CharacterWithMoreStrength: Character {
 
     val extraStrength: Int

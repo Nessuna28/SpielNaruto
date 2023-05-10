@@ -1,39 +1,103 @@
-class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
+package Charakters
 
-    val susanoo: Int
+import Fights.attackComputer
+import blue
+import blueBackground
+import characterUser
+import favoriteColorUser
+import greenBackground
+import greyBackground
+import Fights.mainCharacterUser
+import Fights.randomAttackTeamUser
+import reset
+import selectionComputer
+import selectionUserInt
+import selectionUserString
+
+class CharacterWithMedicalSkills: Character {
+
+    var medicalSkills: Int
 
     constructor(
         name: String,
         attack: MutableMap<String, Int>,
         ninjutsu: MutableMap<String, Int>,
         weapon: MutableMap<String, Int>,
-        genjutsu: Int, susanoo: Int,
-    ) : super(name, attack, ninjutsu, weapon, genjutsu) {
+        medicalSkills: Int
+    ) :
+            super(name, attack, ninjutsu, weapon) {
 
-        this.susanoo = susanoo
+        this.medicalSkills = medicalSkills
     }
 
-    // Spieler greift mit Susanoo an und dem Gegner werden der entsprechende Wert von seinen lifePoints abgezogen
-    fun attackWithSusanoo(enemy: Character) {
+    // diese Funktion ermöglicht es dem Spieler sich zu heilen in dem seinen lifePoints den Wert des Skills dazu gerechnet werden
+    // aber mehr als 500 (Anfangswert) gehen nicht
+    // diese Fähigkeit verbraucht Chakra um den Wert des Skills
+    fun heal(input: String) {
 
-        if (chakra > susanoo) {
-            enemy.lifePoints -= this.susanoo
-            lostChakra(susanoo)
-            if (enemy == characterComputer) {
-                selectionUserString = "Susanoo"
-            }
-        } else {
-            if (enemy == characterComputer) {
-                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um Susanoo zu erwecken. Wähle erneut!")
+        if (input == selectionUserString) {
+            if (this.chakra >= medicalSkills) {
+                if (lifePoints < lifePointStart) {
+                    this.lifePoints += medicalSkills
+                    lostChakra(medicalSkills)
+                    if (lifePoints > lifePointStart) {
+                        lifePoints = lifePointStart
+                    }
+                    coloredBar()
+                    println("\n\uD83D\uDCAA\uD83C\uDFFC ${favoriteColorUser} Du wurdest geheilt! $reset")
+                } else if (this.lifePoints == lifePointStart) {
+                    println("\n\uD83E\uDD14 Deine Lebenspunkte sind voll. Diese Auswahl war unnötig.")
+                }
+                selectionUserString = "Heilung"
+            } else {
+                println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um dich zu heilen. Wähle erneut!")
                 showSelection()
+            }
+        } else if (input == selectionComputer) {
+            if (this.chakra >= medicalSkills) {
+                if (lifePoints < lifePointStart) {
+                    this.lifePoints += medicalSkills
+                    lostChakra(medicalSkills)
+                    if (lifePoints > lifePointStart) {
+                        lifePoints = lifePointStart
+                    }
+                    println("\n${blue}Der Computer wurde geheilt! $reset")
+                }
             } else {
                 attackComputer()
             }
-
         }
     }
 
-    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden oder Susanoo zu erwecken erweitert
+    // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
+    fun coloredBar() {
+
+        val life = lifePoints / 50
+        val to = life + (medicalSkills / 50)
+        val end = lifePointStart / 50
+
+        var coloredBar = StringBuilder()
+        coloredBar.append("$greyBackground| | | | | | | | | | ")
+
+        print(coloredBar)
+
+        for (point in 0..life) {
+            if (point < end) {
+                coloredBar.append("$blueBackground | |$reset")
+                print("\r$coloredBar")
+                Thread.sleep(800)
+            }
+
+            if (point > to) {
+                coloredBar.append("$greenBackground | |$reset")
+                print("\r$coloredBar")
+                Thread.sleep(800)
+
+            }
+        }
+    }
+
+    // die Funktion aus Charakters.Character um die Möglichkeit der Heilung erweitert
     override fun showSelection() {
 
         var counter = 0
@@ -47,9 +111,8 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe
-            3 für Genjutsu 
-            4 für Susanoo erwecken
-            5 für Hilfe des Teams $reset
+            3 für Heilung 
+            4 für Hilfe des Teams $reset
         """.trimIndent()
                     )
 
@@ -81,14 +144,10 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 3) {
-                        attackWithGenjutsu(mainCharacterComputer)
+                        heal(selectionUserString)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
-                        attackWithSusanoo(mainCharacterComputer)
-                        counter = selectionUserInt
-
-                    } else if (selectionUserInt == 5) {
                         randomAttackTeamUser()
 
                     } else {
@@ -103,9 +162,8 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe
-            4 für Genjutsu 
-            5 für Susanoo erwecken
-            6 für Hilfe des Teams $reset
+            4 für Heilung 
+            5 für Hilfe des Teams $reset
         """.trimIndent()
                     )
 
@@ -149,13 +207,10 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 4) {
-                        attackWithGenjutsu(mainCharacterComputer)
+                        heal(selectionUserString)
                         counter = selectionUserInt
 
                     } else if (selectionUserInt == 5) {
-                        attackWithSusanoo(mainCharacterComputer)
-
-                    } else if (selectionUserInt == 6) {
                         randomAttackTeamUser()
 
                     } else {
@@ -171,8 +226,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
             2 für eine Waffe 
-            3 für Genjutsu 
-            4 für Susanoo erwecken $reset
+            3 für Heilung $reset
         """.trimIndent()
                 )
 
@@ -204,11 +258,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 3) {
-                    attackWithGenjutsu(characterComputer)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 4) {
-                    attackWithSusanoo(characterComputer)
+                    heal(selectionUserString)
                     counter = selectionUserInt
 
                 } else {
@@ -223,8 +273,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
             1 für Taijutsu
             2 für ein Ninjutsu
             3 für eine Waffe 
-            4 für Genjutsu 
-            5 für Susanoo erwecken $reset
+            4 für Heilung $reset
         """.trimIndent()
                 )
 
@@ -268,11 +317,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                     counter = selectionUserInt
 
                 } else if (selectionUserInt == 4) {
-                    attackWithGenjutsu(characterComputer)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 5) {
-                    attackWithSusanoo(characterComputer)
+                    heal(selectionUserString)
                     counter = selectionUserInt
 
                 } else {

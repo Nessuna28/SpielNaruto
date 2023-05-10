@@ -1,3 +1,14 @@
+package Fights
+
+import Charakters.*
+import favoriteColorUser
+import reset
+import selectionComputer
+import selectionUserInt
+import selectionUserString
+import teamComputer
+import teamUser
+
 fun teamFight() {}
 
 var mainCharacterUser = Character("", mutableMapOf(), mutableMapOf(), mutableMapOf())
@@ -339,7 +350,7 @@ fun randomAttackTeamComputer() {
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
-// speichert den Charakter vom Typ Character, CharacterWithGenjutsu oder CharacterWithMedicalSkills in der Variablen mainCharacter
+// speichert den Charakter vom Typ Charakters.Character, Charakters.CharacterWithGenjutsu oder Charakters.CharacterWithMedicalSkills in der Variablen mainCharacter
 fun setCharacterForTeam(string: String) {
 
     for (character in characterList) {

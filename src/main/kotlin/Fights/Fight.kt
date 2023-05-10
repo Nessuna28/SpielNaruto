@@ -1,3 +1,20 @@
+package Fights
+
+import Charakters.*
+import blue
+import characterComputer
+import characterUser
+import counterRounds
+import counterWins
+import favoriteColorUser
+import lifePointsComputer
+import lifePointsUser
+import nameUser
+import reset
+import selectionComputer
+import selectionUserInt
+import selectionUserString
+
 fun fight() {}
 
 // diese Funktion fragt den Spieler, ob er angreifen oder ausweichen möchte und ruft je nach Antwort die dazugehörigen Funktionen auf
