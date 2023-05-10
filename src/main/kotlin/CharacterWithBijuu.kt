@@ -89,7 +89,7 @@ class CharacterWithBijuu: Character {
                         println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         counter = 0
                     }
-                } else {
+                } else if (characterUser.name.isNotEmpty()){
                     println(
                         """
                     

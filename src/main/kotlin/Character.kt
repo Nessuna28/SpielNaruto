@@ -11,6 +11,46 @@ open class Character(
     var chakra = 500
     var baumstamm = 5
 
+   /* fun lostLifePointsSinglePlay(attackPlayer: String, attackEnemy: String, enemy: Character) {
+
+        if (characterUser.name.isNotEmpty()) {
+            if (attackPlayer != "Baumstamm") {
+
+                var index = 0
+
+                for (attack in enemy.taijutsu.keys) {
+                    if (attackEnemy == attack) {
+                        lifePoints -= enemy.taijutsu.values.elementAt(index)
+                        break
+                    }
+                    index++
+                }
+
+                index = 0
+                for (attack in enemy.ninjutsu.keys) {
+                    if (attackEnemy == attack) {
+                        lifePoints -= enemy.ninjutsu.values.elementAt(index)
+                        break
+                    }
+                    index++
+                }
+
+                index = 0
+                for (attack in enemy.weapon.keys) {
+                    if (attackEnemy == attack) {
+                        lifePoints -= enemy.weapon.values.elementAt(index)
+                        break
+                    }
+                    index++
+                }
+            }
+
+            lifePointsUser = characterUser.lifePoints
+            lifePointsComputer = characterComputer.lifePoints
+        }
+    }
+
+    */
 
     // Chakra wird um einen bestimmten Wert verringert
     fun lostChakra(value: Int) {
@@ -220,7 +260,7 @@ open class Character(
                     println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                     counter = 0
                 }
-            } else {
+            } else if (characterUser.name.isNotEmpty()){
                 println(
                     """
                     

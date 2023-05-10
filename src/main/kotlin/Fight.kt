@@ -19,9 +19,8 @@ fun selectionAttackUser() {
                 println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
-        } else {
-            selectionMainCharacter()
         }
+
     } while (counter != selectionUserInt)
 
     characterUser.loadChakra(selectionUserString)

@@ -13,6 +13,12 @@ var teamMember2Computer = Character("", mutableMapOf(), mutableMapOf(), mutableM
 var attackTeamMember2Computer = ""
 
 
+fun sortedFunctionsForTeamPlay() {
+
+   selectionAttackTeamUser()
+    attackComputerTeam()
+}
+
 fun selectionAttackTeamUser() {
 
     var counter = 0
@@ -37,14 +43,6 @@ fun selectionAttackTeamUser() {
     } while (counter != selectionUserInt)
 
     mainCharacterUser.loadChakra(selectionUserString)
-}
-
-fun selectionAttackTeamComputer() {
-
-    if (mainCharacterUser.name.isNotEmpty()) {
-        selectionMainCharacterComputer()
-        randomAttackTeamComputer()
-    }
 }
 
 // Spieler soll sich aus dem Team einen Hauptcharakter aussuchen, der wird danach aus der Teamliste gelöscht
@@ -194,12 +192,17 @@ fun randomAttackTeamUser() {
     attackTeamMember1User = attackListTeamMember1.random()
     attackTeamMember2User = attackListTeamMember2.random()
 
-    attackTeamPrint(teamMember1User, attackTeamMember1User, teamMember2User, attackTeamMember2User )
+    attackTeamPrint(teamMember1User, attackTeamMember1User, teamMember2User, attackTeamMember2User)
 
     lostLifePointsSinglePlay(attackTeamMember1User, selectionComputer, teamMember1User, mainCharacterComputer)
     lostLifePointsSinglePlay(attackTeamMember2User, selectionComputer, teamMember2User, mainCharacterComputer)
 }
 
+fun attackComputerTeam () {
+
+    attackComputer()
+    randomAttackTeamComputer()
+}
 // diese Funktion sucht für die beiden Charaktere aus dem Team zufällige Attacken aus
 fun randomAttackTeamComputer() {
 
@@ -348,6 +351,19 @@ fun setCharacterForTeam(string: String) {
             if (character.name.lowercase() == string) {
                 mainCharacterUser = character as CharacterWithGenjutsu
             }
+            if (character is CharacterWithGenjutsuAndSusanoo) {
+                if (character.name.lowercase() == string) {
+                    mainCharacterUser = character as CharacterWithGenjutsuAndSusanoo
+                }
+            }
+        } else if (character is CharacterWithBijuu) {
+            if (character.name.lowercase() == string) {
+                mainCharacterUser = character as CharacterWithBijuu
+            }
+        } else if (character is CharacterWithMoreStrength) {
+            if (character.name.lowercase() == string) {
+                mainCharacterUser = character as CharacterWithMoreStrength
+            }
         } else {
             if (character.name.lowercase() == string) {
                 mainCharacterUser = character
@@ -357,10 +373,10 @@ fun setCharacterForTeam(string: String) {
 }
 
 // gibt einen Text aus, welches Teammitglied mit welcher Attacke geholfen hat
-fun attackTeamPrint(member1: Character, attackMember1: String, member2: Character, attackMember2: String ) {
+fun attackTeamPrint(member1: Character, attackMember1: String, member2: Character, attackMember2: String) {
 
     if (member1 == teamMember1User)
-    println("${member1.name} hat dir mit $attackMember1 geholfen und \n${member2.name} hat dir mit $attackMember2 geholfen.")
+        println("${member1.name} hat dir mit $attackMember1 geholfen und \n${member2.name} hat dir mit $attackMember2 geholfen.")
     else
         println("${member1.name} und ${member2.name} haben dich mit angegriffen mit $attackMember1 und $attackMember2.")
 }

@@ -45,9 +45,7 @@ fun main() {
                 selectionAttackUser()
                 grafikForAttack()
                 attackComputer()
-                selectionAttackTeamComputer()
                 lostLifePointsSinglePlay(selectionUserString, selectionComputer, characterUser, characterComputer)
-                lostLifePointsTeamPlay(selectionUserString, selectionComputer, mainCharacterUser, mainCharacterComputer)
                 defensePrint()
                 wichAttackUserPrint()
                 whichAttackComputerPrint()
@@ -62,7 +60,6 @@ fun main() {
 
     game.start()
 }
-
 
 // der Spieler wird begrüßt und gefragt, ob er die Regeln hören möchte
 // ist die Antwort ja werden ihm die Regeln angezeigt, andernfalls nicht
@@ -348,7 +345,7 @@ fun selectionTeam(){
             randomGeneratorForTeam()
         }
     }
-
+    characterUser.name = ""
     selectionMainCharacter()
 }
 
@@ -401,6 +398,8 @@ fun characterComputer(){
         }
         Thread.sleep(2000)
         println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $reset")
+        selectionMainCharacterComputer()
+        println("\nDer Hauptcharakter des Gegners ist $blue${mainCharacterComputer.name} $reset")
     } else if (characterUser.name.isNotEmpty()){
         val selection = characterList.random()
         characterComputer = selection
@@ -426,29 +425,44 @@ fun newRoundOrNotAndCountRoundsWon() {
             roundOrRounds = "Runden"
 
 
-    print("\nMöchtest du noch eine Runde spielen? 'Ja' oder 'nein': ")
-    selectionUserString = readln().lowercase()
+    var check = false
+
+    while (!check) {
+        print("\nMöchtest du noch eine Runde spielen? 'Ja' oder 'nein': ")
+        selectionUserString = readln().lowercase()
+
+        try {
+            print("\nMöchtest du noch eine Runde spielen? 'Ja' oder 'nein': ")
+            selectionUserString = readln().lowercase()
 
 
-    if (selectionUserString == "ja") {
-            println(
-                """
+            if (selectionUserString == "ja") {
+                println(
+                    """
             
             Super, du möchtest noch eine Runde spielen.
             Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
             
             Auf gehts in eine neue Runde! 🤗
         """.trimIndent()
-            )
+                )
 
-    } else if (selectionUserString == "nein") {
-            println("""
+            } else if (selectionUserString == "nein") {
+                println(
+                    """
             
             Ok, du möchtest keine Runde mehr spielen.
             Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
             
             Bis nächstes Mal! 👋
-        """.trimIndent())
+        """.trimIndent()
+                )
+            }
+            check = true
+
+        } catch (ex: Exception) {
+            println("\nDu hast eine falsche Eingabe getroffen. Versuche es nochmal.")
+        }
     }
 }
 
@@ -466,6 +480,19 @@ fun setCharacterForUser(string: String) {
             } else if (character is CharacterWithGenjutsu) {
                 if (character.name.lowercase() == string) {
                     characterUser = character as CharacterWithGenjutsu
+                }
+                if (character is CharacterWithGenjutsuAndSusanoo) {
+                    if (character.name.lowercase() == string) {
+                        characterUser = character as CharacterWithGenjutsuAndSusanoo
+                    }
+                }
+            } else if (character is CharacterWithBijuu) {
+                if (character.name.lowercase() == string) {
+                    characterUser = character as CharacterWithBijuu
+                }
+            }else if (character is CharacterWithMoreStrength) {
+                if (character.name.lowercase() == string) {
+                    characterUser = character as CharacterWithMoreStrength
                 }
             } else {
                 if (character.name.lowercase() == string) {
@@ -490,6 +517,19 @@ fun setCharacterForComputer(string: String) {
         } else if (character is CharacterWithGenjutsu) {
             if (character.name.lowercase() == string) {
                 characterComputer = character as CharacterWithGenjutsu
+            }
+            if (character is CharacterWithGenjutsuAndSusanoo) {
+                if (character.name.lowercase() == string) {
+                    characterComputer = character as CharacterWithGenjutsuAndSusanoo
+                }
+            }
+        } else if (character is CharacterWithBijuu) {
+            if (character.name.lowercase() == string) {
+                characterComputer = character as CharacterWithBijuu
+            }
+        } else if (character is CharacterWithMoreStrength) {
+            if (character.name.lowercase() == string) {
+                characterComputer = character as CharacterWithMoreStrength
             }
         } else {
             if (character.name.lowercase() == string) {
