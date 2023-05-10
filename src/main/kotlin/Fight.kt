@@ -128,79 +128,152 @@ fun attackComputer() {
 // der Funktion werden 4 Parameter mitgegeben, die Attacken der Spieler und die jeweiligen Charaktere,
 // wenn die Spieler sich nicht für das Ausweichen entscheiden, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
 // zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert
-fun lostLifePoints(attackUser: String, attackComputer: String, enemyUser: Character, enemyComputer: Character) {
+fun lostLifePointsSinglePlay(attackUser: String, attackComputer: String, enemyUser: Character, enemyComputer: Character) {
 
-    if (attackComputer != "Baumstamm") {
+    if (characterUser.name.isNotEmpty()) {
+        if (attackComputer != "Baumstamm") {
 
-        var index = 0
+            var index = 0
 
-        for (attack in characterUser.taijutsu.keys) {
-            if (attackUser == attack) {
-                enemyComputer.lifePoints -= characterUser.taijutsu.values.elementAt(index)
-                break
+            for (attack in characterUser.taijutsu.keys) {
+                if (attackUser == attack) {
+                    enemyComputer.lifePoints -= characterUser.taijutsu.values.elementAt(index)
+                    break
+                }
+                index++
             }
-            index++
+
+            index = 0
+            for (attack in characterUser.ninjutsu.keys) {
+                if (attackUser == attack) {
+                    enemyComputer.lifePoints -= characterUser.ninjutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in characterUser.weapon.keys) {
+                if (attackUser == attack) {
+                    enemyComputer.lifePoints -= characterUser.weapon.values.elementAt(index)
+                    break
+                }
+                index++
+            }
         }
 
-        index = 0
-        for (attack in characterUser.ninjutsu.keys) {
-            if (attackUser == attack) {
-                enemyComputer.lifePoints -= characterUser.ninjutsu.values.elementAt(index)
-                break
+        if (attackUser != "Baumstamm") {
+
+            var index = 0
+
+            for (attack in characterComputer.taijutsu.keys) {
+                if (attackComputer == attack) {
+                    enemyUser.lifePoints -= characterComputer.taijutsu.values.elementAt(index)
+                    break
+                }
+                index++
             }
-            index++
+
+            index = 0
+            for (attack in characterComputer.ninjutsu.keys) {
+                if (attackComputer == attack) {
+                    enemyUser.lifePoints -= characterComputer.ninjutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in characterComputer.weapon.keys) {
+                if (attackComputer == attack) {
+                    enemyUser.lifePoints -= characterComputer.weapon.values.elementAt(index)
+                    break
+                }
+                index++
+            }
         }
 
-        index = 0
-        for (attack in characterUser.weapon.keys) {
-            if (attackUser == attack) {
-                enemyComputer.lifePoints -= characterUser.weapon.values.elementAt(index)
-                break
-            }
-            index++
-        }
+        lifePointsUser = characterUser.lifePoints
+        lifePointsComputer = characterComputer.lifePoints
     }
+}
 
-    if (attackUser != "Baumstamm") {
+fun lostLifePointsTeamPlay(attackUser: String, attackComputer: String, mainEnemyUser: Character, mainEnemyComputer: Character) {
 
-        var index = 0
+    if (mainCharacterUser.name.isNotEmpty()) {
+        if (attackComputer != "Baumstamm") {
 
-        for (attack in characterComputer.taijutsu.keys) {
-            if (attackComputer == attack) {
-                enemyUser.lifePoints -= characterComputer.taijutsu.values.elementAt(index)
-                break
+            var index = 0
+
+            for (attack in mainCharacterUser.taijutsu.keys) {
+                if (attackUser == attack) {
+                    mainEnemyComputer.lifePoints -= mainCharacterUser.taijutsu.values.elementAt(index)
+                    break
+                }
+                index++
             }
-            index++
+
+            index = 0
+            for (attack in mainCharacterUser.ninjutsu.keys) {
+                if (attackUser == attack) {
+                    mainEnemyComputer.lifePoints -= mainCharacterUser.ninjutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in mainCharacterUser.weapon.keys) {
+                if (attackUser == attack) {
+                    mainEnemyComputer.lifePoints -= mainCharacterUser.weapon.values.elementAt(index)
+                    break
+                }
+                index++
+            }
         }
 
-        index = 0
-        for (attack in characterComputer.ninjutsu.keys) {
-            if (attackComputer == attack) {
-                enemyUser.lifePoints -= characterComputer.ninjutsu.values.elementAt(index)
-                break
+        if (attackUser != "Baumstamm") {
+
+            var index = 0
+
+            for (attack in mainCharacterComputer.taijutsu.keys) {
+                if (attackComputer == attack) {
+                    mainEnemyUser.lifePoints -= mainEnemyUser.taijutsu.values.elementAt(index)
+                    break
+                }
+                index++
             }
-            index++
+
+            index = 0
+            for (attack in mainCharacterComputer.ninjutsu.keys) {
+                if (attackComputer == attack) {
+                    mainEnemyUser.lifePoints -= mainCharacterComputer.ninjutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in mainCharacterComputer.weapon.keys) {
+                if (attackComputer == attack) {
+                    mainEnemyUser.lifePoints -= mainCharacterComputer.weapon.values.elementAt(index)
+                    break
+                }
+                index++
+            }
         }
 
-        index = 0
-        for (attack in characterComputer.weapon.keys) {
-            if (attackComputer == attack) {
-                enemyUser.lifePoints -= characterComputer.weapon.values.elementAt(index)
-                break
-            }
-            index++
-        }
+        lifePointsUser = mainCharacterUser.lifePoints
+        lifePointsComputer = mainCharacterComputer.lifePoints
     }
-
-    lifePointsUser = characterUser.lifePoints
-    lifePointsComputer = characterComputer.lifePoints
 }
 
 // diese Funktion zeigt die Spielerdaten in einer Println an
 fun valueOfCharacterPrint() {
 
-    println(
-        """
+    if (characterUser.name.isNotEmpty()) {
+        println(
+            """
         
     -------------------------------------------------------------------------------------------------------------------------------------------------------    
     Spieler 1:     $favoriteColorUser$nameUser ${reset}          |          Spieler 2:     ${blue}Computer $reset
@@ -211,7 +284,23 @@ fun valueOfCharacterPrint() {
     Baumstamm:     $favoriteColorUser${characterUser.baumstamm} $reset/ 5          |          Baumstamm:     $blue${characterComputer.baumstamm} $reset/ 5
     -------------------------------------------------------------------------------------------------------------------------------------------------------
     """.trimIndent()
-    )
+        )
+
+    } else if (mainCharacterUser.name.isNotEmpty()) {
+        println(
+            """
+        
+    -------------------------------------------------------------------------------------------------------------------------------------------------------    
+    Spieler 1:     $favoriteColorUser$nameUser ${reset}          |          Spieler 2:     ${blue}Computer $reset
+                                  |
+    Charakter:     $favoriteColorUser${mainCharacterUser.name} ${reset}        |          Charakter:     $blue${mainCharacterComputer.name} $reset
+    Lebenspunkte:  $favoriteColorUser${mainCharacterUser.lifePoints} $reset/ ${mainCharacterUser.lifePointStart}      |          Lebenspunkte:  $blue${mainCharacterComputer.lifePoints} $reset/ ${mainCharacterComputer.lifePointStart}
+    Chakra:        $favoriteColorUser${mainCharacterUser.chakra} $reset/ ${mainCharacterUser.chakraStart}      |          Chakra:        $blue${mainCharacterComputer.chakra} $reset/ ${mainCharacterComputer.chakraStart}
+    Baumstamm:     $favoriteColorUser${mainCharacterUser.baumstamm} $reset/ 5          |          Baumstamm:     $blue${mainCharacterComputer.baumstamm} $reset/ 5
+    -------------------------------------------------------------------------------------------------------------------------------------------------------
+    """.trimIndent()
+        )
+    }
 }
 
 // diese Funktion gibt einen entsprechenden Text aus bei Nutzung der Abwehr
@@ -328,7 +417,7 @@ fun grafikForAttack() {
         println("\n          ฅ՞•ﻌ•՞ฅ \n")
 }
 
-// diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat
+// diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat und zählt die Runden und die Siege
 fun winOrLosePrint() {
 
     if (characterComputer.lifePoints <= 0) {
@@ -342,6 +431,9 @@ fun winOrLosePrint() {
             
         """.trimIndent()
         )
+        counterWins++
+        counterRounds++
+
     } else if (characterUser.lifePoints <= 0) {
         println("\n Du bist gefallen und stehst nicht mehr auf. \n")
         Thread.sleep(2000)
@@ -352,6 +444,7 @@ fun winOrLosePrint() {
             
         """.trimIndent()
         )
+        counterRounds++
     }
 }
 

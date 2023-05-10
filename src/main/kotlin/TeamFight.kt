@@ -196,8 +196,8 @@ fun randomAttackTeamUser() {
 
     attackTeamPrint(teamMember1User, attackTeamMember1User, teamMember2User, attackTeamMember2User )
 
-    lostLifePoints(attackTeamMember1User, selectionComputer, teamMember1User, mainCharacterComputer)
-    lostLifePoints(attackTeamMember2User, selectionComputer, teamMember2User, mainCharacterComputer)
+    lostLifePointsSinglePlay(attackTeamMember1User, selectionComputer, teamMember1User, mainCharacterComputer)
+    lostLifePointsSinglePlay(attackTeamMember2User, selectionComputer, teamMember2User, mainCharacterComputer)
 }
 
 // diese Funktion sucht für die beiden Charaktere aus dem Team zufällige Attacken aus
@@ -331,8 +331,8 @@ fun randomAttackTeamComputer() {
 
     attackTeamPrint(teamMember1Computer, attackTeamMember1Computer, teamMember2Computer, attackTeamMember2Computer)
 
-    lostLifePoints(attackTeamMember1Computer, selectionUserString, teamMember1Computer, mainCharacterUser)
-    lostLifePoints(attackTeamMember2Computer, selectionUserString, teamMember2Computer, mainCharacterUser)
+    lostLifePointsSinglePlay(attackTeamMember1Computer, selectionUserString, teamMember1Computer, mainCharacterUser)
+    lostLifePointsSinglePlay(attackTeamMember2Computer, selectionUserString, teamMember2Computer, mainCharacterUser)
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und

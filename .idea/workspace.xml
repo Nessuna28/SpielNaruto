@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktionen für Teamkampf eingebaut">
-      <change afterPath="$PROJECT_DIR$/sounds/asumaSong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/madaraSong.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/sasukeSong.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sounds/sasukeSong.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/shikamaruSong.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sounds/shikamaruSong.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sounds/tsunadeSong.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sounds/tsunadeSong.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithBijuu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsuAndSusanoo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithMedicalSkills.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="Funktionen für Teamkampf funktioniert nicht so wie sie soll,&#10;noch Sounds hinzugefügt">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/NarutoCharactersList.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +55,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Spiel weiter bearbeitet">
-      <created>1682526699073</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1682526699073</updated>
     </task>
     <task id="LOCAL-00007" summary="Spiel weiter bearbeitet">
       <created>1682606168741</created>
@@ -410,7 +392,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683644849184</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Funktionen für Teamkampf funktioniert nicht so wie sie soll,&#10;noch Sounds hinzugefügt">
+      <created>1683670759911</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1683670759912</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -425,7 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Eigenschaften und Funktionen der Klassen nochmals überarbeitet" />
     <MESSAGE value="Funktion showSelection in Klasse character fertig" />
     <MESSAGE value="Funktion der Klassen erweitert" />
     <MESSAGE value="Funktion der Klassen überarbeitet und eine Funktion für einen farblichen Balken angefangen" />
@@ -450,7 +438,8 @@
     <MESSAGE value="mehr Charaktere initialisiert und Sounds hinzugefügt" />
     <MESSAGE value="noch zwei Klassen mit extra Attacken eingebaut" />
     <MESSAGE value="Funktionen für Teamkampf eingebaut" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funktionen für Teamkampf eingebaut" />
+    <MESSAGE value="Funktionen für Teamkampf funktioniert nicht so wie sie soll,&#10;noch Sounds hinzugefügt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funktionen für Teamkampf funktioniert nicht so wie sie soll,&#10;noch Sounds hinzugefügt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -459,11 +448,6 @@
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
           <line>447</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
-          <line>3</line>
-          <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Fight.kt</url>

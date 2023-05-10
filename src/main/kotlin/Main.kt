@@ -1,6 +1,3 @@
-import java.io.File
-import javax.sound.sampled.AudioSystem
-
 val reset = "\u001b[0m"
 val magenta = "\u001b[35m"
 val blue = "\u001b[34m"
@@ -29,30 +26,38 @@ var lifePointsUser = 500
 var lifePointsComputer = 500
 val soundThread = SoundThread("sounds/tsunadeSong.wav")
 
+var counterRounds = 0
+var counterWins = 0
+
 
 fun main() {
 
     val game = Thread {
 
         greeting()
-        selectionTeamOrCharacter()
-        useSong()
-        soundThread.start()
-        characterComputer()
-        valueOfCharacterPrint()
         do {
-            selectionAttackUser()
-            grafikForAttack()
-            attackComputer()
-            selectionAttackTeamComputer()
-            lostLifePoints(selectionUserString, selectionComputer, characterUser, characterComputer)
-            defensePrint()
-            wichAttackUserPrint()
-            whichAttackComputerPrint()
+            selectionTeamOrCharacter()
+            useSong()
+            soundThread.start()
+            characterComputer()
             valueOfCharacterPrint()
-        } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
+            do {
+                selectionAttackUser()
+                grafikForAttack()
+                attackComputer()
+                selectionAttackTeamComputer()
+                lostLifePointsSinglePlay(selectionUserString, selectionComputer, characterUser, characterComputer)
+                lostLifePointsTeamPlay(selectionUserString, selectionComputer, mainCharacterUser, mainCharacterComputer)
+                defensePrint()
+                wichAttackUserPrint()
+                whichAttackComputerPrint()
+                valueOfCharacterPrint()
+            } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
 
-        winOrLosePrint()
+            winOrLosePrint()
+            newRoundOrNotAndCountRoundsWon()
+
+        } while (selectionUserString == "ja")
     }
 
     game.start()
@@ -401,6 +406,49 @@ fun characterComputer(){
         characterComputer = selection
         Thread.sleep(2000)
         println("\nDu trittst an gegen: $blue${characterComputer.name.uppercase()} $reset")
+    }
+}
+
+// diese Funktion zählt die Siege und gibt sie in einer Println aus
+fun newRoundOrNotAndCountRoundsWon() {
+
+    var winsRoundOrRounds = ""
+    var roundOrRounds = ""
+
+    if (counterWins == 1 )
+        winsRoundOrRounds = "Runde"
+        else
+            winsRoundOrRounds = "Runden"
+
+    if (counterRounds == 1)
+        roundOrRounds = "Runde"
+        else
+            roundOrRounds = "Runden"
+
+
+    print("\nMöchtest du noch eine Runde spielen? 'Ja' oder 'nein': ")
+    selectionUserString = readln().lowercase()
+
+
+    if (selectionUserString == "ja") {
+            println(
+                """
+            
+            Super, du möchtest noch eine Runde spielen.
+            Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
+            
+            Auf gehts in eine neue Runde! 🤗
+        """.trimIndent()
+            )
+
+    } else if (selectionUserString == "nein") {
+            println("""
+            
+            Ok, du möchtest keine Runde mehr spielen.
+            Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
+            
+            Bis nächstes Mal! 👋
+        """.trimIndent())
     }
 }
 

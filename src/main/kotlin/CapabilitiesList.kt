@@ -19,7 +19,7 @@ choji = Fleischbombenpanzer 35, Schmetterlingsflügel 50, Kraft +20,
 
 kurenai =
 
-shino = Beschwörungstechnik (Rieseninsekt) 60, Insektenklontechnik 30, Insektenkugel(Geheimtechnik) 45,
+shino = ,
 kiba =
 hinata = Zwillingslöwenfäuste 45, Byakugan 45, Rotation 50, Hakke Shou Kaiten 30,
 

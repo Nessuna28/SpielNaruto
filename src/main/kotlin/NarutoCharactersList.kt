@@ -10,6 +10,8 @@ val neji = Character("Neji", mutableMapOf("Punch" to 20, "Kick" to 25, "Juuken" 
 val kiba = Character("Kiba", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Kazuka" to 65), mutableMapOf("Kunai" to 30, "Shuriken" to 35, "Akamaru" to 40))
 val hinata = Character("Hinata", mutableMapOf("Punch" to 20, "Kick" to 25, "Juuken" to 50), mutableMapOf("Byakugan" to 55, "Zwillingslöwenfäuste" to 45, "Rotation" to 50, "Hakke Kuuheki Shou" to 30), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
 val rockLee = Character("Rock Lee", mutableMapOf("Punch" to 20, "Kick" to 25, "Tor des Schmerzen" to 40), mutableMapOf(), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
+val shino = Character("Shino", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Beschwörungstechnik (Rieseninsekt)" to 60, "Insektenklontechnik" to 30, "Insektenkugel(Geheimtechnik)" to 45), mutableMapOf("Kunai" to 30, "Shuriken" to 35, "Insekten" to 45))
+val tenten = Character("Tenten", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Satetsu Kaihou" to 40, "Satetsu Kesshuu" to 55, "Satetsu Shigure" to 65), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
 
 val kakashi = CharacterWithGenjutsuAndSusanoo("Kakashi", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Jutsu der flammenden Feuerkugel" to 50, "Mangekyo Sharingan" to 45, "Wasserdrache" to 55, "Chidori" to 70, "Jutsu des vertrauten Geistes" to 90), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 100, 150)
 val tsunade = CharacterWithMedicalSkills("Tsunade", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf("Jutsu des vertrauten Geistes" to 90, "Bodenschlag" to 60), mutableMapOf("Kunai" to 30, "Shuriken" to 35), 250)
@@ -26,8 +28,8 @@ val zabuza = Character("Zabuza", mutableMapOf("Punch" to 20, "Kick" to 25), muta
 val haku = Character("Haku", mutableMapOf("Punch" to 20, "Kick" to 25), mutableMapOf(), mutableMapOf("Kunai" to 30, "Shuriken" to 35))
 
 /*
-val shino = Characters("Shino") Insekten
-val tenten = Characters("Tenten")Satetsu Kaihou, Satetsu Kesshuu und Satetsu Shigure
+
+
 
 val kankuro = Characters("Kankuro") Marionette
 val temari = Characters("Temari") Mader
@@ -35,7 +37,6 @@ val temari = Characters("Temari") Mader
 val asuma = Characters("Asuma")
 val kurenai = Characters("Kurenai")
 
-// böse Charakter
 
 val kabuto = Characters("Kabuto")
 
@@ -43,12 +44,12 @@ val itachi = Characters("Itachi")
 val kisame = Characters("Kisame")
  */
 
-var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino, neji, kiba, hinata, rockLee, kakashi, tsunade, maitoGai, jiraiya, minato, gaara,
+var characterList = listOf(naruto, sasuke, sakura, shikamaru, choji, ino, neji, kiba, hinata, rockLee, shino, tenten, kakashi, tsunade, maitoGai, jiraiya, minato, gaara,
     orochimaru, deidara, pain, zabuza, haku)
 
 val characterNameList = listOf(
     naruto.name, sasuke.name, sakura.name, shikamaru.name, choji.name, ino.name,
-    neji.name, kiba.name, hinata.name, rockLee.name,
+    neji.name, kiba.name, hinata.name, rockLee.name, shino.name, tenten.name,
     kakashi.name, tsunade.name, maitoGai.name, jiraiya.name, minato.name,
     gaara.name,
     orochimaru.name, deidara.name, pain.name, zabuza.name, haku.name
