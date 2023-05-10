@@ -11,7 +11,6 @@ val cyan = "\u001b[36m"
 val greyBackground = "\u001b[47m"
 val greenBackground = "\u001b[42m"
 val blueBackground = "\u001b[44m"
-val blackBackground = "\u001b[40m"
 
 
 // diese Variablen sind außerhalb der Main, sodass ich von überall etwas in ihnen abspeichern kann
@@ -404,8 +403,11 @@ fun characterComputer(){
         selectionMainCharacterComputer()
         println("\nDer Hauptcharakter des Gegners ist $blue${mainCharacterComputer.name} $reset")
     } else if (characterUser.name.isNotEmpty()){
-        val selection = characterList.random()
-        characterComputer = selection
+        do {
+            val selection = characterList.random()
+            characterComputer = selection
+        } while (characterComputer == characterUser)
+
         Thread.sleep(2000)
         println("\nDu trittst an gegen: $blue${characterComputer.name.uppercase()} $reset")
     }
@@ -414,20 +416,6 @@ fun characterComputer(){
 // diese Funktion zählt die Siege und gibt sie in einer Println aus
 fun newRoundOrNotAndCountRoundsWon() {
 
-    var winsRoundOrRounds = ""
-    var roundOrRounds = ""
-
-    if (counterWins == 1 )
-        winsRoundOrRounds = "Runde"
-        else
-            winsRoundOrRounds = "Runden"
-
-    if (counterRounds == 1)
-        roundOrRounds = "Runde"
-        else
-            roundOrRounds = "Runden"
-
-
     var check = false
 
     while (!check) {
@@ -435,16 +423,11 @@ fun newRoundOrNotAndCountRoundsWon() {
         selectionUserString = readln().lowercase()
 
         try {
-            print("\nMöchtest du noch eine Runde spielen? 'Ja' oder 'nein': ")
-            selectionUserString = readln().lowercase()
-
-
             if (selectionUserString == "ja") {
                 println(
                     """
             
             Super, du möchtest noch eine Runde spielen.
-            Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
             
             Auf gehts in eine neue Runde! 🤗
         """.trimIndent()
@@ -455,9 +438,8 @@ fun newRoundOrNotAndCountRoundsWon() {
                     """
             
             Ok, du möchtest keine Runde mehr spielen.
-            Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
             
-            Bis nächstes Mal! 👋
+            Bis zum nächsten Mal! 👋
         """.trimIndent()
                 )
             }
@@ -470,7 +452,7 @@ fun newRoundOrNotAndCountRoundsWon() {
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
-// speichert den Charakter vom Typ Charakters.Character, Charakters.CharacterWithGenjutsu oder Charakters.CharacterWithMedicalSkills in der Variablen characterUser
+// speichert den Charakter vom Typ Character, CharacterWithMoreStrength, CharacterWithBijuu, CharacterWithGenjutsu, CharacterWithGenjutsuAndSusanoo oder CharacterWithMedicalSkills in der Variablen characterUser
 fun setCharacterForUser(string: String) {
 
     val inputList = selectionUserString.split(", ")
@@ -508,8 +490,6 @@ fun setCharacterForUser(string: String) {
         characterUser.name = ""
 }
 
-// diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
-// speichert den Charakter vom Typ Charakters.Character, Charakters.CharacterWithGenjutsu oder Charakters.CharacterWithMedicalSkills in der Variablen characterComputer
 fun setCharacterForComputer(string: String) {
 
     for (character in characterList) {

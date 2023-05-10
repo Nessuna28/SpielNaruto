@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="weiter an Funktionen für Teamkampf gearbeitet">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="weitere Charaktere initialisiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/CharacterWithBijuu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/TeamFight.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +50,12 @@
       <recent name="$PROJECT_DIR$/sounds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/Fights" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/Charakters" />
       <recent name="$PROJECT_DIR$/sounds" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="Charakters" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -59,20 +66,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Spiel weiter bearbeitet">
-      <created>1682607497788</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1682607497788</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Spiel weiter bearbeitet">
-      <created>1682668459907</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1682668459908</updated>
     </task>
     <task id="LOCAL-00010" summary="Spiel weiter bearbeitet">
       <created>1683037541802</created>
@@ -403,7 +396,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683708433639</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="weiter an Funktionen für Teamkampf gearbeitet aber funktioniert noch nicht">
+      <created>1683719342821</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1683719342821</updated>
+    </task>
+    <task id="LOCAL-00058" summary="weitere Charaktere initialisiert">
+      <created>1683720295595</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1683720295595</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -418,8 +425,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Funktion der Klassen erweitert" />
-    <MESSAGE value="Funktion der Klassen überarbeitet und eine Funktion für einen farblichen Balken angefangen" />
     <MESSAGE value="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt" />
     <MESSAGE value="den Spielzug des Computers fertig erstellt" />
     <MESSAGE value="die Funktionen umgebaut zwecks Logik beim Angriff" />
@@ -443,20 +448,17 @@
     <MESSAGE value="Funktionen für Teamkampf eingebaut" />
     <MESSAGE value="Funktionen für Teamkampf funktioniert nicht so wie sie soll,&#10;noch Sounds hinzugefügt" />
     <MESSAGE value="weiter an Funktionen für Teamkampf gearbeitet" />
-    <option name="LAST_COMMIT_MESSAGE" value="weiter an Funktionen für Teamkampf gearbeitet" />
+    <MESSAGE value="weiter an Funktionen für Teamkampf gearbeitet aber funktioniert noch nicht" />
+    <MESSAGE value="weitere Charaktere initialisiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="weitere Charaktere initialisiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>535</line>
+          <line>534</line>
           <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Fight.kt</url>
-          <line>131</line>
-          <option name="timeStamp" value="103" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

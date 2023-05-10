@@ -8,6 +8,7 @@ import Fights.mainCharacterComputer
 import Fights.mainCharacterUser
 import Fights.randomAttackTeamUser
 import reset
+import selectionComputer
 import selectionUserInt
 import selectionUserString
 
@@ -30,7 +31,9 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
     fun attackWithSusanoo(enemy: Character) {
 
         if (chakra > susanoo) {
-            enemy.lifePoints -= this.susanoo
+            if (selectionComputer != "Baumstamm") {
+                enemy.lifePoints -= this.susanoo
+            }
             lostChakra(susanoo)
             if (enemy == characterComputer) {
                 selectionUserString = "Susanoo"
@@ -46,7 +49,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
         }
     }
 
-    // die Funktion aus Charakters.Character um die Möglichkeit ein Genjutsu anzuwenden oder Susanoo zu erwecken erweitert
+    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden oder Susanoo zu erwecken erweitert
     override fun showSelection() {
 
         var counter = 0

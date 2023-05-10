@@ -70,8 +70,11 @@ fun selectionMainCharacter() {
 // diese Funktion bestimmt einen Hauptcharakter für den Computer, der wird danach aus der Teamliste gelöscht
 fun selectionMainCharacterComputer() {
 
-    mainCharacterComputer = teamComputer.random()
-    teamComputer.remove(mainCharacterComputer)
+    do {
+        mainCharacterComputer = teamComputer.random()
+        teamComputer.remove(mainCharacterComputer)
+    } while (mainCharacterComputer == mainCharacterUser)
+
 }
 
 // diese Funktion sucht für die beiden Charaktere aus dem Team zufällige Attacken aus

@@ -8,6 +8,7 @@ import Fights.mainCharacterComputer
 import Fights.mainCharacterUser
 import Fights.randomAttackTeamUser
 import reset
+import selectionComputer
 import selectionUserInt
 import selectionUserString
 
@@ -27,8 +28,11 @@ class CharacterWithBijuu: Character {
         val bijuuName = this.bijuu.first
         val bijuuValue = this.bijuu.second
 
+
         if (chakra > bijuuValue) {
-            enemy.lifePoints -= bijuuValue
+            if (selectionComputer != "Baumstamm") {
+                enemy.lifePoints -= bijuuValue
+            }
             lostChakra(bijuuValue)
             if (enemy == characterComputer) {
                 selectionUserString = bijuuName
@@ -44,7 +48,7 @@ class CharacterWithBijuu: Character {
         }
     }
 
-    // die Funktion aus Charakters.Character um die Möglichkeit ein Bijuu oder Kami zu erwecken erweitert
+    // die Funktion aus Character um die Möglichkeit ein Bijuu oder Kami zu erwecken erweitert
     override fun showSelection() {
 
         val bijuuName = this.bijuu.first

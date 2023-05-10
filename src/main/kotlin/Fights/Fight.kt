@@ -211,6 +211,12 @@ fun lostLifePointsSinglePlay(attackUser: String, attackComputer: String, enemyUs
 
         lifePointsUser = characterUser.lifePoints
         lifePointsComputer = characterComputer.lifePoints
+
+        if (lifePointsUser < 0)
+            lifePointsUser = 0
+
+        if (lifePointsComputer < 0)
+            lifePointsComputer = 0
     }
 }
 
@@ -436,7 +442,24 @@ fun grafikForAttack() {
 // diese Funktion sagt dem Spieler, ob er gewonnen oder verloren hat und zählt die Runden und die Siege
 fun winOrLosePrint() {
 
+    var winsRoundOrRounds = ""
+    var roundOrRounds = ""
+
+
+
+
     if (characterComputer.lifePoints <= 0) {
+        counterWins++
+        counterRounds++
+        if (counterWins == 1 )
+            winsRoundOrRounds = "Runde"
+        else
+            winsRoundOrRounds = "Runden"
+
+        if (counterRounds == 1)
+            roundOrRounds = "Runde"
+        else
+            roundOrRounds = "Runden"
         println("\nDer Computer ist gefallen und steht nicht mehr auf. \n")
         Thread.sleep(2000)
         println("""
@@ -444,23 +467,32 @@ fun winOrLosePrint() {
                          🏆 
 
         🎇 ${favoriteColorUser} Super! Du hast gewonnen. $reset 🎇
-            
+         Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏   
+          
         """.trimIndent()
         )
-        counterWins++
-        counterRounds++
 
     } else if (characterUser.lifePoints <= 0) {
+        counterRounds++
+        if (counterWins == 1 )
+            winsRoundOrRounds = "Runde"
+        else
+            winsRoundOrRounds = "Runden"
+
+        if (counterRounds == 1)
+            roundOrRounds = "Runde"
+        else
+            roundOrRounds = "Runden"
         println("\n Du bist gefallen und stehst nicht mehr auf. \n")
         Thread.sleep(2000)
         println("\n")
         println("""
             
         😔 ${favoriteColorUser} Schade! Du hast leider verloren. $reset 😔
+        Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
             
         """.trimIndent()
         )
-        counterRounds++
     }
 }
 

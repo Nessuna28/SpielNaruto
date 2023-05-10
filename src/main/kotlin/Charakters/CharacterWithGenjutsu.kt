@@ -8,6 +8,7 @@ import Fights.mainCharacterComputer
 import Fights.mainCharacterUser
 import Fights.randomAttackTeamUser
 import reset
+import selectionComputer
 import selectionUserInt
 import selectionUserString
 
@@ -33,7 +34,9 @@ open class CharacterWithGenjutsu : Character {
 
 
         if (chakra > genjutsu) {
-            enemy.lifePoints -= this.genjutsu
+            if (selectionComputer != "Baumstamm") {
+                enemy.lifePoints -= this.genjutsu
+            }
             lostChakra(genjutsu)
             if (enemy == characterComputer) {
                 selectionUserString = "Genjutsu"
@@ -49,7 +52,7 @@ open class CharacterWithGenjutsu : Character {
         }
     }
 
-    // die Funktion aus Charakters.Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
+    // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
     override fun showSelection() {
 
         var counter = 0
