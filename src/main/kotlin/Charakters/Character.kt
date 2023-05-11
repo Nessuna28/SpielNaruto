@@ -167,6 +167,7 @@ open class Character(
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
+
                     } else {
                         println(
                             """
@@ -278,6 +279,7 @@ open class Character(
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
+
                     } else {
                         println(
                             """

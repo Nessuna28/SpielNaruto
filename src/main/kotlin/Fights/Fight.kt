@@ -33,6 +33,8 @@ fun selectionAttackUser() {
             } else if (selectionUserInt == 2) {
                 characterUser.baumstamm("user")
                 counter = true
+            } else {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
             }
         }
     } catch (ex: Exception) {
@@ -141,6 +143,231 @@ fun attackComputer() {
     characterComputer.loadChakra(selectionComputer)
 }
 
+// der Spieler wird gefragt, womit er angreifen möchte
+// je nach seiner Antwort werden ihm die jeweiligen Attacken gezeigt und er kann dort auch wieder auswählen
+// je nach dem für was sich der Spieler entschieden hat, werden die jeweiligen Funktionen aufgerufen
+/*fun showSelectionForCharacter() {
+
+    var counter = false
+
+    while (!counter) {
+        try {
+            if (characterUser.name.isNotEmpty()) {
+                if (characterUser.ninjutsu.isEmpty()) {
+                    println(
+                        """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für eine Waffe $reset
+        """.trimIndent()
+                    )
+
+                    print("Gib die jeweilige Zahl ein: ")
+                    selectionUserInt = readln().toInt()
+
+                    if (selectionUserInt == 1) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.taijutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithTaijutsu(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 2) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.weapon.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithWeapon(selectionUserInt)
+                        counter = true
+                    } else {
+                        println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                    }
+
+                } else {
+                    println(
+                        """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für ein Ninjutsu
+            3 für eine Waffe $reset
+        """.trimIndent()
+                    )
+
+                    print("Gib die jeweilige Zahl ein: ")
+                    selectionUserInt = readln().toInt()
+
+                    if (selectionUserInt == 1) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.taijutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithTaijutsu(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 2) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.ninjutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithNinjutsu(selectionUserString, selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 3) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.weapon.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithWeapon(selectionUserInt)
+                        counter = true
+                    } else {
+                        println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                    }
+                }
+            }
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+        }
+    }
+}
+
+fun showSelectionForCharacterWithBijuu() {
+
+    val bijuuName = characterUser.bijuu.first
+    var counter = false
+
+    while (!counter) {
+        try {
+            if (characterUser.name.isNotEmpty()) {
+                if (characterUser.ninjutsu.isEmpty()) {
+                    println(
+                        """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für eine Waffe 
+            3 für $bijuuName erwecken $reset
+        """.trimIndent()
+                    )
+
+                    print("Gib die jeweilige Zahl ein: ")
+                    selectionUserInt = readln().toInt()
+
+                    if (selectionUserInt == 1) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.taijutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithTaijutsu(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 2) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.weapon.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithWeapon(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 3) {
+                        characterUser.attackWithBijuu(characterComputer)
+                        counter = true
+                    }
+                } else {
+                    println(
+                        """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für ein Ninjutsu
+            3 für eine Waffe 
+            4 für $bijuuName erwecken $reset
+        """.trimIndent()
+                    )
+
+                    print("Gib die jeweilige Zahl ein: ")
+                    selectionUserInt = readln().toInt()
+
+                    if (selectionUserInt == 1) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.taijutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithTaijutsu(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 2) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterComputer.ninjutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithNinjutsu(selectionUserString, selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 3) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in characterUser.weapon.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        characterUser.attackWithWeapon(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 4) {
+                        characterUser.attackWithBijuu(characterComputer)
+                        counter = true
+                    }
+                }
+            }
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+        }
+    }
+}
+
+
+ */
 // der Funktion werden 4 Parameter mitgegeben, die Attacken der Spieler und die jeweiligen Charaktere,
 // wenn die Spieler sich nicht für das Ausweichen entscheiden, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
 // zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert

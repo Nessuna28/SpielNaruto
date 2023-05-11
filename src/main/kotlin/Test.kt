@@ -1,11 +1,13 @@
+import Charakters.gaara
 import Charakters.naruto
 import Fights.attackComputer
 
 fun main() {
 
-    characterComputer = naruto
-    attackComputer()
-    println(selectionComputer)
+    characterComputer = gaara
+    soundThread.start()
+    Thread.sleep(2000)
+
 
 
 

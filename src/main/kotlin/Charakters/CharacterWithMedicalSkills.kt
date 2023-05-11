@@ -104,6 +104,123 @@ class CharacterWithMedicalSkills : Character {
 
         while (!counter) {
             try {
+                if (characterUser.name.isNotEmpty()) {
+                    if (ninjutsu.isEmpty()) {
+                        println(
+                            """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für eine Waffe 
+            3 für Heilung $reset
+        """.trimIndent()
+                        )
+
+                        print("Gib die jeweilige Zahl ein: ")
+                        selectionUserInt = readln().toInt()
+
+                        if (selectionUserInt == 1) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in taijutsu.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithTaijutsu(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 2) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in weapon.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithWeapon(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 3) {
+                            heal(selectionUserString)
+                            counter = true
+                        } else {
+                            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                        }
+
+                    } else {
+                        println(
+                            """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für ein Ninjutsu
+            3 für eine Waffe 
+            4 für Heilung $reset
+        """.trimIndent()
+                        )
+
+                        print("Gib die jeweilige Zahl ein: ")
+                        selectionUserInt = readln().toInt()
+
+                        if (selectionUserInt == 1) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in taijutsu.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithTaijutsu(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 2) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in ninjutsu.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithNinjutsu(selectionUserString, selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 3) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in weapon.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithWeapon(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 4) {
+                            heal(selectionUserString)
+                            counter = true
+                        } else {
+                            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                        }
+                    }
+                }
+            } catch (ex: Exception) {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+            }
+        }
+    }
+
+    override fun showSelectionForTeam() {
+
+        var counter = false
+
+        while (!counter) {
+            try {
                 if (mainCharacterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
                         println(
@@ -150,7 +267,10 @@ class CharacterWithMedicalSkills : Character {
 
                         } else if (selectionUserInt == 4) {
                             randomAttackTeamUser()
+                        } else {
+                            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
+
                     } else {
                         println(
                             """
@@ -209,105 +329,9 @@ class CharacterWithMedicalSkills : Character {
 
                         } else if (selectionUserInt == 5) {
                             randomAttackTeamUser()
+                        } else {
+                            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
-                    }
-
-                } else if (ninjutsu.isEmpty()) {
-                    println(
-                        """
-                    
-            Womit möchtest du angreifen? $favoriteColorUser
-            1 für Taijutsu
-            2 für eine Waffe 
-            3 für Heilung $reset
-        """.trimIndent()
-                    )
-
-                    print("Gib die jeweilige Zahl ein: ")
-                    selectionUserInt = readln().toInt()
-
-                    if (selectionUserInt == 1) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in taijutsu.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
-                        }
-                        print("Triff deine Auswahl per Zahl: ")
-                        selectionUserInt = readln().toInt()
-                        attackWithTaijutsu(selectionUserInt)
-                        counter = true
-
-                    } else if (selectionUserInt == 2) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in weapon.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
-                        }
-                        print("Triff deine Auswahl per Zahl: ")
-                        selectionUserInt = readln().toInt()
-                        attackWithWeapon(selectionUserInt)
-                        counter = true
-
-                    } else if (selectionUserInt == 3) {
-                        heal(selectionUserString)
-                        counter = true
-                    }
-                } else {
-                    println(
-                        """
-                    
-            Womit möchtest du angreifen? $favoriteColorUser
-            1 für Taijutsu
-            2 für ein Ninjutsu
-            3 für eine Waffe 
-            4 für Heilung $reset
-        """.trimIndent()
-                    )
-
-                    print("Gib die jeweilige Zahl ein: ")
-                    selectionUserInt = readln().toInt()
-
-                    if (selectionUserInt == 1) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in taijutsu.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
-                        }
-                        print("Triff deine Auswahl per Zahl: ")
-                        selectionUserInt = readln().toInt()
-                        attackWithTaijutsu(selectionUserInt)
-                        counter = true
-
-                    } else if (selectionUserInt == 2) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in ninjutsu.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
-                        }
-                        print("Triff deine Auswahl per Zahl: ")
-                        selectionUserInt = readln().toInt()
-                        attackWithNinjutsu(selectionUserString, selectionUserInt)
-                        counter = true
-
-                    } else if (selectionUserInt == 3) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in weapon.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
-                        }
-                        print("Triff deine Auswahl per Zahl: ")
-                        selectionUserInt = readln().toInt()
-                        attackWithWeapon(selectionUserInt)
-                        counter = true
-
-                    } else if (selectionUserInt == 4) {
-                        heal(selectionUserString)
-                        counter = true
                     }
                 }
             } catch (ex: Exception) {

@@ -1,21 +1,34 @@
 import java.io.File
 import javax.sound.sampled.AudioSystem
 
+// Idee von mir
+// Hilfe von Olli
 class SoundThread(var file: String): Thread() {
+
+    var isPlaying = false
 
     override fun run() {
 
-        playSound()
-
+        while (!isPlaying) {
+            playSound()
+        }
     }
 
     // spielt Sound ab
     fun playSound() {
 
-        val file = File("./$file")
-        val audio = AudioSystem.getAudioInputStream(file.toURI().toURL())
-        val clip = AudioSystem.getClip()
-        clip.open(audio)
-        clip.start()
+        if (!isPlaying) {
+            val file = File("./$file")
+            val audio = AudioSystem.getAudioInputStream(file.toURI().toURL())
+            val clip = AudioSystem.getClip()
+            clip.open(audio)
+            clip.start()
+            isPlaying = true
+        }
+    }
+
+    fun stopPlaying(){
+
+        isPlaying = false
     }
 }

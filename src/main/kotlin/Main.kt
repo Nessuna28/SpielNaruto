@@ -56,6 +56,7 @@ fun main() {
             } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
 
             winOrLosePrint()
+            soundThread.stopPlaying()
             newRoundOrNotAndCountRoundsWon()
 
         } while (selectionUserString == "ja")
@@ -143,44 +144,63 @@ fun playerNameUser() {
 // diese wird dann gespeichert und eingesetzt als Akzentfarbe für die Ausgabe seiner Daten
 fun selectionFavoriteColorUser() {
 
-    var counter = ""
+    var check = false
 
-    do {
-        println("""
+    while (!check) {
+        try {
+            println(
+                """
         
         Welche ist deine Lieblingsfarbe?
         ${red}rot$reset, ${green}grün$reset, ${yellow}gelb$reset, ${blue}blau$reset, ${magenta}magenta$reset, ${cyan}cyan $reset
-    """.trimIndent())
-        print("Wähle deine Farbe! : ")
-        val color = readln().lowercase()
+    """.trimIndent()
+            )
+            print("Wähle deine Farbe! : ")
+            val color = readln().lowercase()
 
-        if (color != "rot" && color != "grün" && color != "gelb" && color != "blau" && color != "magenta" && color != "cyan") {
-            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-            continue
-        } else {
-            when (color) {
-                "rot" -> favoriteColorUser = red
-                "grün" -> favoriteColorUser = green
-                "gelb" -> favoriteColorUser = yellow
-                "blau" -> favoriteColorUser = blue
-                "magenta" -> favoriteColorUser = magenta
-                "cyan" -> favoriteColorUser = cyan
+            if (color != "rot" && color != "grün" && color != "gelb" && color != "blau" && color != "magenta" && color != "cyan") {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                continue
+            } else {
+                when (color) {
+                    "rot" -> favoriteColorUser = red
+                    "grün" -> favoriteColorUser = green
+                    "gelb" -> favoriteColorUser = yellow
+                    "blau" -> favoriteColorUser = blue
+                    "magenta" -> favoriteColorUser = magenta
+                    "cyan" -> favoriteColorUser = cyan
+                }
+                check = true
             }
-            counter = color
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
         }
-    } while (counter != color)
-
+    }
 }
 
 // der Spieler wird gefragt, ob er die Regeln hören möchte
 fun askListenRules() {
 
     Thread.sleep(1000)
-    print("\nHallo $favoriteColorUser${nameUser}$reset, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
-    selectionUserString = readln().lowercase()
 
-    if (selectionUserString == "ja")
-        rules()
+    var check = false
+
+    while (!check) {
+        try {
+            print("\nHallo $favoriteColorUser${nameUser}$reset, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
+            selectionUserString = readln().lowercase()
+
+            if (selectionUserString == "ja")
+                rules()
+            else if (selectionUserString == "nein")
+                println("\n\uD83D\uDC4D\uD83C\uDFFC Gut du kennst dich also aus. Dann ab zum Spiel!")
+            else
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+        }
+    }
 }
 
 // die Regeln des Spiels
@@ -299,9 +319,10 @@ fun selectionCharacter() {
             println("\nDu hast eine falsche Auswahl getroffen.")
             counter++
         }
-        println("Da du keine richtige Auswahl getroffen hast, wird dir ein zufälliger Charakter zugewiesen.")
-        randomGeneratorForOneCharacter()
     }
+
+    println("Da du keine richtige Auswahl getroffen hast, wird dir ein zufälliger Charakter zugewiesen.")
+    randomGeneratorForOneCharacter()
 }
 
 // dem Spieler werden die vorhandenen Charaktere angezeigt und er darf sich, per Eingabe, drei Charaktere aussuchen
@@ -443,11 +464,14 @@ fun newRoundOrNotAndCountRoundsWon() {
             Bis zum nächsten Mal! 👋
         """.trimIndent()
                 )
+            } else {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
             }
+
             check = true
 
         } catch (ex: Exception) {
-            println("\nDu hast eine falsche Eingabe getroffen. Versuche es nochmal.")
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
         }
     }
 }

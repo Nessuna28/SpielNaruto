@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="try-catch eingebaut und die Funktion showSelection ausgelagert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +66,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Spiel weiter bearbeitet">
-      <created>1683039950577</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1683039950577</updated>
     </task>
     <task id="LOCAL-00012" summary="Spiel weiter bearbeitet">
       <created>1683039983919</created>
@@ -410,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683749412275</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="try-catch eingebaut und die Funktion showSelection ausgelagert">
+      <created>1683795587326</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1683795587326</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -425,7 +425,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="den Spielzug des Computers fertig erstellt" />
     <MESSAGE value="die Funktionen umgebaut zwecks Logik beim Angriff" />
     <MESSAGE value="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe" />
     <MESSAGE value="Fehler in Funktion lostLifePoints behoben" />
@@ -450,25 +449,21 @@
     <MESSAGE value="weiter an Funktionen für Teamkampf gearbeitet aber funktioniert noch nicht" />
     <MESSAGE value="weitere Charaktere initialisiert" />
     <MESSAGE value="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben" />
-    <option name="LAST_COMMIT_MESSAGE" value="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben" />
+    <MESSAGE value="try-catch eingebaut und die Funktion showSelection ausgelagert" />
+    <option name="LAST_COMMIT_MESSAGE" value="try-catch eingebaut und die Funktion showSelection ausgelagert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>519</line>
+          <line>520</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
           <line>43</line>
           <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt</url>
-          <line>142</line>
-          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
