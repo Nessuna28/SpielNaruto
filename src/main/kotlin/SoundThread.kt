@@ -2,7 +2,7 @@ import java.io.File
 import javax.sound.sampled.AudioSystem
 
 // Idee von mir
-// Hilfe von Olli
+// Code von Olli
 class SoundThread(var file: String): Thread() {
 
     var isPlaying = false

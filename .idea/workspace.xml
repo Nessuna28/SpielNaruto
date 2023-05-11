@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="try-catch eingebaut und die Funktion showSelection ausgelagert">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/beginnSong.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sounds/themeSong.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +62,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Spiel weiter bearbeitet">
-      <created>1683039983919</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1683039983919</updated>
     </task>
     <task id="LOCAL-00013" summary="Spiel weiter bearbeitet">
       <created>1683059179684</created>
@@ -410,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683795587326</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="try-catch eingebaut und die Funktion showSelection ausgelagert">
+      <created>1683805028254</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1683805028255</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -457,12 +453,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>520</line>
+          <line>544</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>43</line>
+          <line>44</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>

@@ -35,6 +35,8 @@ var counterWins = 0
 fun main() {
 
     val game = Thread {
+        //soundThread.file = "sounds/beginnSong.wav"
+       //soundThread.start()
 
         greeting()
 
@@ -192,9 +194,10 @@ fun askListenRules() {
 
             if (selectionUserString == "ja")
                 rules()
-            else if (selectionUserString == "nein")
+            else if (selectionUserString == "nein") {
                 println("\n\uD83D\uDC4D\uD83C\uDFFC Gut du kennst dich also aus. Dann ab zum Spiel!")
-            else
+                check = true
+            } else
                 println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
 
         } catch (ex: Exception) {
@@ -229,18 +232,21 @@ fun rules() {
 // bei falscher Eingabe hat der Spieler noch zwei Versuche
 fun selectionTeamOrCharacter() {
 
-    var counter = 0
+    var check = false
 
-    while (counter < 3) {
-        print("\nWählst du ein Team oder einen einzelnen Charakter? \nWähle 'Team' oder 'Einzel'. : ")
-        selectionUserString = readln().lowercase()
+    while (!check) {
+        try {
+            print("\nWählst du ein Team oder einen einzelnen Charakter? \nWähle 'Team' oder 'Einzel'. : ")
+            selectionUserString = readln().lowercase()
 
-        if (selectionUserString == "team" || selectionUserString == "einzel") {
-            selectionSelfOrRandom()
-            break
-        } else {
-            println("Du hast eine falsche Eingabe getroffen. Versuche es nochmal!")
-            counter++
+            if (selectionUserString == "team" || selectionUserString == "einzel") {
+                selectionSelfOrRandom()
+                check = true
+            } else {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+            }
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
         }
     }
 }
@@ -250,36 +256,39 @@ fun selectionTeamOrCharacter() {
 // bei falscher Eingabe hat der Spieler noch zwei Versuche
 fun selectionSelfOrRandom() {
 
-    var counter = 0
+    var check = false
     val inputUserTeamOrCharacter = selectionUserString
 
-    while (counter < 3) {
-        print("\nMöchtest du selbst wählen oder per Zufallsgenerator? \n Wähle 'selbst' oder 'Zufall'. : ")
-        selectionUserString = readln().lowercase()
+    while (!check) {
+        try {
+            print("\nMöchtest du selbst wählen oder per Zufallsgenerator? \n Wähle 'selbst' oder 'Zufall'. : ")
+            selectionUserString = readln().lowercase()
 
-        if (selectionUserString == "selbst") {
-            println("\nDu hast dich entschieden selbst zu wählen. \n")
-            if (inputUserTeamOrCharacter == "einzel") {
-                selectionCharacter()
-                break
-            } else if (inputUserTeamOrCharacter == "team") {
-                selectionTeam()
-                break
+            if (selectionUserString == "selbst") {
+                println("\nDu hast dich entschieden selbst zu wählen. \n")
+                if (inputUserTeamOrCharacter == "einzel") {
+                    selectionCharacter()
+                    break
+                } else if (inputUserTeamOrCharacter == "team") {
+                    selectionTeam()
+                    break
+                }
+                check = true
+            } else if (selectionUserString == "zufall") {
+                println("\nDu hast dich für den Zufallsgenerator entschieden. \n")
+                if (inputUserTeamOrCharacter == "einzel") {
+                    randomGeneratorForOneCharacter()
+                    break
+                }else if (inputUserTeamOrCharacter == "team"){
+                    randomGeneratorForTeam()
+                    break
+                }
+                check = true
+            } else {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
             }
-            counter = 4
-        } else if (selectionUserString == "zufall") {
-            println("\nDu hast dich für den Zufallsgenerator entschieden. \n")
-            if (inputUserTeamOrCharacter == "einzel") {
-                randomGeneratorForOneCharacter()
-                break
-            }else if (inputUserTeamOrCharacter == "team"){
-                randomGeneratorForTeam()
-                break
-            }
-            counter = 4
-        } else {
-            println("Du hast eine falsche Eingabe gemacht. Versuche es nochmal.")
-            counter++
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
         }
     }
 }
@@ -304,25 +313,32 @@ fun selectionCharacter() {
     )
 
     while (counter < 3) {
-        print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
-        selectionUserString = readln().lowercase()
+        try {
+            print("Für welchen Charakter entscheidest du dich? Gib den Namen ein: ")
+            selectionUserString = readln().lowercase()
 
-        val lowercaseList = listToLowercaselist(characterNameList)
+            val lowercaseList = listToLowercaselist(characterNameList)
 
-        if (lowercaseList.contains(selectionUserString)) {
-            println("\nSuper! Du hast dich für $favoriteColorUser${selectionUserString.uppercase()} ${reset}entschieden.")
-            setCharacterForUser(selectionUserString)
-            Thread.sleep(1200)
-            grafik(selectionUserString)
-            break
-        } else {
-            println("\nDu hast eine falsche Auswahl getroffen.")
-            counter++
+            if (lowercaseList.contains(selectionUserString)) {
+                println("\nSuper! Du hast dich für $favoriteColorUser${selectionUserString.uppercase()} ${reset}entschieden.")
+                setCharacterForUser(selectionUserString)
+                Thread.sleep(1200)
+                grafik(selectionUserString)
+                break
+            } else {
+                println("\n❌ Du hast eine falsche Auswahl getroffen.")
+                counter++
+            }
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
         }
+
     }
 
-    println("Da du keine richtige Auswahl getroffen hast, wird dir ein zufälliger Charakter zugewiesen.")
-    randomGeneratorForOneCharacter()
+    if (counter == 3) {
+        println("\nDa du keine richtige Auswahl getroffen hast, wird dir ein zufälliger Charakter zugewiesen.")
+        randomGeneratorForOneCharacter()
+    }
 }
 
 // dem Spieler werden die vorhandenen Charaktere angezeigt und er darf sich, per Eingabe, drei Charaktere aussuchen
@@ -346,29 +362,36 @@ fun selectionTeam(){
     )
 
     while (counter < 3) {
-        print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma und Leerzeichen: ")
-        selectionUserString = readln().lowercase()
-        val inputList = selectionUserString.split(", ")
+        try {
+            print("Für welche Charaktere entscheidest du dich? Gib drei Namen ein und trenne sie mit Komma und Leerzeichen: ")
+            selectionUserString = readln().lowercase()
+            val inputList = selectionUserString.split(", ")
 
-        val lowercaseList = listToLowercaselist(characterNameList)
+            val lowercaseList = listToLowercaselist(characterNameList)
 
-        if (inputList[0] in lowercaseList && inputList[1] in lowercaseList && inputList[2] in lowercaseList) {
-            println("\nSuper! Du hast dich für $favoriteColorUser${selectionUserString.uppercase()} ${reset}entschieden.")
+            if (inputList[0] in lowercaseList && inputList[1] in lowercaseList && inputList[2] in lowercaseList) {
+                println("\nSuper! Du hast dich für $favoriteColorUser${selectionUserString.uppercase()} ${reset}entschieden.")
 
-            for (character in inputList){
-                setCharacterForUser(character)
-                teamUser.add(characterUser)
+                for (character in inputList){
+                    setCharacterForUser(character)
+                    teamUser.add(characterUser)
+                }
+                counter = 4
+            } else {
+                println("\n❌ Du hast eine falsche Auswahl getroffen.")
+                counter++
             }
-            counter = 4
-        } else {
-            println("\nDu hast eine falsche Auswahl getroffen.")
-            counter++
+        } catch (ex: Exception) {
+            println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
         }
+
+
         if (counter == 3) {
             println("Da du keine richtige Auswahl getroffen hast werden dir 3 zufällige Charaktere zugewiesen.")
             randomGeneratorForTeam()
         }
     }
+
     characterUser.name = ""
     selectionMainCharacter()
 }
@@ -1015,6 +1038,15 @@ fun grafik(selectionPlayer: String){
 // fast jeder Charakter hat seinen eigenen Song
 fun songForCharacter(selectionPlayer: String) {
 
+    val nameListForThemeSong = listOf("choji", "ino", "shino", "tenten")
+    var characterForThemeSong = ""
+
+    if (characterUser.name in nameListForThemeSong)
+        characterForThemeSong = characterUser.name
+
+    if (mainCharacterUser.name in nameListForThemeSong)
+        characterForThemeSong = characterUser.name
+
     when (selectionPlayer) {
         "shikamaru" -> soundThread.file = "sounds/shikamaruSong.wav"
         "tsunade" -> soundThread.file = "sounds/tsunadeSong.wav"
@@ -1037,6 +1069,7 @@ fun songForCharacter(selectionPlayer: String) {
         "pain" -> soundThread.file = "sounds/painSong.wav"
         "madara" -> soundThread.file = "sounds/madaraSong.wav"
         "asuma" -> soundThread.file = "sounds/asumaSong.wav"
+        characterForThemeSong -> soundThread.file = "sounds/themeSong.wav"
     }
 }
 
@@ -1048,6 +1081,7 @@ fun useSong() {
 
     if (mainCharacterUser.name.isNotEmpty())
         songForCharacter(mainCharacterUser.name.lowercase())
+
 }
 
 
