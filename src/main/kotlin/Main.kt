@@ -37,6 +37,7 @@ fun main() {
     val game = Thread {
 
         greeting()
+
         do {
             selectionTeamOrCharacter()
             useSong()
@@ -125,7 +126,7 @@ fun greeting() {
 
     playerNameUser()
 
-    favoriteColorUser()
+    selectionFavoriteColorUser()
 
    askListenRules()
 }
@@ -140,7 +141,7 @@ fun playerNameUser() {
 
 // der Spieler wird nach seiner Lieblingsfarbe gefragt
 // diese wird dann gespeichert und eingesetzt als Akzentfarbe für die Ausgabe seiner Daten
-fun favoriteColorUser() {
+fun selectionFavoriteColorUser() {
 
     var counter = ""
 

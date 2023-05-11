@@ -39,7 +39,7 @@ fun selectionAttackTeamUser() {
             print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
             selectionUserInt = readln().toInt()
             if (selectionUserInt == 1) {
-                mainCharacterUser.showSelection()
+                mainCharacterUser.showSelectionForSingle()
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 mainCharacterUser.baumstamm("user")

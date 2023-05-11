@@ -12,16 +12,22 @@ import selectionComputer
 import selectionUserInt
 import selectionUserString
 
-class CharacterWithBijuu: Character {
+class CharacterWithBijuu : Character {
 
     var bijuu: Pair<String, Int>
 
 
-    constructor(name: String, attack: MutableMap<String, Int>, ninjutsu: MutableMap<String, Int>, weapon: MutableMap<String, Int>, bijuu: Pair<String, Int>):
+    constructor(
+        name: String,
+        attack: MutableMap<String, Int>,
+        ninjutsu: MutableMap<String, Int>,
+        weapon: MutableMap<String, Int>,
+        bijuu: Pair<String, Int>,
+    ) :
             super(name, attack, ninjutsu, weapon) {
 
-                this.bijuu = bijuu
-            }
+        this.bijuu = bijuu
+    }
 
     fun attackWithBijuu(enemy: Character) {
 
@@ -40,7 +46,7 @@ class CharacterWithBijuu: Character {
         } else {
             if (enemy == characterComputer) {
                 println("\n\uD83D\uDE23 Du hast nicht genügend Chakra um dein Bijuu zu erwecken. Wähle erneut!")
-                showSelection()
+                showSelectionForSingle()
             } else {
                 attackComputer()
             }
@@ -49,16 +55,17 @@ class CharacterWithBijuu: Character {
     }
 
     // die Funktion aus Character um die Möglichkeit ein Bijuu oder Kami zu erwecken erweitert
-    override fun showSelection() {
+    override fun showSelectionForSingle() {
 
         val bijuuName = this.bijuu.first
-        var counter = 0
+        var counter = false
 
-        do {
-            if (mainCharacterUser.name.isNotEmpty()) {
-                if (ninjutsu.isEmpty()) {
-                    println(
-                        """
+        while (!counter) {
+            try {
+                if (mainCharacterUser.name.isNotEmpty()) {
+                    if (ninjutsu.isEmpty()) {
+                        println(
+                            """
                     
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
@@ -66,49 +73,45 @@ class CharacterWithBijuu: Character {
             3 für $bijuuName erwecken 
             4 für Hilfe des Teams $reset
         """.trimIndent()
-                    )
+                        )
 
-                    print("Gib die jeweilige Zahl ein: ")
-                    selectionUserInt = readln().toInt()
-
-                    if (selectionUserInt == 1) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in taijutsu.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
-                        }
-                        print("Triff deine Auswahl per Zahl: ")
+                        print("Gib die jeweilige Zahl ein: ")
                         selectionUserInt = readln().toInt()
-                        characterUser.attackWithTaijutsu(selectionUserInt)
-                        counter = selectionUserInt
 
-                    } else if (selectionUserInt == 2) {
-                        println("\nDas hast du zur Auswahl:")
-                        var index = 1
-                        for (attack in weapon.keys) {
-                            println("$favoriteColorUser$index für $attack $reset")
-                            index++
+                        if (selectionUserInt == 1) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in taijutsu.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            characterUser.attackWithTaijutsu(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 2) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in weapon.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            mainCharacterUser.attackWithWeapon(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 3) {
+                            attackWithBijuu(mainCharacterComputer)
+                            counter = true
+
+                        } else if (selectionUserInt == 4) {
+                            randomAttackTeamUser()
                         }
-                        print("Triff deine Auswahl per Zahl: ")
-                        selectionUserInt = readln().toInt()
-                        mainCharacterUser.attackWithWeapon(selectionUserInt)
-                        counter = selectionUserInt
-
-                    } else if (selectionUserInt == 3) {
-                        attackWithBijuu(mainCharacterComputer)
-                        counter = selectionUserInt
-
-                    } else if (selectionUserInt == 4) {
-                        randomAttackTeamUser()
-
-                    } else {
-                        println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-                        counter = 0
-                    }
-                } else if (characterUser.name.isNotEmpty()){
-                    println(
-                        """
+                    } else if (characterUser.name.isNotEmpty()) {
+                        println(
+                            """
                     
             Womit möchtest du angreifen? $favoriteColorUser
             1 für Taijutsu
@@ -116,6 +119,65 @@ class CharacterWithBijuu: Character {
             3 für eine Waffe
             4 für $bijuuName erwecken 
             5 für Hilfe des Teams $reset
+        """.trimIndent()
+                        )
+
+                        print("Gib die jeweilige Zahl ein: ")
+                        selectionUserInt = readln().toInt()
+
+                        if (selectionUserInt == 1) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in taijutsu.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithTaijutsu(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 2) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in ninjutsu.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithNinjutsu(selectionUserString, selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 3) {
+                            println("\nDas hast du zur Auswahl:")
+                            var index = 1
+                            for (attack in weapon.keys) {
+                                println("$favoriteColorUser$index für $attack $reset")
+                                index++
+                            }
+                            print("Triff deine Auswahl per Zahl: ")
+                            selectionUserInt = readln().toInt()
+                            attackWithWeapon(selectionUserInt)
+                            counter = true
+
+                        } else if (selectionUserInt == 4) {
+                            attackWithBijuu(mainCharacterComputer)
+                            counter = true
+
+                        } else if (selectionUserInt == 5) {
+                            randomAttackTeamUser()
+                        }
+                    }
+
+                } else if (ninjutsu.isEmpty()) {
+                    println(
+                        """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für eine Waffe 
+            3 für $bijuuName erwecken $reset
         """.trimIndent()
                     )
 
@@ -132,7 +194,50 @@ class CharacterWithBijuu: Character {
                         print("Triff deine Auswahl per Zahl: ")
                         selectionUserInt = readln().toInt()
                         attackWithTaijutsu(selectionUserInt)
-                        counter = selectionUserInt
+                        counter = true
+
+                    } else if (selectionUserInt == 2) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in weapon.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        attackWithWeapon(selectionUserInt)
+                        counter = true
+
+                    } else if (selectionUserInt == 3) {
+                        attackWithBijuu(characterComputer)
+                        counter = true
+                    }
+                } else {
+                    println(
+                        """
+                    
+            Womit möchtest du angreifen? $favoriteColorUser
+            1 für Taijutsu
+            2 für ein Ninjutsu
+            3 für eine Waffe 
+            4 für $bijuuName erwecken $reset
+        """.trimIndent()
+                    )
+
+                    print("Gib die jeweilige Zahl ein: ")
+                    selectionUserInt = readln().toInt()
+
+                    if (selectionUserInt == 1) {
+                        println("\nDas hast du zur Auswahl:")
+                        var index = 1
+                        for (attack in taijutsu.keys) {
+                            println("$favoriteColorUser$index für $attack $reset")
+                            index++
+                        }
+                        print("Triff deine Auswahl per Zahl: ")
+                        selectionUserInt = readln().toInt()
+                        attackWithTaijutsu(selectionUserInt)
+                        counter = true
 
                     } else if (selectionUserInt == 2) {
                         println("\nDas hast du zur Auswahl:")
@@ -144,7 +249,7 @@ class CharacterWithBijuu: Character {
                         print("Triff deine Auswahl per Zahl: ")
                         selectionUserInt = readln().toInt()
                         attackWithNinjutsu(selectionUserString, selectionUserInt)
-                        counter = selectionUserInt
+                        counter = true
 
                     } else if (selectionUserInt == 3) {
                         println("\nDas hast du zur Auswahl:")
@@ -156,127 +261,16 @@ class CharacterWithBijuu: Character {
                         print("Triff deine Auswahl per Zahl: ")
                         selectionUserInt = readln().toInt()
                         attackWithWeapon(selectionUserInt)
-                        counter = selectionUserInt
+                        counter = true
 
                     } else if (selectionUserInt == 4) {
-                        attackWithBijuu(mainCharacterComputer)
-                        counter = selectionUserInt
-
-                    } else if (selectionUserInt == 5) {
-                        randomAttackTeamUser()
-
-                    } else {
-                        println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-                        counter = 0
+                        attackWithBijuu(characterComputer)
+                        counter = true
                     }
                 }
-
-            } else if (ninjutsu.isEmpty()) {
-                println(
-                    """
-                    
-            Womit möchtest du angreifen? $favoriteColorUser
-            1 für Taijutsu
-            2 für eine Waffe 
-            3 für $bijuuName erwecken $reset
-        """.trimIndent()
-                )
-
-                print("Gib die jeweilige Zahl ein: ")
-                selectionUserInt = readln().toInt()
-
-                if (selectionUserInt == 1) {
-                    println("\nDas hast du zur Auswahl:")
-                    var index = 1
-                    for (attack in taijutsu.keys) {
-                        println("$favoriteColorUser$index für $attack $reset")
-                        index++
-                    }
-                    print("Triff deine Auswahl per Zahl: ")
-                    selectionUserInt = readln().toInt()
-                    attackWithTaijutsu(selectionUserInt)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 2) {
-                    println("\nDas hast du zur Auswahl:")
-                    var index = 1
-                    for (attack in weapon.keys) {
-                        println("$favoriteColorUser$index für $attack $reset")
-                        index++
-                    }
-                    print("Triff deine Auswahl per Zahl: ")
-                    selectionUserInt = readln().toInt()
-                    attackWithWeapon(selectionUserInt)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 3) {
-                    attackWithBijuu(characterComputer)
-                    counter = selectionUserInt
-
-                } else {
-                    println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-                    counter = 0
-                }
-            } else {
-                println(
-                    """
-                    
-            Womit möchtest du angreifen? $favoriteColorUser
-            1 für Taijutsu
-            2 für ein Ninjutsu
-            3 für eine Waffe 
-            4 für $bijuuName erwecken $reset
-        """.trimIndent()
-                )
-
-                print("Gib die jeweilige Zahl ein: ")
-                selectionUserInt = readln().toInt()
-
-                if (selectionUserInt == 1) {
-                    println("\nDas hast du zur Auswahl:")
-                    var index = 1
-                    for (attack in taijutsu.keys) {
-                        println("$favoriteColorUser$index für $attack $reset")
-                        index++
-                    }
-                    print("Triff deine Auswahl per Zahl: ")
-                    selectionUserInt = readln().toInt()
-                    attackWithTaijutsu(selectionUserInt)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 2) {
-                    println("\nDas hast du zur Auswahl:")
-                    var index = 1
-                    for (attack in ninjutsu.keys) {
-                        println("$favoriteColorUser$index für $attack $reset")
-                        index++
-                    }
-                    print("Triff deine Auswahl per Zahl: ")
-                    selectionUserInt = readln().toInt()
-                    attackWithNinjutsu(selectionUserString, selectionUserInt)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 3) {
-                    println("\nDas hast du zur Auswahl:")
-                    var index = 1
-                    for (attack in weapon.keys) {
-                        println("$favoriteColorUser$index für $attack $reset")
-                        index++
-                    }
-                    print("Triff deine Auswahl per Zahl: ")
-                    selectionUserInt = readln().toInt()
-                    attackWithWeapon(selectionUserInt)
-                    counter = selectionUserInt
-
-                } else if (selectionUserInt == 4) {
-                    attackWithBijuu(characterComputer)
-                    counter = selectionUserInt
-
-                } else {
-                    println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-                    counter = 0
-                }
+            } catch (ex: Exception) {
+                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
             }
-        } while (counter != selectionUserInt)
+        }
     }
 }

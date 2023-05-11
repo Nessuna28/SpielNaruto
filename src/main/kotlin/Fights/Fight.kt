@@ -20,25 +20,25 @@ fun fight() {}
 // diese Funktion fragt den Spieler, ob er angreifen oder ausweichen möchte und ruft je nach Antwort die dazugehörigen Funktionen auf
 fun selectionAttackUser() {
 
-    var counter = 0
+    var counter = false
 
-    do {
+    while (!counter) {
+    try {
         if (characterUser.name.isNotEmpty()) {
             print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
             selectionUserInt = readln().toInt()
             if (selectionUserInt == 1) {
-                characterUser.showSelection()
-                counter = selectionUserInt
+                characterUser.showSelectionForSingle()
+                counter = true
             } else if (selectionUserInt == 2) {
                 characterUser.baumstamm("user")
-                counter = selectionUserInt
-            } else {
-                println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-                counter = 0
+                counter = true
             }
         }
-
-    } while (counter != selectionUserInt)
+    } catch (ex: Exception) {
+        println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+    }
+}
 
     characterUser.loadChakra(selectionUserString)
 }
@@ -209,14 +209,14 @@ fun lostLifePointsSinglePlay(attackUser: String, attackComputer: String, enemyUs
             }
         }
 
-        lifePointsUser = characterUser.lifePoints
-        lifePointsComputer = characterComputer.lifePoints
-
         if (lifePointsUser < 0)
             lifePointsUser = 0
 
         if (lifePointsComputer < 0)
             lifePointsComputer = 0
+
+        lifePointsUser = characterUser.lifePoints
+        lifePointsComputer = characterComputer.lifePoints
     }
 }
 
@@ -466,8 +466,8 @@ fun winOrLosePrint() {
             
                          🏆 
 
-        🎇 ${favoriteColorUser} Super! Du hast gewonnen. $reset 🎇
-         Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏   
+        🎇 $favoriteColorUser Super! Du hast gewonnen. $reset 🎇
+         Du hast ${favoriteColorUser}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏   
           
         """.trimIndent()
         )
@@ -488,8 +488,8 @@ fun winOrLosePrint() {
         println("\n")
         println("""
             
-        😔 ${favoriteColorUser} Schade! Du hast leider verloren. $reset 😔
-        Du hast ${favoriteColorUser()}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
+        😔 $favoriteColorUser Schade! Du hast leider verloren. $reset 😔
+        Du hast ${favoriteColorUser}$counterWins $winsRoundOrRounds ${reset}von $counterRounds $roundOrRounds gewonnen. 👏
             
         """.trimIndent()
         )

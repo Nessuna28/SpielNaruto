@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="weitere Charaktere initialisiert">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/CapabilitiesList.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,13 +66,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Spiel weiter bearbeitet">
-      <created>1683037541802</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1683037541802</updated>
     </task>
     <task id="LOCAL-00011" summary="Spiel weiter bearbeitet">
       <created>1683039950577</created>
@@ -410,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683720295595</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben">
+      <created>1683749412274</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1683749412275</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -425,7 +425,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="die Attacken-Funktion der Klassen überarbeitet und eine Funktion für die Computerattacke erstellt" />
     <MESSAGE value="den Spielzug des Computers fertig erstellt" />
     <MESSAGE value="die Funktionen umgebaut zwecks Logik beim Angriff" />
     <MESSAGE value="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe" />
@@ -450,15 +449,26 @@
     <MESSAGE value="weiter an Funktionen für Teamkampf gearbeitet" />
     <MESSAGE value="weiter an Funktionen für Teamkampf gearbeitet aber funktioniert noch nicht" />
     <MESSAGE value="weitere Charaktere initialisiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="weitere Charaktere initialisiert" />
+    <MESSAGE value="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben" />
+    <option name="LAST_COMMIT_MESSAGE" value="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>534</line>
+          <line>519</line>
           <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
+          <line>43</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt</url>
+          <line>142</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
