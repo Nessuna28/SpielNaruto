@@ -29,6 +29,9 @@ class CharacterWithBijuu : Character {
         this.bijuu = bijuu
     }
 
+    // bei der Funktion wird dem Gegner der Wert des Schadens von dem Bijuu von seinen Lebenspunkten abgezogen
+    // und der Spieler verliert Chakra um den Wert der Attacke
+    // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
     fun attackWithBijuu(enemy: Character) {
 
         val bijuuName = this.bijuu.first
@@ -54,13 +57,14 @@ class CharacterWithBijuu : Character {
         }
     }
 
-    // die Funktion aus Character um die Möglichkeit ein Bijuu oder Kami zu erwecken erweitert
+    // die Funktion aus Character um die Möglichkeit ein Bijuu zu erwecken erweitert
     override fun showSelectionForSingle() {
 
         val bijuuName = this.bijuu.first
-        var counter = false
 
-        while (!counter) {
+        var check = false
+
+        while (!check) {
             try {
                 if (characterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -87,7 +91,7 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -99,11 +103,11 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             attackWithBijuu(characterComputer)
-                            counter = true
+                            check = true
                         }
                     } else {
                         println(
@@ -130,7 +134,7 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -142,7 +146,7 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -154,11 +158,11 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithBijuu(characterComputer)
-                            counter = true
+                            check = true
                         }
                     }
                 }
@@ -172,9 +176,10 @@ class CharacterWithBijuu : Character {
     override fun showSelectionForTeam() {
 
         val bijuuName = this.bijuu.first
-        var counter = false
 
-        while (!counter) {
+        var check = false
+
+        while (!check) {
             try {
                 if (mainCharacterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -202,7 +207,7 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             characterUser.attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -214,11 +219,11 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             mainCharacterUser.attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             attackWithBijuu(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             randomAttackTeamUser()
@@ -252,7 +257,7 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -264,7 +269,7 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -276,11 +281,11 @@ class CharacterWithBijuu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithBijuu(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 5) {
                             randomAttackTeamUser()

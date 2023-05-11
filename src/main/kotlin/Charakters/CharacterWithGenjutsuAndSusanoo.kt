@@ -27,7 +27,9 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
         this.susanoo = susanoo
     }
 
-    // Spieler greift mit Susanoo an und dem Gegner werden der entsprechende Wert von seinen lifePoints abgezogen
+    // bei der Funktion wird dem Gegner der Wert des Schadens von dem Susanoo von seinen Lebenspunkten abgezogen
+    // und der Spieler verliert Chakra um den Wert der Attacke
+    // hat er nicht genug Chakra, kann er diese Attacke nicht ausführen
     fun attackWithSusanoo(enemy: Character) {
 
         if (chakra > susanoo) {
@@ -52,9 +54,9 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
     // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden oder Susanoo zu erwecken erweitert
     override fun showSelectionForSingle() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (characterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -82,7 +84,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -94,15 +96,15 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             attackWithGenjutsu(characterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithSusanoo(characterComputer)
-                            counter = true
+                            check = true
                         }
                     } else {
                         println(
@@ -130,7 +132,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -142,7 +144,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -154,15 +156,15 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithGenjutsu(characterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 5) {
                             attackWithSusanoo(characterComputer)
-                            counter = true
+                            check = true
                         }
                     }
                 }
@@ -174,9 +176,9 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
 
     override fun showSelectionForTeam() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (mainCharacterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -205,7 +207,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             characterUser.attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -217,15 +219,15 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             mainCharacterUser.attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             attackWithGenjutsu(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithSusanoo(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 5) {
                             randomAttackTeamUser()
@@ -260,7 +262,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -272,7 +274,7 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -284,11 +286,11 @@ class CharacterWithGenjutsuAndSusanoo : CharacterWithGenjutsu {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithGenjutsu(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 5) {
                             attackWithSusanoo(mainCharacterComputer)

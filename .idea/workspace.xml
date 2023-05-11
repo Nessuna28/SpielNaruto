@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="try-catch eingebaut">
-      <change afterPath="$PROJECT_DIR$/sounds/beginnSong.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sounds/themeSong.wav" afterDir="false" />
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="die Regeln neu verfasst">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,20 +68,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Funktion Charakter für den Com erstellt">
-      <created>1683060468941</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1683060468941</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Klassen überarbeitet">
-      <created>1683102208205</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1683102208205</updated>
     </task>
     <task id="LOCAL-00016" summary="Klassen überarbeitet">
       <created>1683102306941</created>
@@ -407,7 +398,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683810552565</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="try-catch eingebaut">
+      <created>1683814647097</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1683814647098</updated>
+    </task>
+    <task id="LOCAL-00064" summary="die Regeln neu verfasst">
+      <created>1683817699731</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1683817699731</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -422,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="die Funktionen umgebaut und etwas gekürzt. Fehler gefunden aber noch keine Ahnung wie ich ihn behebe" />
     <MESSAGE value="Fehler in Funktion lostLifePoints behoben" />
     <MESSAGE value="Funktion colorBar bearbeitet. Noch nicht der gewünschte Effekt" />
     <MESSAGE value="Funktion printForDodging fertig" />
@@ -447,15 +451,26 @@
     <MESSAGE value="kleinen Fehler beim Angriff mit Bijuu und Susanoo behoben" />
     <MESSAGE value="try-catch eingebaut und die Funktion showSelection ausgelagert" />
     <MESSAGE value="try-catch eingebaut" />
-    <option name="LAST_COMMIT_MESSAGE" value="try-catch eingebaut" />
+    <MESSAGE value="die Regeln neu verfasst" />
+    <option name="LAST_COMMIT_MESSAGE" value="die Regeln neu verfasst" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
+          <line>14</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>563</line>
-          <option name="timeStamp" value="42" />
+          <line>54</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt</url>
+          <line>71</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

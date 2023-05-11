@@ -24,46 +24,6 @@ open class Character(
     var chakra = 500
     var baumstamm = 5
 
-    /* fun lostLifePointsSinglePlay(attackPlayer: String, attackEnemy: String, enemy: Charakters.Character) {
-
-         if (characterUser.name.isNotEmpty()) {
-             if (attackPlayer != "Baumstamm") {
-
-                 var index = 0
-
-                 for (attack in enemy.taijutsu.keys) {
-                     if (attackEnemy == attack) {
-                         lifePoints -= enemy.taijutsu.values.elementAt(index)
-                         break
-                     }
-                     index++
-                 }
-
-                 index = 0
-                 for (attack in enemy.ninjutsu.keys) {
-                     if (attackEnemy == attack) {
-                         lifePoints -= enemy.ninjutsu.values.elementAt(index)
-                         break
-                     }
-                     index++
-                 }
-
-                 index = 0
-                 for (attack in enemy.weapon.keys) {
-                     if (attackEnemy == attack) {
-                         lifePoints -= enemy.weapon.values.elementAt(index)
-                         break
-                     }
-                     index++
-                 }
-             }
-
-             lifePointsUser = characterUser.lifePoints
-             lifePointsComputer = characterComputer.lifePoints
-         }
-     }
-
-     */
 
     // Chakra wird um einen bestimmten Wert verringert
     fun lostChakra(value: Int) {
@@ -111,7 +71,10 @@ open class Character(
         } else {
             if (input == "user") {
                 println("\nDu hast Baumstamm bereits 5x angewendet und kannst es nicht mehr nutzen. Wähle erneut!")
-                showSelectionForSingle()
+                if (characterUser.name.isNotEmpty())
+                    showSelectionForSingle()
+                else
+                    showSelectionForTeam()
             } else {
                 attackComputer()
             }
@@ -123,9 +86,9 @@ open class Character(
     // je nach dem für was sich der Spieler entschieden hat, werden die jeweiligen Funktionen aufgerufen
     open fun showSelectionForSingle() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (characterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -151,7 +114,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -163,7 +126,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -192,7 +155,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -204,7 +167,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -216,7 +179,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -230,9 +193,9 @@ open class Character(
 
     open fun showSelectionForTeam() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (mainCharacterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -260,7 +223,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -272,10 +235,11 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             randomAttackTeamUser()
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -305,7 +269,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -317,7 +281,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -329,7 +293,7 @@ open class Character(
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             randomAttackTeamUser()

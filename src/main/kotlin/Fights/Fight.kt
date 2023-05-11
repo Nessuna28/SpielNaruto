@@ -18,31 +18,34 @@ import selectionUserString
 fun fight() {}
 
 // diese Funktion fragt den Spieler, ob er angreifen oder ausweichen möchte und ruft je nach Antwort die dazugehörigen Funktionen auf
+// am Ende wird die Funktion aufgerufen um das Chakra wieder aufzuladen
 fun selectionAttackUser() {
 
-    var counter = false
+    if (characterUser.name.isNotEmpty()) {
+        var counter = false
 
-    while (!counter) {
-    try {
-        if (characterUser.name.isNotEmpty()) {
-            print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
-            selectionUserInt = readln().toInt()
-            if (selectionUserInt == 1) {
-                characterUser.showSelectionForSingle()
-                counter = true
-            } else if (selectionUserInt == 2) {
-                characterUser.baumstamm("user")
-                counter = true
-            } else {
+        while (!counter) {
+            try {
+
+                print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
+                selectionUserInt = readln().toInt()
+                if (selectionUserInt == 1) {
+                    characterUser.showSelectionForSingle()
+                    counter = true
+                } else if (selectionUserInt == 2) {
+                    characterUser.baumstamm("user")
+                    counter = true
+                } else {
+                    println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
+                }
+
+            } catch (ex: Exception) {
                 println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
             }
         }
-    } catch (ex: Exception) {
-        println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
-    }
-}
 
-    characterUser.loadChakra(selectionUserString)
+        characterUser.loadChakra(selectionUserString)
+    }
 }
 
 // diese Funktion wählt ein Angriff oder Verteidigung per Zufall aus je nachdem welchen Charakter der Computer hat
@@ -219,76 +222,6 @@ fun lostLifePointsSinglePlay(attackUser: String, attackComputer: String, enemyUs
 
         lifePointsUser = characterUser.lifePoints
         lifePointsComputer = characterComputer.lifePoints
-    }
-}
-
-fun lostLifePointsTeamPlay(attackUser: String, attackComputer: String, mainEnemyUser: Character, mainEnemyComputer: Character) {
-
-    if (mainCharacterUser.name.isNotEmpty()) {
-        if (attackComputer != "Baumstamm") {
-
-            var index = 0
-
-            for (attack in mainCharacterUser.taijutsu.keys) {
-                if (attackUser == attack) {
-                    mainEnemyComputer.lifePoints -= mainCharacterUser.taijutsu.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-
-            index = 0
-            for (attack in mainCharacterUser.ninjutsu.keys) {
-                if (attackUser == attack) {
-                    mainEnemyComputer.lifePoints -= mainCharacterUser.ninjutsu.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-
-            index = 0
-            for (attack in mainCharacterUser.weapon.keys) {
-                if (attackUser == attack) {
-                    mainEnemyComputer.lifePoints -= mainCharacterUser.weapon.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-        }
-
-        if (attackUser != "Baumstamm") {
-
-            var index = 0
-
-            for (attack in mainCharacterComputer.taijutsu.keys) {
-                if (attackComputer == attack) {
-                    mainEnemyUser.lifePoints -= mainEnemyUser.taijutsu.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-
-            index = 0
-            for (attack in mainCharacterComputer.ninjutsu.keys) {
-                if (attackComputer == attack) {
-                    mainEnemyUser.lifePoints -= mainCharacterComputer.ninjutsu.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-
-            index = 0
-            for (attack in mainCharacterComputer.weapon.keys) {
-                if (attackComputer == attack) {
-                    mainEnemyUser.lifePoints -= mainCharacterComputer.weapon.values.elementAt(index)
-                    break
-                }
-                index++
-            }
-        }
-
-        lifePointsUser = mainCharacterUser.lifePoints
-        lifePointsComputer = mainCharacterComputer.lifePoints
     }
 }
 

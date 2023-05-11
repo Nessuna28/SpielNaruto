@@ -1,7 +1,11 @@
 package Fights
 
 import Charakters.*
+import characterComputer
 import favoriteColorUser
+import grafik
+import lifePointsComputer
+import lifePointsUser
 import reset
 import selectionComputer
 import selectionUserInt
@@ -24,22 +28,18 @@ var teamMember2Computer = Character("", mutableMapOf(), mutableMapOf(), mutableM
 var attackTeamMember2Computer = ""
 
 
-fun sortedFunctionsForTeamPlay() {
-
-   selectionAttackTeamUser()
-    attackComputerTeam()
-}
-
+// diese Funktion fragt den Spieler, ob er angreifen oder ausweichen möchte und ruft je nach Antwort die dazugehörigen Funktionen auf
+// am Ende wird die Funktion aufgerufen um das Chakra wieder aufzuladen
 fun selectionAttackTeamUser() {
 
-    var counter = 0
+    if (mainCharacterUser.name.isNotEmpty()) {
+        var counter = 0
 
-    do {
-        if (mainCharacterUser.name.isNotEmpty()) {
+        do {
             print("\nMöchtest du $favoriteColorUser(1) angreifen$reset oder $favoriteColorUser(2) ausweichen$reset? Gib die jeweilige Zahl ein: ")
             selectionUserInt = readln().toInt()
             if (selectionUserInt == 1) {
-                mainCharacterUser.showSelectionForSingle()
+                mainCharacterUser.showSelectionForTeam()
                 counter = selectionUserInt
             } else if (selectionUserInt == 2) {
                 mainCharacterUser.baumstamm("user")
@@ -48,15 +48,14 @@ fun selectionAttackTeamUser() {
                 println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                 counter = 0
             }
-        } else {
-            selectionAttackUser()
-        }
+
     } while (counter != selectionUserInt)
 
-    mainCharacterUser.loadChakra(selectionUserString)
+        mainCharacterUser.loadChakra(selectionUserString)
+}
 }
 
-// Spieler soll sich aus dem Team einen Hauptcharakter aussuchen, der wird danach aus der Teamliste gelöscht
+// Spieler soll sich aus dem Team einen Hauptcharakter aussuchen, der wird danach aus der Teamliste gelöscht und in der Variablen mainCharacterUser gespeichert
 fun selectionMainCharacter() {
 
     println("\nWelcher soll dein Hauptcharakter sein?")
@@ -65,9 +64,17 @@ fun selectionMainCharacter() {
     setCharacterForTeam(selectionUser)
     teamUser.remove(mainCharacterUser)
     selectionUserString = mainCharacterUser.name
+
+
+    teamMember1User = teamUser.random()
+    teamUser.remove(teamMember1User)
+
+    teamMember2User = teamUser.random()
+
+    grafik(mainCharacterUser.name)
 }
 
-// diese Funktion bestimmt einen Hauptcharakter für den Computer, der wird danach aus der Teamliste gelöscht
+// diese Funktion bestimmt einen Hauptcharakter für den Computer, der wird danach aus der Teamliste gelöscht und in der Variablen mainCharacterComputer gespeichert
 fun selectionMainCharacterComputer() {
 
     do {
@@ -75,24 +82,17 @@ fun selectionMainCharacterComputer() {
         teamComputer.remove(mainCharacterComputer)
     } while (mainCharacterComputer == mainCharacterUser)
 
+    characterComputer = mainCharacterComputer
+
 }
 
 // diese Funktion sucht für die beiden Charaktere aus dem Team zufällige Attacken aus
+// und zieht danach die jeweiligen Werte von den Lebenspunkten ab
 fun randomAttackTeamUser() {
 
-    var attackListTeamMember1 = mutableListOf<String>()
-    var attackListTeamMember2 = mutableListOf<String>()
+    val attackListTeamMember1 = mutableListOf<String>()
+    val attackListTeamMember2 = mutableListOf<String>()
 
-    var counter = 0
-
-    for (character in teamUser) {
-        if (counter == 0) {
-            teamMember1User = character
-        } else {
-            teamMember2User = character
-        }
-        counter = 1
-    }
 
     if (teamMember1User is CharacterWithGenjutsu) {
         if (teamMember1User is CharacterWithGenjutsuAndSusanoo) {
@@ -206,18 +206,19 @@ fun randomAttackTeamUser() {
     attackTeamMember1User = attackListTeamMember1.random()
     attackTeamMember2User = attackListTeamMember2.random()
 
+
+    if (attackTeamMember1User == "Heilung")
+        mainCharacterUser.lifePoints += (teamMember1User as CharacterWithMedicalSkills).medicalSkill
+
+    if (attackTeamMember2User == "Heilung")
+        mainCharacterUser.lifePoints += (teamMember2User as CharacterWithMedicalSkills).medicalSkill
+
     attackTeamPrint(teamMember1User, attackTeamMember1User, teamMember2User, attackTeamMember2User)
 
-    lostLifePointsSinglePlay(attackTeamMember1User, selectionComputer, teamMember1User, mainCharacterComputer)
-    lostLifePointsSinglePlay(attackTeamMember2User, selectionComputer, teamMember2User, mainCharacterComputer)
+    lostLifePointsTeamPlay(attackTeamMember1User, selectionComputer, teamMember1User, mainCharacterComputer)
+    lostLifePointsTeamPlay(attackTeamMember2User, selectionComputer, teamMember2User, mainCharacterComputer)
 }
 
-fun attackComputerTeam () {
-
-    attackComputer()
-    randomAttackTeamComputer()
-}
-// diese Funktion sucht für die beiden Charaktere aus dem Team zufällige Attacken aus
 fun randomAttackTeamComputer() {
 
     var attackListTeamMember1 = mutableListOf<String>()
@@ -346,10 +347,96 @@ fun randomAttackTeamComputer() {
     attackTeamMember1Computer = attackListTeamMember1.random()
     attackTeamMember2Computer = attackListTeamMember2.random()
 
+    if (attackTeamMember1Computer == "Heilung")
+        mainCharacterComputer.lifePoints += (teamMember1Computer as CharacterWithMedicalSkills).medicalSkill
+
+    if (attackTeamMember2Computer == "Heilung")
+        mainCharacterComputer.lifePoints += (teamMember2Computer as CharacterWithMedicalSkills).medicalSkill
+
     attackTeamPrint(teamMember1Computer, attackTeamMember1Computer, teamMember2Computer, attackTeamMember2Computer)
 
     lostLifePointsSinglePlay(attackTeamMember1Computer, selectionUserString, teamMember1Computer, mainCharacterUser)
     lostLifePointsSinglePlay(attackTeamMember2Computer, selectionUserString, teamMember2Computer, mainCharacterUser)
+}
+
+// wenn die Auswahl vom Coputer Heilung ist, ruft er die Funktion randomAttackTeamComputer auf
+fun attackComputerTeam () {
+
+    if (selectionComputer == "Hilfe des Teams")
+        randomAttackTeamComputer()
+}
+
+// der Funktion werden 4 Parameter mitgegeben, die Attacken der Spieler und die jeweiligen Charaktere,
+// wenn die Spieler sich nicht für das Ausweichen entscheiden, werden die Lebenspunkte des Gegners um den Wert der Attacke verringert
+// zum Schluss werden die Lebenspunkte der jeweiligen Spieler in einer Variablen außerhalb der Main gespeichert
+fun lostLifePointsTeamPlay(attackUser: String, attackComputer: String, mainEnemyUser: Character, mainEnemyComputer: Character) {
+
+    if (mainCharacterUser.name.isNotEmpty()) {
+        if (attackComputer != "Baumstamm") {
+
+            var index = 0
+
+            for (attack in mainCharacterUser.taijutsu.keys) {
+                if (attackUser == attack) {
+                    mainEnemyComputer.lifePoints -= mainCharacterUser.taijutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in mainCharacterUser.ninjutsu.keys) {
+                if (attackUser == attack) {
+                    mainEnemyComputer.lifePoints -= mainCharacterUser.ninjutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in mainCharacterUser.weapon.keys) {
+                if (attackUser == attack) {
+                    mainEnemyComputer.lifePoints -= mainCharacterUser.weapon.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+        }
+
+        if (attackUser != "Baumstamm") {
+
+            var index = 0
+
+            for (attack in mainCharacterComputer.taijutsu.keys) {
+                if (attackComputer == attack) {
+                    mainEnemyUser.lifePoints -= mainEnemyUser.taijutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in mainCharacterComputer.ninjutsu.keys) {
+                if (attackComputer == attack) {
+                    mainEnemyUser.lifePoints -= mainCharacterComputer.ninjutsu.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+
+            index = 0
+            for (attack in mainCharacterComputer.weapon.keys) {
+                if (attackComputer == attack) {
+                    mainEnemyUser.lifePoints -= mainCharacterComputer.weapon.values.elementAt(index)
+                    break
+                }
+                index++
+            }
+        }
+
+        lifePointsUser = mainCharacterUser.lifePoints
+        lifePointsComputer = mainCharacterComputer.lifePoints
+    }
 }
 
 // diese Funktion nimmt die Eingaben vom Typ String und sucht sie in der Charakterliste und
@@ -390,7 +477,7 @@ fun setCharacterForTeam(string: String) {
 fun attackTeamPrint(member1: Character, attackMember1: String, member2: Character, attackMember2: String) {
 
     if (member1 == teamMember1User)
-        println("${member1.name} hat dir mit $attackMember1 geholfen und \n${member2.name} hat dir mit $attackMember2 geholfen.")
+        println("\n${member1.name} hat dir mit $attackMember1 geholfen und \n${member2.name} hat dir mit $attackMember2 geholfen.")
     else
-        println("${member1.name} und ${member2.name} haben dich mit angegriffen mit $attackMember1 und $attackMember2.")
+        println("\n${member1.name} und ${member2.name} haben dich mit angegriffen mit $attackMember1 und $attackMember2.")
 }

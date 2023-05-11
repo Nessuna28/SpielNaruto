@@ -37,9 +37,10 @@ fun main() {
     val game = Thread {
         //soundThread.file = "sounds/beginnSong.wav"
        //soundThread.start()
-            if (counterRounds == 0)
-                greeting()
 
+        greeting()
+
+        do {
             selectionTeamOrCharacter()
             useSong()
             soundThread.start()
@@ -47,9 +48,12 @@ fun main() {
             valueOfCharacterPrint()
             do {
                 selectionAttackUser()
+                selectionAttackTeamUser()
                 grafikForAttack()
                 attackComputer()
+                attackComputerTeam()
                 lostLifePointsSinglePlay(selectionUserString, selectionComputer, characterUser, characterComputer)
+                lostLifePointsTeamPlay(selectionUserString, selectionComputer, mainCharacterUser, mainCharacterComputer)
                 defensePrint()
                 wichAttackUserPrint()
                 whichAttackComputerPrint()
@@ -58,14 +62,14 @@ fun main() {
 
             winOrLosePrint()
             newRoundOrNotAndCountRoundsWon()
+        } while (selectionUserString == "ja")
     }
 
     game.start()
 
 }
 
-// der Spieler wird begrüßt und gefragt, ob er die Regeln hören möchte
-// ist die Antwort ja werden ihm die Regeln angezeigt, andernfalls nicht
+// der Spieler wird begrüßt und danach werden die weiteren Funktionen aufgerufen
 fun greeting() {
 
     println("$blue                        Willkommen im Spiel")
@@ -177,7 +181,7 @@ fun selectionFavoriteColorUser() {
     }
 }
 
-// der Spieler wird gefragt, ob er die Regeln hören möchte
+// der Spieler wird gefragt, ob er die Regeln hören möchte, falls ja, werden sie ihn über die Funktion rules angezeigt
 fun askListenRules() {
 
     Thread.sleep(1000)
@@ -246,7 +250,6 @@ fun rules() {
 
 // der Spieler hat die Möglichkeit zu wählen, ob er mit einem Team spielen möchte oder mit einem einzelnen Charakter
 // sofern die Eingabe nicht falsch ist, wird gleich die nächste Funktion je nach Eingabe ausgeführt
-// bei falscher Eingabe hat der Spieler noch zwei Versuche
 fun selectionTeamOrCharacter() {
 
     var check = false
@@ -272,7 +275,6 @@ fun selectionTeamOrCharacter() {
 
 // der Spieler hat die Möglichkeit selbst zu wählen oder per Zufallsgenerator
 // je nach Eingabe wird die nächste Funktion ausgeführt
-// bei falscher Eingabe hat der Spieler noch zwei Versuche
 fun selectionSelfOrRandom() {
 
     var check = false
@@ -313,7 +315,7 @@ fun selectionSelfOrRandom() {
 }
 
 // dem Spieler werden die vorhandenen Charaktere angezeigt und er darf sich, per Eingabe, einen aussuchen
-// Spieler hat wieder drei Versuche für die Eingabe
+// Spieler hat drei Versuche für die Eingabe
 // bei drei falschen Eingaben, wird dem Spieler per Zufallsgenerator ein Spieler ausgesucht
 fun selectionCharacter() {
 
@@ -411,8 +413,8 @@ fun selectionTeam(){
         }
     }
 
-    characterUser.name = ""
     selectionMainCharacter()
+    characterUser.name = ""
 }
 
 // der Zufallsgenerator für einen Charakter
@@ -445,6 +447,7 @@ fun randomGeneratorForTeam(){
     println("Deine Charaktere sind: $favoriteColorUser${listOfCharactersForRandom.toString().uppercase()} $reset")
 
     selectionMainCharacter()
+    characterUser.name = ""
 }
 
 // die Auswahl für den Computer wird per Zufallsgenerator, je nachdem ob Team oder einzelner Charakter, getroffen
@@ -452,20 +455,24 @@ fun randomGeneratorForTeam(){
 fun characterComputer(){
 
     if (characterUser.name.isEmpty()){
-        val listOfCharactersForRandom = mutableListOf<String>()
+        val listOfCharactersForRandom = mutableListOf<Character>()
 
         while (listOfCharactersForRandom.size < 3) {
-            val randomCharacter = characterNameList.random()
-            if (!listOfCharactersForRandom.contains(randomCharacter)) {
+            val randomCharacter = characterList.random()
+            if (randomCharacter !in listOfCharactersForRandom) {
                 listOfCharactersForRandom.add(randomCharacter)
-                setCharacterForComputer(randomCharacter)
-                teamComputer.add(characterComputer)
             }
         }
+        teamComputer.add(listOfCharactersForRandom[0])
+        teamComputer.add(listOfCharactersForRandom[1])
+        teamComputer.add(listOfCharactersForRandom[2])
+
         Thread.sleep(2000)
-        println("\nDu trittst an gegen: $blue${listOfCharactersForRandom.toString().uppercase()} $reset")
+        println("\nDu trittst an gegen: $blue${teamComputer[0].name.uppercase()}, ${teamComputer[1].name.uppercase()}, ${teamComputer[2].name.uppercase()} $reset")
+
         selectionMainCharacterComputer()
         println("\nDer Hauptcharakter des Gegners ist $blue${mainCharacterComputer.name} $reset")
+
     } else if (characterUser.name.isNotEmpty()){
         do {
             val selection = characterList.random()
@@ -555,38 +562,6 @@ fun setCharacterForUser(string: String) {
 
     if (inputList.size >= 3)
         characterUser.name = ""
-}
-
-fun setCharacterForComputer(string: String) {
-
-    for (character in characterList) {
-        if (character is CharacterWithMedicalSkills) {
-            if (character.name.lowercase() == string) {
-                characterComputer = character as CharacterWithMedicalSkills
-            }
-        } else if (character is CharacterWithGenjutsu) {
-            if (character.name.lowercase() == string) {
-                characterComputer = character as CharacterWithGenjutsu
-            }
-            if (character is CharacterWithGenjutsuAndSusanoo) {
-                if (character.name.lowercase() == string) {
-                    characterComputer = character as CharacterWithGenjutsuAndSusanoo
-                }
-            }
-        } else if (character is CharacterWithBijuu) {
-            if (character.name.lowercase() == string) {
-                characterComputer = character as CharacterWithBijuu
-            }
-        } else if (character is CharacterWithMoreStrength) {
-            if (character.name.lowercase() == string) {
-                characterComputer = character as CharacterWithMoreStrength
-            }
-        } else {
-            if (character.name.lowercase() == string) {
-                characterComputer = character
-            }
-        }
-    }
 }
 
 // eine Liste zu einer Liste mit nur Kleinbuchstaben umwandeln
@@ -1087,10 +1062,8 @@ fun useSong() {
 
     if (characterUser.name.isNotEmpty())
         songForCharacter(characterUser.name.lowercase())
-
-    if (mainCharacterUser.name.isNotEmpty())
+    else
         songForCharacter(mainCharacterUser.name.lowercase())
-
 }
 
 

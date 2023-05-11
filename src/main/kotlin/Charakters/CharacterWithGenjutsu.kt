@@ -55,9 +55,9 @@ open class CharacterWithGenjutsu : Character {
     // die Funktion aus Character um die Möglichkeit ein Genjutsu anzuwenden erweitert
     override fun showSelectionForSingle() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (characterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -84,7 +84,7 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -96,11 +96,11 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             attackWithGenjutsu(characterComputer)
-                            counter = true
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -130,7 +130,7 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -142,7 +142,7 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -154,11 +154,11 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithGenjutsu(characterComputer)
-                            counter = true
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -172,9 +172,9 @@ open class CharacterWithGenjutsu : Character {
 
     override fun showSelectionForTeam() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (mainCharacterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -202,7 +202,7 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             characterUser.attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -214,11 +214,11 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             mainCharacterUser.attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             attackWithGenjutsu(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             randomAttackTeamUser()
@@ -252,7 +252,7 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -264,7 +264,7 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -276,11 +276,11 @@ open class CharacterWithGenjutsu : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             attackWithGenjutsu(mainCharacterComputer)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 5) {
                             randomAttackTeamUser()

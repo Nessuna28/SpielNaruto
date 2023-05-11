@@ -16,7 +16,7 @@ import selectionUserString
 
 class CharacterWithMedicalSkills : Character {
 
-    var medicalSkills: Int
+    var medicalSkill: Int
 
     constructor(
         name: String,
@@ -27,19 +27,19 @@ class CharacterWithMedicalSkills : Character {
     ) :
             super(name, attack, ninjutsu, weapon) {
 
-        this.medicalSkills = medicalSkills
+        this.medicalSkill = medicalSkills
     }
 
-    // diese Funktion ermöglicht es dem Spieler sich zu heilen in dem seinen lifePoints den Wert des Skills dazu gerechnet werden
-    // aber mehr als 500 (Anfangswert) gehen nicht
+    // diese Funktion ermöglicht es dem Spieler sich zu heilen, in dem seinen Lebenspunkten den Wert des Skills dazu gerechnet werden
+    // aber mehr als der Anfangswert gehen nicht
     // diese Fähigkeit verbraucht Chakra um den Wert des Skills
     fun heal(input: String) {
 
         if (input == selectionUserString) {
-            if (this.chakra >= medicalSkills) {
+            if (this.chakra >= medicalSkill) {
                 if (lifePoints < lifePointStart) {
-                    this.lifePoints += medicalSkills
-                    lostChakra(medicalSkills)
+                    this.lifePoints += medicalSkill
+                    lostChakra(medicalSkill)
                     if (lifePoints > lifePointStart) {
                         lifePoints = lifePointStart
                     }
@@ -54,10 +54,10 @@ class CharacterWithMedicalSkills : Character {
                 showSelectionForSingle()
             }
         } else if (input == selectionComputer) {
-            if (this.chakra >= medicalSkills) {
+            if (this.chakra >= medicalSkill) {
                 if (lifePoints < lifePointStart) {
-                    this.lifePoints += medicalSkills
-                    lostChakra(medicalSkills)
+                    this.lifePoints += medicalSkill
+                    lostChakra(medicalSkill)
                     if (lifePoints > lifePointStart) {
                         lifePoints = lifePointStart
                     }
@@ -69,11 +69,12 @@ class CharacterWithMedicalSkills : Character {
         }
     }
 
+
     // in der Funktion wird ein farbiger Balken generiert für die Funktion heal
     fun coloredBar() {
 
         val life = lifePoints / 50
-        val to = life + (medicalSkills / 50)
+        val to = life + (medicalSkill / 50)
         val end = lifePointStart / 50
 
         var coloredBar = StringBuilder()
@@ -100,9 +101,9 @@ class CharacterWithMedicalSkills : Character {
     // die Funktion aus Character um die Möglichkeit der Heilung erweitert
     override fun showSelectionForSingle() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (characterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -129,7 +130,7 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -141,11 +142,11 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             heal(selectionUserString)
-                            counter = true
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -175,7 +176,7 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -187,7 +188,7 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -199,11 +200,11 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             heal(selectionUserString)
-                            counter = true
+                            check = true
                         } else {
                             println("\n❌ Du hast keine gültige Eingabe gemacht. Versuche es erneut!")
                         }
@@ -217,9 +218,9 @@ class CharacterWithMedicalSkills : Character {
 
     override fun showSelectionForTeam() {
 
-        var counter = false
+        var check = false
 
-        while (!counter) {
+        while (!check) {
             try {
                 if (mainCharacterUser.name.isNotEmpty()) {
                     if (ninjutsu.isEmpty()) {
@@ -247,7 +248,7 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             characterUser.attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -259,11 +260,11 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             mainCharacterUser.attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             heal(selectionUserString)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             randomAttackTeamUser()
@@ -297,7 +298,7 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithTaijutsu(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 2) {
                             println("\nDas hast du zur Auswahl:")
@@ -309,7 +310,7 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithNinjutsu(selectionUserString, selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 3) {
                             println("\nDas hast du zur Auswahl:")
@@ -321,11 +322,11 @@ class CharacterWithMedicalSkills : Character {
                             print("Triff deine Auswahl per Zahl: ")
                             selectionUserInt = readln().toInt()
                             attackWithWeapon(selectionUserInt)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 4) {
                             heal(selectionUserString)
-                            counter = true
+                            check = true
 
                         } else if (selectionUserInt == 5) {
                             randomAttackTeamUser()

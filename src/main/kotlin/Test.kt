@@ -1,15 +1,20 @@
 import Charakters.gaara
 import Charakters.naruto
+import Charakters.shino
+import Charakters.tenten
 import Fights.attackComputer
+import Fights.mainCharacterComputer
+import Fights.selectionMainCharacterComputer
 
 fun main() {
 
-    characterComputer = gaara
-    soundThread.start()
-    Thread.sleep(2000)
+    teamComputer.add(naruto)
+    teamComputer.add(tenten)
+    teamComputer.add(shino)
 
+    selectionMainCharacterComputer()
 
-
+    println(mainCharacterComputer.name)
 
 
     //println(naruto.attack.keys.elementAt(0))
