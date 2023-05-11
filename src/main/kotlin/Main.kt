@@ -26,7 +26,7 @@ var teamComputer = mutableListOf<Character>()
 var selectionComputer = ""
 var lifePointsUser = 500
 var lifePointsComputer = 500
-val soundThread = SoundThread("sounds/tsunadeSong.wav")
+val soundThread = SoundThread("sounds/themeSong.wav")
 
 var counterRounds = 0
 var counterWins = 0
@@ -37,10 +37,9 @@ fun main() {
     val game = Thread {
         //soundThread.file = "sounds/beginnSong.wav"
        //soundThread.start()
+            if (counterRounds == 0)
+                greeting()
 
-        greeting()
-
-        do {
             selectionTeamOrCharacter()
             useSong()
             soundThread.start()
@@ -58,13 +57,11 @@ fun main() {
             } while (characterComputer.lifePoints > 0 && characterUser.lifePoints > 0)
 
             winOrLosePrint()
-            soundThread.stopPlaying()
             newRoundOrNotAndCountRoundsWon()
-
-        } while (selectionUserString == "ja")
     }
 
     game.start()
+
 }
 
 // der Spieler wird begrüßt und gefragt, ob er die Regeln hören möchte
@@ -233,6 +230,8 @@ fun rules() {
 fun selectionTeamOrCharacter() {
 
     var check = false
+
+    Thread.sleep(1000)
 
     while (!check) {
         try {
@@ -1038,15 +1037,6 @@ fun grafik(selectionPlayer: String){
 // fast jeder Charakter hat seinen eigenen Song
 fun songForCharacter(selectionPlayer: String) {
 
-    val nameListForThemeSong = listOf("choji", "ino", "shino", "tenten")
-    var characterForThemeSong = ""
-
-    if (characterUser.name in nameListForThemeSong)
-        characterForThemeSong = characterUser.name
-
-    if (mainCharacterUser.name in nameListForThemeSong)
-        characterForThemeSong = characterUser.name
-
     when (selectionPlayer) {
         "shikamaru" -> soundThread.file = "sounds/shikamaruSong.wav"
         "tsunade" -> soundThread.file = "sounds/tsunadeSong.wav"
@@ -1069,7 +1059,6 @@ fun songForCharacter(selectionPlayer: String) {
         "pain" -> soundThread.file = "sounds/painSong.wav"
         "madara" -> soundThread.file = "sounds/madaraSong.wav"
         "asuma" -> soundThread.file = "sounds/asumaSong.wav"
-        characterForThemeSong -> soundThread.file = "sounds/themeSong.wav"
     }
 }
 
