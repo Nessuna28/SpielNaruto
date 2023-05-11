@@ -326,9 +326,9 @@ fun selectionCharacter() {
             Die Charaktere die du zur Auswahl hast sind: $favoriteColorUser
             ${characterNameList.slice(0..5)}
             ${characterNameList.slice(6..11)}
-            ${characterNameList.slice(12..17)}
-            ${characterNameList.slice(18..18)}
-            ${characterNameList.slice(19..23)}
+            ${characterNameList.slice(12..18)}
+            ${characterNameList.slice(19..21)}
+            ${characterNameList.slice(22..29)}
             $reset
         """.trimIndent()
     )
@@ -375,9 +375,9 @@ fun selectionTeam(){
             Die Charaktere die du zur Auswahl hast sind: $blue
             ${characterNameList.slice(0..5)}
             ${characterNameList.slice(6..11)}
-            ${characterNameList.slice(12..17)}
-            ${characterNameList.slice(18..18)}
-            ${characterNameList.slice(19..23)}
+            ${characterNameList.slice(12..18)}
+            ${characterNameList.slice(19..21)}
+            ${characterNameList.slice(22..29)}
             $reset
         """.trimIndent()
     )

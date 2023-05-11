@@ -361,6 +361,8 @@ fun grafikForAttack() {
             println("\n         \uD83D\uDC0D \n")
         if (characterUser == jiraiya)
             println("\n         \uD83D\uDC38 \n")
+        if (characterUser == temari)
+            println("\n         \uD83E\uDDA1 \n")
     }
 
 
