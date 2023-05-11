@@ -208,17 +208,37 @@ fun rules() {
 
     println(
         """
-        Zuerst darfst du dir aussuchen ob du selbst deinen Charakter bestimmst oder per Zufall.
-        Wenn du dir selbst deinen Charakter aussuchen möchtest wirst du gefragt ob du dir ein Team oder einen einzelnen Charakter 
-        aussuchen möchtest.
-        Dann darfst du noch entscheiden ob du dir deinen Gegner aussuchen möchtest oder ob du einen zufälligen Gegner bekommst.
-        Wenn du deine Auswahl getroffen hast wird gekämpft.
-        Je nach dem für was du dich entschieden hast beeinflusst es die Anzahl der Züge pro Runde. Hast du dich für ein Team entschieden
-        greift jedes Teammitglied in einer Runde an, hast du nur einen einzelnen Charakter greifst du auch nur einmal an.
-        Dieses gilt natürlich auch für den Gegner (in dem Fall der Computer).
-        Jeder ist eine Runde dran und darf angreifen, entweder bekommt der Gegner so viel Lebenspunkte abgezogen wie
-        die Attacke Schaden verursacht oder er hat den Angriff abgewehrt.
-        Wer zuerst keine Lebenspunkte mehr hat verliert dieses Spiel.
+        Du hast die Wahl mit einem Einzelcharakter oder einem Team zu spielen.
+       
+        Einzelkampf:
+        
+        Hast du nur einen einzelnen Charakter greifst du auch nur einmal mit dem an und danach ist der Gegner dran.
+        Du hast mehrer Möglichkeiten, entweder angreifen oder mit dem 'Baumstamm' auszuweichen.
+        
+        Entscheidest du dich für den Angriff kannst du wählen ob mit Thaijutsu, Ninjutsu oder einer Waffe und je nach 
+        Charakter noch die Möglichkeit einen Bijuu oder Susanoo zu erwecken oder sich zu heilen.
+        In den ersten drei Kategorien hast du dann noch mehrere Attacken zur Auswahl.
+        Jede Attacke verursacht einen gewissen Schaden, die eine mehr, die andere weniger und der Gegner verliert Lebenspunkte.
+        Entscheidest du dich für ein Ninjutsu wird dir Chakra abgezogen auch wenn der Gegner ausgewichen ist.
+        
+        Entscheidest du dich für Baumstamm werden dir natürlich keine Lebenspunkte abgezogen und dein Chakra füllt sich wieder um 
+        10 Punkte auf, genau wie bei allen anderen Attacken die kein Chakra benötigen.
+        
+        Teamkampf:
+        
+        Hast du dich für ein Team entschieden, wirst du gefragt welcher Charakter aus dem Team dein Hauptcharakter sein soll und
+        dann kämpfst du mit diesem so wie bei einem Einzelkampf, nur hast du jetzt die zusätzliche Option dein Team um Hilfe zu bitten.
+        
+        Das bedeutet das die beiden anderen Charaktere eine zufällige Attacke ausführen und den Gegner angreifen.
+        Diese zufälligen Attacken sind aber auf Thaijutsu, Ninjutsu, Waffen und Heilung beschränkt. Das heißt es kann kein
+        Bijuu oder Susanoo erweckt werden und kein Genjutsu eingesetzt werden.
+        
+        Ist die zufällige Attacke Heilung, heilt das Teammitglied den Hauptcharakter und nicht sich selbst.
+        
+        Alles andere bleibt wie bei einem Einzelkampf.
+        
+        
+        Wer zuerst keine Lebenspunkte mehr hat verliert dieses Spiel. ${favoriteColorUser}Viel Spaß! $reset
         
     """.trimIndent()
     )
