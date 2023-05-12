@@ -26,7 +26,7 @@ var teamComputer = mutableListOf<Character>()
 var selectionComputer = ""
 var lifePointsUser = 500
 var lifePointsComputer = 500
-val soundThread = SoundThread("sounds/themeSong.wav")
+var soundThread = SoundThread("sounds/themeSong.wav")
 
 var counterRounds = 0
 var counterWins = 0
@@ -35,13 +35,15 @@ var counterWins = 0
 fun main() {
 
     val game = Thread {
-        //soundThread.file = "sounds/beginnSong.wav"
-       //soundThread.start()
+        //soundThread = SoundThread("sounds/beginnSong.wav")
+        //soundThread.start()
 
         greeting()
 
         do {
+            print("\n${favoriteColorUser}LOS GEHT'S! $reset")
             selectionTeamOrCharacter()
+            //soundThread.stopPlaying()
             useSong()
             soundThread.start()
             characterComputer()
@@ -63,6 +65,7 @@ fun main() {
             winOrLosePrint()
             newRoundOrNotAndCountRoundsWon()
         } while (selectionUserString == "ja")
+        soundThread.stopPlaying()
     }
 
     game.start()
@@ -73,7 +76,7 @@ fun main() {
 fun greeting() {
 
     println("$blue                        Willkommen im Spiel")
-    Thread.sleep(1000)
+    Thread.sleep(2000)
     println("""
         
                                  _/      _/                                  _/               
@@ -193,9 +196,10 @@ fun askListenRules() {
             print("\nHallo $favoriteColorUser${nameUser}$reset, möchtest du dir die Regeln anzeigen lassen? \nWähle 'ja' oder 'nein' : ")
             selectionUserString = readln().lowercase()
 
-            if (selectionUserString == "ja")
+            if (selectionUserString == "ja") {
                 rules()
-            else if (selectionUserString == "nein") {
+                check = true
+            } else if (selectionUserString == "nein") {
                 println("\n\uD83D\uDC4D\uD83C\uDFFC Gut du kennst dich also aus. Dann ab zum Spiel!")
                 check = true
             } else
@@ -212,6 +216,9 @@ fun rules() {
 
     println(
         """
+        $favoriteColorUser
+        REGELN
+        $reset
         Du hast die Wahl mit einem Einzelcharakter oder einem Team zu spielen.
        
         Einzelkampf:
@@ -244,8 +251,11 @@ fun rules() {
         
         Wer zuerst keine Lebenspunkte mehr hat verliert dieses Spiel. ${favoriteColorUser}Viel Spaß! $reset
         
+        
     """.trimIndent()
     )
+
+    Thread.sleep(15000)
 }
 
 // der Spieler hat die Möglichkeit zu wählen, ob er mit einem Team spielen möchte oder mit einem einzelnen Charakter
@@ -420,7 +430,8 @@ fun selectionTeam(){
 // der Zufallsgenerator für einen Charakter
 fun randomGeneratorForOneCharacter() {
 
-    val characterForRandom = characterNameList.random()
+    //val characterForRandom = characterNameList.random()
+    val characterForRandom = tsunade.name
 
     Thread.sleep(2000)
 
@@ -509,8 +520,8 @@ fun newRoundOrNotAndCountRoundsWon() {
                     """
             
             Ok, du möchtest keine Runde mehr spielen.
-            
-            Bis zum nächsten Mal! 👋
+            $favoriteColorUser
+            Bis zum nächsten Mal! $reset 👋
         """.trimIndent()
                 )
             } else {

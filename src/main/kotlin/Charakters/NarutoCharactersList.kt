@@ -53,8 +53,6 @@ val characterNameList = listOf(
     )
 
 
-
-
 fun main() {
 
 }

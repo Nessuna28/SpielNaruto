@@ -235,7 +235,7 @@ fun valueOfCharacterPrint() {
     -------------------------------------------------------------------------------------------------------------------------------------------------------    
     Spieler 1:     $favoriteColorUser$nameUser ${reset}          |          Spieler 2:     ${blue}Computer $reset
                                   |
-    Charakter:     $favoriteColorUser${characterUser.name} ${reset}        |          Charakter:     $blue${characterComputer.name} $reset
+    Charakter:     $favoriteColorUser${characterUser.name} ${reset}         |          Charakter:     $blue${characterComputer.name} $reset
     Lebenspunkte:  $favoriteColorUser${characterUser.lifePoints} $reset/ ${characterUser.lifePointStart}      |          Lebenspunkte:  $blue${characterComputer.lifePoints} $reset/ ${characterComputer.lifePointStart}
     Chakra:        $favoriteColorUser${characterUser.chakra} $reset/ ${characterUser.chakraStart}      |          Chakra:        $blue${characterComputer.chakra} $reset/ ${characterComputer.chakraStart}
     Baumstamm:     $favoriteColorUser${characterUser.baumstamm} $reset/ 5          |          Baumstamm:     $blue${characterComputer.baumstamm} $reset/ 5
@@ -250,7 +250,7 @@ fun valueOfCharacterPrint() {
     -------------------------------------------------------------------------------------------------------------------------------------------------------    
     Spieler 1:     $favoriteColorUser$nameUser ${reset}          |          Spieler 2:     ${blue}Computer $reset
                                   |
-    Charakter:     $favoriteColorUser${mainCharacterUser.name} ${reset}        |          Charakter:     $blue${mainCharacterComputer.name} $reset
+    Charakter:     $favoriteColorUser${mainCharacterUser.name} ${reset}         |          Charakter:     $blue${mainCharacterComputer.name} $reset
     Lebenspunkte:  $favoriteColorUser${mainCharacterUser.lifePoints} $reset/ ${mainCharacterUser.lifePointStart}      |          Lebenspunkte:  $blue${mainCharacterComputer.lifePoints} $reset/ ${mainCharacterComputer.lifePointStart}
     Chakra:        $favoriteColorUser${mainCharacterUser.chakra} $reset/ ${mainCharacterUser.chakraStart}      |          Chakra:        $blue${mainCharacterComputer.chakra} $reset/ ${mainCharacterComputer.chakraStart}
     Baumstamm:     $favoriteColorUser${mainCharacterUser.baumstamm} $reset/ 5          |          Baumstamm:     $blue${mainCharacterComputer.baumstamm} $reset/ 5
@@ -397,7 +397,7 @@ fun winOrLosePrint() {
             roundOrRounds = "Runde"
         else
             roundOrRounds = "Runden"
-        println("\nDer Computer ist gefallen und steht nicht mehr auf. \n")
+        println("\nDer Gegner ist gefallen und steht nicht mehr auf. \n")
         Thread.sleep(2000)
         println("""
             

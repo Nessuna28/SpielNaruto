@@ -1,13 +1,13 @@
-import Charakters.gaara
-import Charakters.naruto
-import Charakters.shino
-import Charakters.tenten
+import Charakters.*
 import Fights.attackComputer
 import Fights.mainCharacterComputer
 import Fights.selectionMainCharacterComputer
 
 fun main() {
 
+    tsunade.coloredBar()
+
+    /*
     teamComputer.add(naruto)
     teamComputer.add(tenten)
     teamComputer.add(shino)
@@ -16,6 +16,8 @@ fun main() {
 
     println(mainCharacterComputer.name)
 
+
+     */
 
     //println(naruto.attack.keys.elementAt(0))
     //println(naruto.attack.values.elementAt(0))

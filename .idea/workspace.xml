@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="die Regeln neu verfasst">
+    <list default="true" id="a3913ab2-4296-4f4b-bad8-ab619080c4ac" name="Changes" comment="die letzten Charaktere initialisiert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/Character.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithBijuu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsu.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithGenjutsuAndSusanoo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/CharacterWithMedicalSkills.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Charakters/NarutoCharactersList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Charakters/NarutoCharactersList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/Fight.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/SoundThread.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Test.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Test.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,15 +35,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/angeliquefreier/Documents/Syntax/Kotlin Grundlagen/SpielNaruto/sounds",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/angeliquefreier/Documents/Syntax/Kotlin Grundlagen/SpielNaruto/sounds&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sounds" />
@@ -68,20 +65,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682419029178</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Klassen überarbeitet">
-      <created>1683102306941</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1683102306941</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Klassen überarbeitet und Funktionen hinzugefügt">
-      <created>1683143309123</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1683143309123</updated>
     </task>
     <task id="LOCAL-00018" summary="Funktionen in der Main bearbeitet">
       <created>1683143340504</created>
@@ -412,7 +395,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683817699731</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Kommentare überprüft und angepasst">
+      <created>1683835006842</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1683835006843</updated>
+    </task>
+    <task id="LOCAL-00066" summary="die letzten Charaktere initialisiert">
+      <created>1683840480600</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1683840480600</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -427,8 +424,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fehler in Funktion lostLifePoints behoben" />
-    <MESSAGE value="Funktion colorBar bearbeitet. Noch nicht der gewünschte Effekt" />
     <MESSAGE value="Funktion printForDodging fertig" />
     <MESSAGE value="Funktion greeting geändert" />
     <MESSAGE value="Funktion eingebaut für die jeweiligen Prints" />
@@ -452,24 +447,16 @@
     <MESSAGE value="try-catch eingebaut und die Funktion showSelection ausgelagert" />
     <MESSAGE value="try-catch eingebaut" />
     <MESSAGE value="die Regeln neu verfasst" />
-    <option name="LAST_COMMIT_MESSAGE" value="die Regeln neu verfasst" />
+    <MESSAGE value="Kommentare überprüft und angepasst" />
+    <MESSAGE value="die letzten Charaktere initialisiert" />
+    <option name="LAST_COMMIT_MESSAGE" value="die letzten Charaktere initialisiert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Test.kt</url>
-          <line>14</line>
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Main.kt</url>
-          <line>54</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/kotlin/Fights/TeamFight.kt</url>
-          <line>71</line>
+          <line>68</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
       </breakpoints>
